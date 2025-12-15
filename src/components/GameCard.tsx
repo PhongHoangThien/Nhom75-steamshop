@@ -1,4 +1,4 @@
-import { Game } from "../data/games";
+import { Game } from "../data/Games";
 import { Link } from "react-router-dom";
 
 interface Props {

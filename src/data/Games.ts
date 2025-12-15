@@ -11,14 +11,14 @@ export const games: Game[] = [
         id: 1,
         name: "Cyberpunk 2077",
         price: 890000,
-        image: "/images/cyberpunk.png",
+        image: "images/cyberpunk.png",
         platform: "PC",
     },
     {
         id: 2,
         name: "Elden Ring",
         price: 990000,
-        image: "/images/eldenring.png",
+        image: "images/eldenring.png",
         platform: "PC",
     },
     {

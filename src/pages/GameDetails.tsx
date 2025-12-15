@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
-import { games } from "../data/games";
+import { games } from "../data/Games";
+import GameCard from "../components/GameCard";
 
 export default function GameDetailPage() {
     const { id } = useParams();
