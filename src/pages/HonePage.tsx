@@ -1,10 +1,22 @@
-import { games } from "../data/Games";
-import GameCard from "../components/GameCard";
+import ProductCard from "../components/ProductCard";
 import {GameCategory} from "../data/GameCategory";
+import {MockData} from "../data/MockData";
 import InfoSection from "../components/InfoSection";
 import BannerSlider from "../components/BannerSlider";
+import CategorySection from "../components/CategorySection";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../redux/store";
+import {useEffect} from "react";
+import {setProduct} from "../redux/productSlice";
 
-export default function HomePage() {
+const HomePage= () => {
+    const dispatch = useDispatch();
+    const products = useSelector((state: RootState) => state.products)
+
+    useEffect(() => {
+        dispatch(setProduct(MockData));
+    }, [])
+
     return (
         <div className="bg-panel py-2 px-4 md:px-16 lg:px-24 text-text">
             <div className="container items-center justify-center mx-auto py-4 flex felx-col md:flex-row space-x-10">
@@ -23,13 +35,15 @@ export default function HomePage() {
             </div>
 
             <InfoSection />
+            <CategorySection />
 
-            <div className="home-container">
-                <h2 className="title">Danh sách game</h2>
-
-                <div className="game-list">
-                    {games.map((game) => (
-                        <GameCard key={game.id} game={game} />
+            <div className="container mx-auto py-12">
+                <h2 className="text-title font-bold mb-6 text-center">Sản phẩm bán chạy</h2>
+                <div className="grid gird-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                    {products.products.map((product) => (
+                        <div className="">
+                            <ProductCard product={product} />
+                        </div>
                     ))}
                 </div>
             </div>
@@ -38,3 +52,5 @@ export default function HomePage() {
 
     );
 }
+
+export default HomePage;

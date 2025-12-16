@@ -8,5 +8,6 @@ multipleshop/
     ├── redux/
     ├── router/
     ├── css/
+    ├── api/
     ├── App.tsx
     └── index.tsx

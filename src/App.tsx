@@ -3,7 +3,7 @@ import React from 'react';
 import NavBar from "./components/NavBar";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomePage from "./pages/HonePage";
-import GameDetailPage from "./pages/GameDetails";
+import GameDetailPage from "./pages/ProductDetails";
 import Footer from "./components/Footer";
 
 function App() {

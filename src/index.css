@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.card-hover {
+    @apply cursor-pointer transform transition-transform duration-200 hover:scale-105;
+}
