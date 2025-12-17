@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { MockData } from "../data/MockData";
-import ProductCard from "../components/ProductCard";
 
 export default function GameDetailPage() {
     const { id } = useParams();
