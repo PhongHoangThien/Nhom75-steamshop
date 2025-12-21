@@ -26,9 +26,9 @@ const NavBar = () => {
                         <FaUser className='w-5 h-5 text-textMuted' />
                     </button>
                     <div>
-                        <button className=''>Đăng nhập</button>
-                        /
-                        <button className=''>Đăng kí</button>
+                        <Link to="/login" className='hover:text-primary transition-colors'>Đăng nhập</Link>
+                        <span className="mx-1">/</span>
+                        <Link to="/register" className='hover:text-primary transition-colors'>Đăng kí</Link>
                     </div>
                 </div>
                 <Link to="/cart" className='flex flex-row border border-border px-2 py-2 rounded-md space-x-2 hover:bg-primaryHover'>

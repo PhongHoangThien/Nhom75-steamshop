@@ -5,6 +5,10 @@ import HomePage from "./pages/HonePage";
 import GameDetailPage from "./pages/GameDetails";
 import Footer from "./components/Footer";
 import Games from "./pages/Games";
+import ForgotPassword from "./pages/ForgotPassword";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+
 
 function App() {
   return (
@@ -21,6 +25,7 @@ function App() {
               {/*<Route path="/register" element={<Register />} />*/}
               {/*<Route path="/user-profile" element={<UserProfile />} />*/}
               {/*<Route path="/checkout" element={<Checkout />} />*/}
+              <Route path="/forgot-password" element={<ForgotPassword />} />
           </Routes>
           <Footer />
       </BrowserRouter>
