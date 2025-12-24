@@ -1,8 +1,12 @@
 import {Link} from "react-router-dom";
-import {FaSearch, FaShoppingCart, FaUser} from "react-icons/fa";
+import {FaMoon, FaSearch, FaShoppingCart, FaSun, FaUser} from "react-icons/fa";
+import {useTheme} from "../hook/useTheme";
 
 const NavBar = () => {
+    const { theme, toggleTheme } = useTheme();
+
     return (
+
         <nav className='bg-bg shadow-md text-text'>
             <div className='container mx-auto px-4 py-3 md:px-16 lg:px-24 space-x-16 flex justify-between items-center'>
                 <div className='text-lg font-bold'>
@@ -36,22 +40,31 @@ const NavBar = () => {
                     &nbsp; Giỏ hàng
                     <p className='bg-panelLight text-center rounded-md w-5'>0</p>
                 </Link>
+                <div>
+                    <button
+                        onClick={toggleTheme}
+                        className="flex items-center justify-center w-10 h-10 rounded-full bg-text dark:bg-panelLight text-bg dark:text-text"
+                    >
+                        {theme === "dark" ? <FaSun /> : <FaMoon />}
+                    </button>
+                </div>
             </div>
+
 
             <div className='flex items-center justify-center space-x-20 pb-5 text-base text-text font-bold'>
                 <Link to="/" className="hover:underline">
                     Trang chủ
                 </Link>
-                <Link to="/" className="hover:underline">
+                <Link to="/games" className="hover:underline">
                     Sản phẩm
                 </Link>
-                <Link to="/" className="hover:underline">
+                <Link to="/best-seller" className="hover:underline">
                     Sản phẩm mua nhiều
                 </Link>
-                <Link to="/" className="hover:underline">
+                <Link to="/game-on-sale" className="hover:underline">
                     Sản phẩm khuyến mại
                 </Link>
-                <Link to="/" className="hover:underline">
+                <Link to="/payment-method" className="hover:underline">
                     Hình thức thanh toán
                 </Link>
             </div>

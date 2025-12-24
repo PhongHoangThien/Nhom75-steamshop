@@ -13,7 +13,7 @@ const BannerSlider = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setIndex((prev) => (prev + 1) % banners.length);
-        }, 5000);
+        }, 3000);
 
         return () => clearInterval(timer);
     }, []);
@@ -34,7 +34,7 @@ const BannerSlider = () => {
                 <img
                     key={i}
                     src={img}
-                    className={`absolute w-full h-full object-cover transition-opacity duration-500
+                    className={`absolute w-full h-full object-cover duration-500
                     ${i === index ? "opacity-100" : "opacity-0"}`}
                  alt="banner"/>
             ))}
