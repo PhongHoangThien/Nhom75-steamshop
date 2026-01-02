@@ -16,7 +16,7 @@ const initialState: GameState = {
     games: [],
 };
 
-const gameSlice = createSlice({
+const productSlice = createSlice({
     name: 'games',
     initialState,
     reducers: {
@@ -27,5 +27,5 @@ const gameSlice = createSlice({
 
 })
 
-export const {setGame} = gameSlice.actions;
-export default gameSlice.reducer;
+export const {setGame} = productSlice.actions;
+export default productSlice.reducer;

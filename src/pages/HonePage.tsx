@@ -7,7 +7,7 @@ import CategorySection from "../components/CategorySection";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../redux/store";
 import {useEffect} from "react";
-import {setGame} from "../redux/gameSlice";
+import {setGame} from "../redux/productSlice";
 
 const HomePage= () => {
     const dispatch = useDispatch();

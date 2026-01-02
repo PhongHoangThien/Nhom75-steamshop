@@ -2,7 +2,7 @@ import ProductCard from "../components/ProductCard";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../redux/store";
 import {useEffect} from "react";
-import {setGame} from "../redux/gameSlice";
+import {setGame} from "../redux/productSlice";
 import {MockData} from "../data/MockData";
 
 const Products = () => {
