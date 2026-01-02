@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import {FaCartPlus} from "react-icons/fa";
 
-export default function GameCard({product: game}:any) {
+export default function ProductCard({product: game}:any) {
     return (
         <div className="bg-bg p-4 rounded relative border border-border card-hover">
             <Link to={`/game/${game.id}`}>

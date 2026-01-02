@@ -6,11 +6,10 @@ const NavBar = () => {
     const { theme, toggleTheme } = useTheme();
 
     return (
-
         <nav className='bg-bg shadow-md text-text'>
             <div className='container mx-auto px-4 py-3 md:px-16 lg:px-24 space-x-16 flex justify-between items-center'>
                 <div className='text-lg font-bold'>
-                    <Link to="/" className="flex items-center justify-center hover:scale-110 duration-100">
+                    <Link to="/" className="flex items-center justify-center card-hover">
                         <img src="/images/logo.png" alt="" className="w-24 h-auto"/>
                     </Link>
                 </div>
@@ -43,7 +42,7 @@ const NavBar = () => {
                 <div>
                     <button
                         onClick={toggleTheme}
-                        className="flex items-center justify-center w-10 h-10 rounded-full bg-text dark:bg-panelLight text-bg dark:text-text"
+                        className="flex items-center justify-center w-10 h-10 rounded-full bg-text dark:bg-panelLight text-bg dark:text-text card-hover"
                     >
                         {theme === "dark" ? <FaSun /> : <FaMoon />}
                     </button>
@@ -56,13 +55,13 @@ const NavBar = () => {
                     Trang chủ
                 </Link>
                 <Link to="/games" className="hover:underline">
-                    Sản phẩm
+                    Tìm game
                 </Link>
                 <Link to="/best-seller" className="hover:underline">
-                    Sản phẩm mua nhiều
+                    Game bán chạy
                 </Link>
                 <Link to="/game-on-sale" className="hover:underline">
-                    Sản phẩm khuyến mại
+                    Game đang giảm giá
                 </Link>
                 <Link to="/payment-method" className="hover:underline">
                     Hình thức thanh toán

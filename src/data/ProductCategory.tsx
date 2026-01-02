@@ -1,6 +1,6 @@
-export const GameCategory = [
-    "Roleplay game",
-    "Rouge like",
+export const ProductCategory = [
+    "Roleplay",
+    "Rougelike",
     "Adventure",
     "Shooter",
     "Survival",
