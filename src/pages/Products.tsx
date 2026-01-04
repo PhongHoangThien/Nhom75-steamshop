@@ -2,15 +2,15 @@ import ProductCard from "../components/ProductCard";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../redux/store";
 import {useEffect} from "react";
-import {setGame} from "../redux/gameSlice";
+import {setProduct} from "../redux/productSlice";
 import {MockData} from "../data/MockData";
 
 const Products = () => {
     const dispatch = useDispatch();
-    const games = useSelector((state: RootState) => state.games)
+    const products = useSelector((state: RootState) => state.products)
 
     useEffect(() => {
-        dispatch(setGame(MockData));
+        dispatch(setProduct(MockData));
     }, [])
 
     return (
@@ -18,9 +18,9 @@ const Products = () => {
             <div className="container mx-auto py-12">
                 <h2 className="text-title font-bold mb-6 text-center">Danh sách gane</h2>
                 <div className="grid gird-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                    {games.games.map((game) => (
+                    {products.products.map((product) => (
                         <div className="">
-                            <ProductCard product={game} />
+                            <ProductCard product={product} />
                         </div>
                     ))}
                 </div>

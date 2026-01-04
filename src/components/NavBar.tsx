@@ -1,16 +1,18 @@
 import {Link} from "react-router-dom";
 import {FaMoon, FaSearch, FaShoppingCart, FaSun, FaUser} from "react-icons/fa";
 import {useTheme} from "../hook/useTheme";
+import {useSelector} from "react-redux";
+import {RootState} from "../redux/store";
 
 const NavBar = () => {
     const { theme, toggleTheme } = useTheme();
-
+    const products = useSelector((state: RootState) => state.cart.products);
     return (
         <nav className='bg-bg shadow-md text-text'>
-            <div className='container mx-auto px-4 py-3 md:px-16 lg:px-24 space-x-16 flex justify-between items-center'>
-                <div className='text-lg font-bold'>
-                    <Link to="/" className="flex items-center justify-center card-hover">
-                        <img src="/images/logo.png" alt="" className="w-24 h-auto"/>
+            <div className='container mx-auto px-4 py-3 md:px-16 lg:px-24 space-x-16 flex space-between items-center'>
+                <div className='text-lg'>
+                    <Link to="/" className="flex relative card-hover">
+                        <img src="/images/logo.png" alt="" className="w-32 h-auto"/>
                     </Link>
                 </div>
                 <div className='relative flex-1 mx-4'>
@@ -37,7 +39,7 @@ const NavBar = () => {
                 <Link to="/cart" className='flex flex-row border border-border px-2 py-2 rounded-md space-x-2 hover:bg-primaryHover'>
                     <FaShoppingCart className='w-6 h-6 text-textMuted'/>
                     &nbsp; Giỏ hàng
-                    <p className='bg-panelLight text-center rounded-md w-5'>0</p>
+                    <p className='bg-panelLight text-center rounded-md w-5'>{products.length}</p>
                 </Link>
                 <div>
                     <button
