@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import { setGame } from "../redux/gameSlice";
 import { setGame } from "../redux/productSlice";
 import { MockData } from "../data/MockData";
 import GameCard from "../components/GameCard";
@@ -7,17 +9,21 @@ import { FaFire, FaFilter } from "react-icons/fa";
 
 const GameOnSale = () => {
     const dispatch = useDispatch();
-    // @ts-ignore
-    const games = useSelector((state) => state.games.games);
+
+    const gameData = useSelector((state: RootState) => state.games);
+
     const [filteredGames, setFilteredGames] = useState<any[]>([]);
-    const [sortType, setSortType] = useState("default"); // default, asc, desc
+    const [sortType, setSortType] = useState("default");
+
     useEffect(() => {
         dispatch(setGame(MockData));
     }, [dispatch]);
-    useEffect(() => {
-        if (!games) return;
 
-        let tempGames = [...games];
+    useEffect(() => {
+        if (!gameData.games) return;
+
+        let tempGames = [...gameData.games];
+
         if (sortType === "asc") {
             tempGames.sort((a, b) => a.price - b.price);
         } else if (sortType === "desc") {
@@ -25,11 +31,11 @@ const GameOnSale = () => {
         }
 
         setFilteredGames(tempGames);
-    }, [games, sortType]);
+    }, [gameData.games, sortType]);
+
     return (
         <div className="bg-panel min-h-screen py-8 px-4 md:px-16 lg:px-24 text-text">
             <div className="container mx-auto">
-                {/* Header Section */}
                 <div className="flex flex-col md:flex-row justify-between items-center mb-8 border-b border-border pb-4">
                     <div className="flex items-center gap-3 mb-4 md:mb-0">
                         <div className="p-3 bg-danger rounded-full text-white animate-pulse">
@@ -41,7 +47,6 @@ const GameOnSale = () => {
                         </div>
                     </div>
 
-                    {/* Filter / Sort Bar */}
                     <div className="flex items-center space-x-4">
                         <span className="text-textMuted hidden md:block"><FaFilter className="inline mr-2"/>Sắp xếp:</span>
                         <select
@@ -56,7 +61,6 @@ const GameOnSale = () => {
                     </div>
                 </div>
 
-                {/* Grid Products */}
                 {filteredGames.length > 0 ? (
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                         {filteredGames.map((game: any) => (
@@ -70,7 +74,7 @@ const GameOnSale = () => {
                     </div>
                 ) : (
                     <div className="text-center py-20">
-                        <p className="text-textMuted text-lg">Không tìm thấy sản phẩm khuyến mãi nào.</p>
+                        <p className="text-textMuted text-lg">Đang tải dữ liệu...</p>
                     </div>
                 )}
             </div>
