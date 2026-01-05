@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { setGame } from "../redux/gameSlice";
+import { setGame } from "../redux/productSlice";
 import { MockData } from "../data/MockData";
 import GameCard from "../components/GameCard";
 import { FaFire, FaFilter } from "react-icons/fa";
