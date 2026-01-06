@@ -18,7 +18,7 @@ const NavBar = () => {
     };
 
     return (
-        <nav className='bg-bg shadow-md text-text sticky top-0 z-50'>
+        <nav className='bg-bg shadow-md text-text top-0 z-50'>
             <div className='container mx-auto px-4 py-3 md:px-16 lg:px-24 space-x-16 flex space-between items-center'>
 
                 <div className='text-lg'>

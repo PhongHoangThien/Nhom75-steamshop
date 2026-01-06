@@ -18,6 +18,10 @@
     @apply bg-text dark:bg-bg text-bg dark:text-text
 }
 
+.btn-theme {
+    @apply  border bg-text text-bg hover:bg-textMuted border-textMuted dark:bg-bg dark:text-text dark:hover:bg-primaryHover dark:border-border
+}
+
 .card-hover {
     @apply cursor-pointer transform transition-transform hover:scale-105;
 }
