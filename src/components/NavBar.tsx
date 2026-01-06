@@ -23,7 +23,7 @@ const NavBar = () => {
 
                 <div className='text-lg'>
                     <Link to="/" className="flex relative card-hover">
-                        <img src="/images/logo.png" alt="" className="w-32 h-auto"/>
+                        <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="" className="w-32 h-auto"/>
                     </Link>
                 </div>
 

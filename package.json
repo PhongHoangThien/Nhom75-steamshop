@@ -21,10 +21,13 @@
     "vite": "^7.2.7",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://PhongHoangThien.github.io/Nhom75-steamshop",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +50,7 @@
   "devDependencies": {
     "@types/node": "^22.19.2",
     "autoprefixer": "^10.4.22",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.19"
   }
