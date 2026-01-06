@@ -10,6 +10,7 @@ import Register from "./pages/Register";
 import Cart from "./pages/Cart";
 import GameOnSale from "./pages/GameOnSale";
 import ForgotPassword from "./pages/ForgotPassword";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
-              {/*<Route path="/user-profile" element={<UserProfile />} />*/}
+              <Route path="/user-profile" element={<UserProfile />} />
+              <Route path="/order-history" element={<UserProfile />} />
               {/*<Route path="/checkout" element={<Checkout />} />*/}
           </Routes>
           <Footer />
