@@ -1,15 +1,23 @@
 import React from 'react';
 import { FaFilter, FaSyncAlt, FaTags, FaMoneyBillWave, FaSortAmountDown } from "react-icons/fa";
 import { ProductCategory } from "../data/ProductCategory";
-
 interface FilterBarProps {
-    filters: any;
+    filters: {
+        genre: string;
+        minPrice: string;
+        maxPrice: string;
+        sortType: string;
+    };
     handleFilterChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
     handleApplyFilters: () => void;
     handleResetFilters: () => void;
 }
-
-const FilterBar: React.FC<FilterBarProps> = ({ filters, handleFilterChange, handleApplyFilters, handleResetFilters }) => {
+const FilterBar: React.FC<FilterBarProps> = ({
+                                                 filters,
+                                                 handleFilterChange,
+                                                 handleApplyFilters,
+                                                 handleResetFilters
+                                             }) => {
     return (
         <div className="bg-panelLight rounded-xl shadow-lg border border-border/50 p-5 mb-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-end">

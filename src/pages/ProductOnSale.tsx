@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { fetchProductsStart, fetchProductsSuccess, fetchProductsFailure } from "../redux/productSlice";
@@ -6,20 +6,19 @@ import { fakeGetProductsAPI } from "../services/productService";
 import { FaFire, FaSpinner } from "react-icons/fa";
 import FilterBar from "../components/FilterBar";
 import ProductList from "../components/ProductList";
+import { useProductFilter } from "../hook/useProductFilter";
 
-const ProductOnSale = () => {
+const GameOnSale = () => {
     const dispatch = useDispatch();
     const { products, isLoading, error } = useSelector((state: RootState) => state.products);
+    const {
+        filters,
+        filteredProducts,
+        handleFilterChange,
+        handleApplyFilters,
+        handleResetFilters
+    } = useProductFilter(products);
 
-    const initialFilterState = {
-        genre: "all",
-        minPrice: "",
-        maxPrice: "",
-        sortType: "default"
-    };
-
-    const [filters, setFilters] = useState(initialFilterState);
-    const [activeFilters, setActiveFilters] = useState(initialFilterState);
     useEffect(() => {
         const fetchProductData = async () => {
             if (products.length > 0) return;
@@ -33,42 +32,14 @@ const ProductOnSale = () => {
         };
         fetchProductData();
     }, [dispatch, products.length]);
-    const filteredProducts = useMemo(() => {
-        if (!products) return [];
-        let result = [...products];
-        const { genre, minPrice, maxPrice, sortType } = activeFilters;
 
-        if (genre !== "all") result = result.filter(p => p.category === genre);
-        if (minPrice) result = result.filter(p => p.price >= Number(minPrice));
-        if (maxPrice) result = result.filter(p => p.price <= Number(maxPrice));
-
-        switch (sortType) {
-            case "best-selling": result.sort((a, b) => b.sold - a.sold); break;
-            case "newest": result.sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()); break;
-            case "asc": result.sort((a, b) => a.price - b.price); break;
-            case "desc": result.sort((a, b) => b.price - a.price); break;
-            case "a-z": result.sort((a, b) => a.name.localeCompare(b.name)); break;
-            case "z-a": result.sort((a, b) => b.name.localeCompare(a.name)); break;
-        }
-        return result;
-    }, [products, activeFilters]);
-
-    // --- Các hàm xử lý sự kiện ---
-    const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        setFilters(prev => ({ ...prev, [e.target.name]: e.target.value }));
-    };
-
-    const handleApplyFilters = () => setActiveFilters(filters);
-
-    const handleResetFilters = () => {
-        setFilters(initialFilterState);
-        setActiveFilters(initialFilterState);
-    };
     if (isLoading) return <div className="min-h-screen bg-panel flex items-center justify-center"><FaSpinner className="animate-spin text-primary text-4xl"/></div>;
     if (error) return <div className="min-h-screen bg-panel flex items-center justify-center text-danger">Lỗi: {error}</div>;
+
     return (
         <div className="bg-panel min-h-screen py-8 px-4 md:px-16 lg:px-24 text-text font-sans">
             <div className="container mx-auto">
+                {/* Header... */}
                 <div className="flex items-center gap-4 mb-8 border-b border-border pb-6">
                     <div className="relative">
                         <div className="absolute inset-0 bg-danger blur-lg opacity-40 rounded-full"></div>
@@ -83,6 +54,8 @@ const ProductOnSale = () => {
                         <p className="text-textMuted font-medium">Săn deal hời - Chơi game xịn</p>
                     </div>
                 </div>
+
+                {/* --- FILTER BAR (Truyền props từ Hook vào) --- */}
                 <FilterBar
                     filters={filters}
                     handleFilterChange={handleFilterChange}
@@ -97,4 +70,4 @@ const ProductOnSale = () => {
         </div>
     );
 };
-export default ProductOnSale;
+export default GameOnSale;
