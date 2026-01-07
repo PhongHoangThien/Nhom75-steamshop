@@ -56,13 +56,9 @@ const NavBar = () => {
                     ) : (
                         <div className="relative group z-50">
                             <div className="flex items-center gap-2 cursor-pointer py-1">
-                                <img
-                                    src={user?.avatar || "/images/avatar.png"}
-                                    alt="Avatar"
-                                    className="w-10 h-10 rounded-full border border-border object-cover"
-                                />
+                                <img src={user?.avatar || "/images/avatar.png"} alt="Avatar" className="w-10 h-10 rounded-full border border-border object-cover" onError={(e) => {e.currentTarget.src = "/images/avatar.png"}}/>
                                 <span className="font-bold text-sm max-w-[120px] truncate hidden xl:block">
-                                    {user?.email}
+                                    {user?.username}
                                 </span>
                             </div>
                             <div
