@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { fetchProductsStart, fetchProductsSuccess, fetchProductsFailure } from "../redux/productSlice";
-import { fakeGetProductsAPI } from "../services/productService";
+import React from 'react';
 import { FaFire, FaSpinner } from "react-icons/fa";
 import FilterBar from "../components/FilterBar";
 import ProductList from "../components/ProductList";
 import { useProductFilter } from "../hook/useProductFilter";
+import { useProductData } from "../hook/useProductData"; // <--- Mới
 
 const GameOnSale = () => {
-    const dispatch = useDispatch();
-    const { products, isLoading, error } = useSelector((state: RootState) => state.products);
+    const { products, isLoading, error } = useProductData();
     const {
         filters,
         filteredProducts,
@@ -18,21 +14,6 @@ const GameOnSale = () => {
         handleApplyFilters,
         handleResetFilters
     } = useProductFilter(products);
-
-    useEffect(() => {
-        const fetchProductData = async () => {
-            if (products.length > 0) return;
-            dispatch(fetchProductsStart());
-            try {
-                const data = await fakeGetProductsAPI();
-                dispatch(fetchProductsSuccess(data));
-            } catch (err) {
-                dispatch(fetchProductsFailure(err as string));
-            }
-        };
-        fetchProductData();
-    }, [dispatch, products.length]);
-
     if (isLoading) return <div className="min-h-screen bg-panel flex items-center justify-center"><FaSpinner className="animate-spin text-primary text-4xl"/></div>;
     if (error) return <div className="min-h-screen bg-panel flex items-center justify-center text-danger">Lỗi: {error}</div>;
 
@@ -54,8 +35,6 @@ const GameOnSale = () => {
                         <p className="text-textMuted font-medium">Săn deal hời - Chơi game xịn</p>
                     </div>
                 </div>
-
-                {/* --- FILTER BAR (Truyền props từ Hook vào) --- */}
                 <FilterBar
                     filters={filters}
                     handleFilterChange={handleFilterChange}
