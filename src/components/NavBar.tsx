@@ -124,9 +124,9 @@ const NavBar = () => {
             </div>
             <div className='flex items-center justify-center space-x-20 pb-5 text-base text-text font-bold'>
                 <Link to="/" className="hover:underline">Trang chủ</Link>
-                <Link to="/games" className="hover:underline">Tìm game</Link>
+                <Link to="/products" className="hover:underline">Tìm game</Link>
                 <Link to="/best-seller" className="hover:underline">Game bán chạy</Link>
-                <Link to="/game-on-sale" className="hover:underline">Game đang giảm giá</Link>
+                <Link to="/product-on-sale" className="hover:underline">Game đang giảm giá</Link>
                 <Link to="/payment-method" className="hover:underline">Hình thức thanh toán</Link>
             </div>
         </nav>

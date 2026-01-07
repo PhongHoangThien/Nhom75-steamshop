@@ -7,7 +7,7 @@ import { FaFire, FaSpinner } from "react-icons/fa";
 import FilterBar from "../components/FilterBar";
 import ProductList from "../components/ProductList";
 
-const GameOnSale = () => {
+const ProductOnSale = () => {
     const dispatch = useDispatch();
     const { products, isLoading, error } = useSelector((state: RootState) => state.products);
 
@@ -97,4 +97,4 @@ const GameOnSale = () => {
         </div>
     );
 };
-export default GameOnSale;
+export default ProductOnSale;

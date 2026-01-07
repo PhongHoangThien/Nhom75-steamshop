@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="w-4/5 mx-auto px-4 md:px-12 lg:px-24 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                        <img src="/images/logo.png" alt="Multiple Shop" className="w-24 h-auto" />
+                        <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Multiple Shop" className="w-24 h-auto" />
                     </div>
 
                     <p className="text-textMuted text-sm">
@@ -28,12 +28,12 @@ const Footer = () => {
 
                 <div>
                     <h3 className="text-title mb-4">Điều hướng</h3>
-                    <ul className="space-y-2 text-textMuted text-sm">
-                        <li><Link className="hover:text-primary" to="/">Trang chủ</Link></li>
-                        <li><Link className="hover:text-primary" to="/">Games</Link></li>
-                        <li><Link className="hover:text-primary" to="/">Giới thiệu</Link></li>
-                        <li><Link className="hover:text-primary" to="/">Liên hệ</Link></li>
-                        <li><Link className="hover:text-primary" to="/">Hướng dẫn mua hàng</Link></li>
+                    <ul className="space-y-2 text-textMuted hover:text-primary text-sm">
+                        <li><Link to="/">Trang chủ</Link></li>
+                        <li><Link to="/">Games</Link></li>
+                        <li><Link to="/">Giới thiệu</Link></li>
+                        <li><Link to="/">Liên hệ</Link></li>
+                        <li><Link to="/">Hướng dẫn mua hàng</Link></li>
                     </ul>
                 </div>
 
@@ -53,24 +53,24 @@ const Footer = () => {
                     <div>
                         <h3 className="text-title mb-3">Thanh toán</h3>
                         <img
-                            src="/images/payment.png"
+                            src={`${import.meta.env.BASE_URL}images/payment.png`}
                             alt="Payment methods"
                             className="h-18 object-contain"
                         />
                     </div>
 
                     <h3 className="text-title mb-4">Follow Us</h3>
-                    <div className="flex items-center gap-4">
-                        <Link to="/" className="text-textMuted hover:text-primary transition">
+                    <div className="flex items-center gap-4 text-textMuted hover:text-primary transition">
+                        <Link to="/">
                             <FaFacebook size={20} />
                         </Link>
-                        <Link to="/" className="text-textMuted hover:text-primary transition">
+                        <Link to="/">
                             <FaDiscord size={20} />
                         </Link>
-                        <Link to="/" className="text-textMuted hover:text-primary transition">
+                        <Link to="/">
                             <FaTwitter size={20} />
                         </Link>
-                        <Link to="/" className="text-textMuted hover:text-primary transition">
+                        <Link to="/">
                             <FaReddit size={20} />
                         </Link>
                     </div>

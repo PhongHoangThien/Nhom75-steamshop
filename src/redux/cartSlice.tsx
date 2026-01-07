@@ -3,13 +3,13 @@ import {Product} from "./productSlice"
 
 export interface CartState extends Product {
     products: [];
-    quantity: number;
+    totalQuantity: number;
     totalPrice: number;
 }
 
-const initialState: { products: any[]; quantity: number; totalPrice: number } = {
+const initialState: { products: any[]; totalQuantity: number; totalPrice: number } = {
     products: [],
-    quantity: 0,
+    totalQuantity: 0,
     totalPrice: 0,
 }
 
@@ -22,7 +22,7 @@ const cartSlice = createSlice({
             const itemIndex = state.products.find((item) => item.id === newItem.id);
             if (itemIndex) {
                 itemIndex.quantity++;
-                itemIndex.price += newItem.price;
+                itemIndex.totalPrice += newItem.price;
             } else {
                 state.products.push({
                     id: newItem.id,
@@ -33,12 +33,45 @@ const cartSlice = createSlice({
                     image: newItem.image,
                 });
                 state.totalPrice += newItem.price;
-                state.quantity++;
+                state.totalQuantity++;
             }
+        },
+        removeFromCart: (state, action) => {
+            const id = action.payload;
+            const findItem = state.products.find((item) => item.id === id);
+            if (!findItem) return;
+            state.totalPrice -= findItem.price;
+            state.totalQuantity -= findItem.quantity;
+            state.products = state.products.filter((item) => item.id !== id);
+        },
+        increaseQuantity: (state, action) => {
+            const id = action.payload;
+            const findItem = state.products.find((item) => item.id === id);
+            if (!findItem) return;
+
+            findItem.quantity++;
+            findItem.totalPrice += findItem.price;
+            state.totalQuantity++;
+            state.totalPrice += findItem.price;
+        },
+        decreaseQuantity: (state, action) => {
+            const id = action.payload;
+            const findItem = state.products.find((item) => item.id === id);
+            if (!findItem) return;
+
+            if (findItem.quantity === 1) {
+                state.totalPrice -= findItem.price;
+                state.totalQuantity -= findItem.quantity;
+                state.products = state.products.filter((item) => item.id !== id);
+            }
+            findItem.quantity--;
+            findItem.totalPrice -= findItem.price;
+            state.totalQuantity--;
+            state.totalPrice -= findItem.price;
         }
     }
 
 })
 
-export const {addToCart} = cartSlice.actions;
+export const {addToCart, removeFromCart, increaseQuantity, decreaseQuantity} = cartSlice.actions;
 export default cartSlice.reducer;

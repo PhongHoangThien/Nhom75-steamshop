@@ -8,20 +8,20 @@ import Products from "./pages/Products";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Cart from "./pages/Cart";
-import GameOnSale from "./pages/GameOnSale";
+import ProductOnSale from "./pages/ProductOnSale";
 import ForgotPassword from "./pages/ForgotPassword";
 import UserProfile from "./pages/UserProfile";
 
 function App() {
   return (
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
           <NavBar />
           <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/games" element={<Products />} />
-              <Route path="/game/:id" element={<ProductDetails />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
               {/*<Route path="/best-seller" element={<BestSeller />} />*/}
-              <Route path="/game-on-sale" element={<GameOnSale />} />
+              <Route path="/product-on-sale" element={<ProductOnSale />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />

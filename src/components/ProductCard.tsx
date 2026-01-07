@@ -12,7 +12,7 @@ export default function ProductCard({product: product}:any) {
     }
     return (
         <div className="bg-bg p-4 rounded relative card-hover">
-            <Link to={`/game/${product.id}`}>
+            <Link to={`/product/${product.id}`}>
                 <img src={`./images/games/${product.image}`} alt={product.name}
                      className="w-full h-48 object-cover" />
                 <h3 className="text-lg font-semibold">{product.name}</h3>
