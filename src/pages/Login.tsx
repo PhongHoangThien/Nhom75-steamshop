@@ -1,77 +1,74 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { FaFacebook, FaGoogle, FaLock, FaUser } from "react-icons/fa";
+import { FaFacebook, FaGoogle, FaTimes } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { loginStart, loginSuccess, loginFailure } from "../redux/authSlice";
 import { RootState } from "../redux/store";
-
+import { fakeLoginAPI } from "../services/authService";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { isLoading, error } = useSelector((state: RootState) => state.auth);
 
-    const handleLogin = (e: React.FormEvent) => {
+    const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         dispatch(loginStart());
-        if (email === "student@hcmuaf.edu.vn" && password === "123456") {
-            const fakeUser = { id: 1, username: "SinhVien", email: email };
-            dispatch(loginSuccess(fakeUser));
+        try {
+            const user = await fakeLoginAPI(email, password);
+            dispatch(loginSuccess(user));
             navigate("/");
-        } else {
-            dispatch(loginFailure("Email hoặc mật khẩu không đúng!"));
+        } catch (err) {
+            dispatch(loginFailure(err as string));
         }
     };
 
+    const inputClass = "w-full bg-panelLight border border-border rounded-md px-4 py-3 focus:outline-none focus:border-primary text-text placeholder-textMuted transition";
+
     return (
-        <div className="min-h-screen bg-bg flex items-center justify-center px-4">
-            <div className="bg-panel p-8 rounded-lg shadow-card w-full max-w-md border border-border">
-                <h2 className="text-2xl font-bold text-text text-center mb-6">Đăng Nhập</h2>
-                {error && <p className="text-danger text-center text-sm mb-4">{error}</p>}
-
-                <form onSubmit={handleLogin} className="space-y-4">
-                    <div>
-                        <label className="block text-textMuted text-sm mb-1">Email</label>
-                        <div className="relative flex items-center">
-                            <FaUser className="absolute left-3 text-textMuted" />
-                            <input type="text" className="w-full bg-panelLight border border-border rounded-md py-2 pl-10 pr-4 text-text focus:outline-none focus:border-primary"
-                                   placeholder="Nhập email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <>
+            <div className="w-full min-h-[85vh] bg-bg"></div>
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+                <div className="bg-panel w-full max-w-5xl rounded-xl shadow-card overflow-hidden flex relative animate-fade-in border border-border">
+                    <Link to="/" className="absolute top-4 right-4 text-textMuted hover:text-white z-10 transition"><FaTimes size={24} /></Link>
+                    <div className="w-full md:w-[70%] p-8 md:p-12">
+                        <div className="flex gap-6 mb-8 border-b border-border pb-2">
+                            <h2 className="text-2xl font-bold text-primary border-b-2 border-primary pb-2 cursor-pointer">Đăng nhập</h2>
+                            <Link to="/register" className="text-2xl font-bold text-textMuted hover:text-text cursor-pointer pb-2 transition">Đăng ký</Link>
+                        </div>
+                        <p className="text-textMuted text-sm mb-6">Đăng nhập để theo dõi đơn hàng, lưu danh sách sản phẩm yêu thích và nhận nhiều ưu đãi hấp dẫn.</p>
+                        {error && <p className="text-danger text-center text-sm mb-4 bg-red-500/10 p-2 rounded border border-danger">{error}</p>}
+                        <form onSubmit={handleLogin} className="space-y-5">
+                            <input type="text" className={inputClass} placeholder="Email hoặc tên đăng nhập" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type="password" className={inputClass} placeholder="Mật khẩu" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <div className="flex justify-between items-center text-sm">
+                                <Link to="/forgot-password" className="text-primary hover:underline font-medium">Bạn quên mật khẩu?</Link>
+                            </div>
+                            <button disabled={isLoading} className="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3 rounded-md transition duration-200 shadow-lg transform active:scale-95">
+                                {isLoading ? "Đang xử lý..." : "Đăng nhập"}
+                            </button>
+                        </form>
+                        <div className="my-6 flex items-center justify-center space-x-2">
+                            <span className="h-px w-full bg-border"></span><span className="text-textMuted text-sm whitespace-nowrap">Hoặc đăng nhập bằng</span><span className="h-px w-full bg-border"></span>
+                        </div>
+                        <div className="flex justify-center gap-4">
+                            <button
+                                className="p-2 rounded-full border border-border bg-panelLight hover:bg-border transition text-red-500 flex items-center justify-center">
+                                <FaGoogle size={24}/>
+                            </button>
+                            <button
+                                className="p-2 rounded-full border border-border bg-panelLight hover:bg-border transition text-blue-500 flex items-center justify-center">
+                                <FaFacebook size={24}/></button>
                         </div>
                     </div>
-                    <div>
-                        <label className="block text-textMuted text-sm mb-1">Mật khẩu</label>
-                        <div className="relative flex items-center">
-                            <FaLock className="absolute left-3 text-textMuted" />
-                            <input type="password" className="w-full bg-panelLight border border-border rounded-md py-2 pl-10 pr-4 text-text focus:outline-none focus:border-primary"
-                                   placeholder="Nhập mật khẩu" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        </div>
+                    <div
+                        className="hidden md:flex md:w-[30%] bg-bg items-center justify-center p-8 border-l border-border">
+                        <img src="/images/auth-bg.png" alt="Login" className="max-w-full h-auto object-contain mx-auto opacity-90" onError={(e) => {e.currentTarget.src = "/images/logo.png"}}/>
                     </div>
-                    <div className="flex justify-between text-sm">
-                        <label className="text-textMuted"><input type="checkbox" className="mr-2" />Ghi nhớ</label>
-                        <Link to="/forgot-password" className="text-primary hover:underline">Quên mật khẩu?</Link>
-                    </div>
-                    <button disabled={isLoading} className="w-full bg-primary hover:bg-blue-600 text-white font-bold py-2 rounded-button transition">
-                        {isLoading ? "Đang xử lý..." : "Đăng Nhập"}
-                    </button>
-                </form>
-
-                <div className="my-6 flex items-center justify-center space-x-2">
-                    <span className="h-px w-full bg-border"></span>
-                    <span className="text-textMuted text-sm">Hoặc</span>
-                    <span className="h-px w-full bg-border"></span>
                 </div>
-                <div className="flex space-x-4">
-                    <button className="flex-1 bg-[#3b5998] text-white py-2 rounded flex justify-center items-center"><FaFacebook className="mr-2"/> Facebook</button>
-                    <button className="flex-1 bg-[#db4437] text-white py-2 rounded flex justify-center items-center"><FaGoogle className="mr-2"/> Google</button>
-                </div>
-                <p className="mt-6 text-center text-sm text-textMuted">
-                    Chưa có tài khoản? <Link to="/register" className="text-primary font-bold hover:underline">Đăng ký ngay</Link>
-                </p>
             </div>
-        </div>
+        </>
     );
 };
-
 export default Login;
