@@ -1,12 +1,13 @@
-import usersData from "../data/users.json";
+import { UsersData } from "../data/users";
 import { User } from "../redux/authSlice";
+
 export const fakeLoginAPI = (email: string, pass: string): Promise<User> => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            const user = usersData.find((u) => u.email === email && u.password === pass);
+            const user = UsersData.find((u) => u.email === email && u.password === pass);
             if (user) {
                 const { password, ...userInfo } = user;
-                resolve(userInfo);
+                resolve(userInfo as User);
             } else {
                 reject("Email hoặc mật khẩu không đúng!");
             }

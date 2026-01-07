@@ -48,7 +48,7 @@ const Register = () => {
                     </div>
                     <div
                         className="hidden md:flex md:w-[30%] bg-bg items-center justify-center p-8 border-l border-border">
-                        <img src="/images/auth-bg.png" alt="Login" className="max-w-full h-auto object-contain mx-auto opacity-90" onError={(e) => {e.currentTarget.src = "/images/logo.png"}}/>
+                        <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Login" className="max-w-full h-auto object-contain mx-auto opacity-90" />
                     </div>
                 </div>
             </div>
