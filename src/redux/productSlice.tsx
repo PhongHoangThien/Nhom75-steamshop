@@ -11,8 +11,6 @@ export interface Product {
     stock: number;
     releaseDate: string;
 }
-
-// Thêm isLoading và error vào State
 interface ProductState {
     products: Product[];
     isLoading: boolean;
