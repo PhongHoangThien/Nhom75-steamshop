@@ -12,6 +12,7 @@ import ProductOnSale from "./pages/ProductOnSale";
 import ForgotPassword from "./pages/ForgotPassword";
 import UserProfile from "./pages/UserProfile";
 import BestSeller from "./pages/ProductBestSeller";
+import Checkout from "./pages/Checkout";
 function App() {
   return (
       <BrowserRouter basename={import.meta.env.BASE_URL}>
@@ -28,7 +29,7 @@ function App() {
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/user-profile" element={<UserProfile />} />
               <Route path="/order-history" element={<UserProfile />} />
-              {/*<Route path="/checkout" element={<Checkout />} />*/}
+              <Route path="/checkout" element={<Checkout />} />
           </Routes>
           <Footer />
       </BrowserRouter>

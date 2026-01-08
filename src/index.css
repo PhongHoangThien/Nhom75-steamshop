@@ -11,11 +11,15 @@
 }
 
 .theme {
-    @apply bg-text dark:bg-bg text-bg dark:text-text
+    @apply bg-text text-bg dark:bg-bg  dark:text-text
+}
+
+.panel-theme {
+    @apply bg-text text-bg dark:bg-panelLight dark:text-text
 }
 
 .card-theme {
-    @apply bg-text dark:bg-bg text-bg dark:text-text
+    @apply bg-text text-bg dark:bg-bg dark:text-text
 }
 
 .btn-theme {

@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import { FaRegTrashCan } from "react-icons/fa6";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {decreaseQuantity, increaseQuantity, removeFromCart} from "../redux/cartSlice";
 import {RootState} from "../redux/store";
 
@@ -9,6 +9,7 @@ const Cart = () => {
     const subtotal = cart.products.reduce((total: number, item: any) => total + item.price * item.quantity,0);
     const dispatch = useDispatch();
     const {isAuthenticated, user} = useSelector((state: RootState) => state.auth);
+    const navigate = useNavigate();
 
     return (
         <div className="bg-panelLight py-8 px-4 md:px-16 lg:px-24">
@@ -145,14 +146,13 @@ const Cart = () => {
                             </div>
 
                             {isAuthenticated ? (
-                                <Link to="/checkout">
-                                    <button
-                                        disabled={cart.products.length === 0}
-                                        className="w-full mt-5 btn-theme py-3 rounded-lg font-semibold disabled:opacity-50"
-                                    >
-                                        Thanh toán
-                                    </button>
-                                </Link>
+                                <button
+                                    disabled={cart.products.length === 0}
+                                    className="w-full mt-5 btn-theme py-3 rounded-lg font-semibold disabled:opacity-50"
+                                    onClick={() => navigate("/checkout")}
+                                >
+                                    Thanh toán
+                                </button>
                             ): (
                                 <Link to="/login">
                                     <button className="w-full mt-5 btn-theme py-3 rounded-lg font-semibold disabled:opacity-50">
