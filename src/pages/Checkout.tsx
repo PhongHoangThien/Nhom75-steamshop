@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {addToCart, clearCart} from "../redux/cartSlice";
 
-const Checkout = () => {
+const Checkout = ({setOrder}: any) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -27,17 +27,18 @@ const Checkout = () => {
     if (!user) return null;
 
     const handlePlaceOrder = () => {
-        console.log({
-            user,
-            phone,
-            cart,
-            paymentMethod,
-            total: subtotal
-        });
+        const newOrder = {
+            products: cart.products,
+            orderNumber: "0245",
+            customer: user.username,
+            email: user.email,
+            phoneNumber: phone,
+            totalPrice: cart.totalPrice,
+        }
+        setOrder(newOrder);
+        navigate("/order-confirmation");
 
-        alert("Đặt hàng thành công!");
-        navigate("/");
-        dispatch(clearCart());
+        // dispatch(clearCart());
     };
 
     return (
@@ -48,7 +49,6 @@ const Checkout = () => {
                 </h3>
 
                 <div className="flex flex-col lg:flex-row gap-8">
-                    {/* LEFT PANEL - DANH SÁCH SẢN PHẨM */}
                     <div className="lg:w-2/3 bg-panel shadow p-6 rounded-xl">
                         <h4 className="text-lg font-semibold mb-4 text-textMuted">
                             Sản phẩm trong đơn hàng
@@ -86,13 +86,11 @@ const Checkout = () => {
                         </div>
                     </div>
 
-                    {/* RIGHT PANEL - THÔNG TIN + THANH TOÁN */}
                     <div className="lg:w-1/3 bg-panel shadow p-6 rounded-xl sticky top-24">
                         <h4 className="text-lg font-semibold mb-4">
                             Thông tin thanh toán
                         </h4>
 
-                        {/* USER INFO */}
                         <div className="space-y-3 text-sm mb-6">
                             <div>
                                 <span className="font-medium">Họ tên:</span>{" "}
@@ -116,7 +114,6 @@ const Checkout = () => {
                             </div>
                         </div>
 
-                        {/* PAYMENT METHOD */}
                         <h4 className="text-lg font-semibold mb-3">
                             Phương thức thanh toán
                         </h4>
