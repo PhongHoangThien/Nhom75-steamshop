@@ -3,6 +3,7 @@ import {MockData} from "../data/MockData";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../redux/cartSlice";
 import {useNavigate} from "react-router-dom";
+import React from "react";
 
 export default function ProductDetails() {
     const {id} = useParams();
@@ -38,8 +39,8 @@ export default function ProductDetails() {
                                 className="w-full rounded-xl object-cover"
                             />
                             <span className="absolute top-3 left-3 bg-black/70 px-3 py-1 text-sm rounded-lg">
-                {game.category}
-            </span>
+                                {game.category}
+                            </span>
                         </div>
 
                         {/* Trailer */}
@@ -66,24 +67,34 @@ export default function ProductDetails() {
                         <h1 className="text-3xl font-bold leading-tight">
                             {game.name}
                         </h1>
+                        {/* Giá */}
+                        <div className="mt-2">
+                            {game.discount && game.discount > 0 ? (
+                                <div className="space-y-1">
+                                    {/* Giá gốc */}
+                                    <div className="text-gray-400 line-through text-lg">
+                                        {game.price.toLocaleString()}đ
+                                    </div>
 
-                        <div className="text-gray-400 space-y-1 text-sm">
-                            <p>
-                                Nhà phát triển:{" "}
-                                <span className="text-white">
-                    {game.developer || "Đang cập nhật"}
-                </span>
-                            </p>
-                            <p>
-                                Ngày phát hành:{" "}
-                                <span className="text-white">
-                    {game.releaseDate || "Đang cập nhật"}
-                </span>
-                            </p>
-                        </div>
+                                    {/* Giá sau giảm */}
+                                    <div className="text-3xl font-semibold text-green-400">
+                                        {(
+                                            (game.price * (100 - game.discount)) / 100
+                                        ).toLocaleString()}
+                                        đ
+                                    </div>
 
-                        <div className="text-3xl font-semibold text-green-400 mt-2">
-                            {game.price.toLocaleString()}đ
+                                    {/* Badge giảm giá */}
+                                    <span className="inline-block bg-red-600 text-white text-sm px-3 py-1 rounded-lg">
+                                                                                    -{game.discount}%
+                                                                                </span>
+                                </div>
+                            ) : (
+                                /* Không có giảm giá */
+                                <div className="text-3xl font-semibold text-green-400">
+                                    {game.price.toLocaleString()}đ
+                                </div>
+                            )}
                         </div>
 
                         {/* Button */}
@@ -104,8 +115,112 @@ export default function ProductDetails() {
                             >
                                 Mua ngay
                             </button>
+                            <br/>
+
+                            <div className="text-gray-400 space-y-5 text-sm">
+                                <p>
+                                    Tổng số lượt tải:{" "}
+                                    <span className="text-white">
+                                        {game.sold || "Đang cập nhật"}
+                                    </span>
+                                </p>
+                                <p>
+                                    Ngày phát hành:{" "}
+                                    <span className="text-white">
+                                        {game.releaseDate || "Đang cập nhật"}
+                                    </span>
+                                </p>
+                                <p>
+                                    Số lượt xem:{" "}
+                                    <span className="text-white">
+                                        {game.reviewCount || "Đang cập nhật"}
+                                    </span>
+                                </p>
+                                <p>
+                                    Nhà phát triển:{" "}
+                                    <span className="text-white">
+                    {game.developer || "Đang cập nhật"}
+                </span>
+                                </p>
+                                <p>
+                                    Số lượt tải:{" "}
+                                    <span className="text-white">
+                    {game.sold || "Đang cập nhật"}
+                </span>
+                                </p>
+
+
+                            </div>
                         </div>
+                        {/*<div className="text-gray-400 space-y-1 text-sm">*/}
+
+                        {/*</div>*/}
+
+                        {/*<div className="text-3xl font-semibold text-green-400 mt-2">*/}
+                        {/*    {game.price.toLocaleString()}đ*/}
+                        {/*</div>*/}
+                        {/* Giá */}
+
+
                     </div>
+                    {game.systemRequirements && (
+                        <div className="bg-[#0f172a] p-6 rounded-2xl border border-gray-700">
+                            <h2 className="text-xl font-bold mb-4">Yêu cầu tối thiểu</h2>
+
+                            <ul className="text-sm text-gray-300 space-y-3">
+                                <li>
+                                    <span className="text-gray-400">Hệ điều hành:</span>{" "}
+                                    {game.systemRequirements.minimum.os}
+                                </li>
+                                <li>
+                                    <span className="text-gray-400">CPU:</span>{" "}
+                                    {game.systemRequirements.minimum.cpu}
+                                </li>
+                                <li>
+                                    <span className="text-gray-400">RAM:</span>{" "}
+                                    {game.systemRequirements.minimum.ram}
+                                </li>
+                                <li>
+                                    <span className="text-gray-400">GPU:</span>{" "}
+                                    {game.systemRequirements.minimum.gpu}
+                                </li>
+                                <li>
+                                    <span className="text-gray-400">Dung lượng trống:</span>{" "}
+                                    {game.systemRequirements.minimum.storage}
+                                </li>
+                            </ul>
+                        </div>
+                    )}
+
+                    {/* Ô 4: Yêu cầu khuyến nghị */}
+                    {game.systemRequirements && (
+                        <div className="bg-[#0f172a] p-6 rounded-2xl border border-gray-700">
+                            <h2 className="text-xl font-bold mb-4">Yêu cầu khuyến nghị</h2>
+
+                            <ul className="text-sm text-gray-300 space-y-3">
+                                <li>
+                                    <span className="text-gray-400">Hệ điều hành:</span>{" "}
+                                    {game.systemRequirements.recommended.os}
+                                </li>
+                                <li>
+                                    <span className="text-gray-400">CPU:</span>{" "}
+                                    {game.systemRequirements.recommended.cpu}
+                                </li>
+                                <li>
+                                    <span className="text-gray-400">RAM:</span>{" "}
+                                    {game.systemRequirements.recommended.ram}
+                                </li>
+                                <li>
+                                    <span className="text-gray-400">GPU:</span>{" "}
+                                    {game.systemRequirements.recommended.gpu}
+                                </li>
+                                <li>
+                                    <span className="text-gray-400">Dung lượng trống:</span>{" "}
+                                    {game.systemRequirements.recommended.storage}
+                                </li>
+                            </ul>
+                        </div>
+                    )}
                 </div>
 
                 {/* ===== Mô tả ===== */}

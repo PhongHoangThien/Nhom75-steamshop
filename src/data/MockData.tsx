@@ -1,3 +1,19 @@
+const defaultSystemRequirements = {
+    minimum: {
+        os: "Windows 10 64-bit",
+        cpu: "Intel Core i5-8400 / AMD Ryzen 5 2600",
+        ram: "8 GB",
+        gpu: "NVIDIA GTX 1060 / AMD RX 580",
+        storage: "50 GB"
+    },
+    recommended: {
+        os: "Windows 10 / 11 64-bit",
+        cpu: "Intel Core i7-9700K / AMD Ryzen 5 3600",
+        ram: "16 GB",
+        gpu: "NVIDIA RTX 2060 / AMD RX 5700 XT",
+        storage: "50 GB SSD"
+    }
+};
 export const MockData = [
     {
         id: 1,
@@ -9,7 +25,23 @@ export const MockData = [
         sold: 194,
         stock: 194,
         releaseDate: "2021-04-23",
-        trailer: "https://www.youtube.com/embed/qIcTM8WXFjk" // Cyberpunk 2077
+        trailer: "https://www.youtube.com/embed/qIcTM8WXFjk", // Cyberpunk 2077
+        systemRequirements: {
+            minimum: {
+                os: "Windows 10 64-bit",
+                cpu: "Intel Core i5-2500K / AMD FX-6300",
+                ram: "8 GB",
+                gpu: "NVIDIA GTX 770 / AMD R9 280",
+                storage: "70 GB"
+            },
+            recommended: {
+                os: "Windows 10 / 11 64-bit",
+                cpu: "Intel Core i7-4790 / AMD Ryzen 5 1600",
+                ram: "16 GB",
+                gpu: "NVIDIA GTX 1070 / AMD RX Vega 56",
+                storage: "70 GB SSD"
+            }
+        }
     },
     {
         id: 2,
@@ -376,7 +408,7 @@ export const MockData = [
         price: 1690000,
         image: "cod-mw3.png",
         category: "Shooter",
-        discount: 15,
+        discount: 0,
         sold: 620,
         stock: 50,
         releaseDate: "2023-11-10",
@@ -689,4 +721,7 @@ export const MockData = [
         stock: 320,
         releaseDate: "2014-11-04",
     },
-];
+].map(game => ({
+    ...game,
+    systemRequirements: game.systemRequirements ?? defaultSystemRequirements
+}));
