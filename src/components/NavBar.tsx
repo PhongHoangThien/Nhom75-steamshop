@@ -4,6 +4,8 @@ import {useTheme} from "../hook/useTheme";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../redux/store";
 import {logout} from "../redux/authSlice";
+import {useState} from "react";
+import {setSearchTerm} from "../redux/productSlice";
 
 const NavBar = () => {
     const {theme, toggleTheme} = useTheme();
@@ -11,11 +13,18 @@ const NavBar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const {isAuthenticated, user} = useSelector((state: RootState) => state.auth);
+    const [search, setSearch] = useState("")
 
     const handleLogout = () => {
         dispatch(logout());
         navigate("/login");
     };
+
+    const handleSearch = (e: any) => {
+        e.preventDefault()
+        dispatch(setSearchTerm(search));
+        navigate("/filter-product");
+    }
 
     return (
         <nav className='bg-bg shadow-md text-text top-0 z-50'>
@@ -28,12 +37,15 @@ const NavBar = () => {
                 </div>
 
                 <div className='relative flex-1 mx-4'>
-                    <form>
+                    <form onSubmit={handleSearch}>
                         <input type="text" placeholder="Tìm kiếm sản phẩm"
-                               className='w-full bg-panelLight py-2 rounded-md placeholder:pl-2'/>
+                               className='w-full bg-panelLight py-2 rounded-md placeholder:pl-2'
+                               onChange={(e) => setSearch(e.target.value)}
+                        />
                         <button
                             type="submit"
-                            className="absolute right-0 top-0 h-full px-3 bg-bg flex items-center justify-center border border-border rounded-r-md hover:bg-primaryHover"
+                            className="absolute right-0 top-0 h-full px-3 bg-bg flex items-center justify-center border
+                            border-border rounded-r-md hover:bg-primaryHover"
                         >
                             <FaSearch className="w-5 h-5 text-textMuted"/>
                         </button>
