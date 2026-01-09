@@ -9,6 +9,7 @@ export const MockData = [
         sold: 194,
         stock: 194,
         releaseDate: "2021-04-23",
+        trailer: "https://www.youtube.com/embed/qIcTM8WXFjk" // Cyberpunk 2077
     },
     {
         id: 2,
@@ -20,6 +21,7 @@ export const MockData = [
         sold: 157,
         stock: 289,
         releaseDate: "2021-08-19",
+        trailer: "https://www.youtube.com/embed/E3Huy2cdih0" // Elden Ring
     },
     {
         id: 3,
@@ -31,6 +33,7 @@ export const MockData = [
         sold: 324,
         stock: 47,
         releaseDate: "2023-02-13",
+        trailer: "https://www.youtube.com/embed/HqQMh_tij0c" // God of War
     },
     {
         id: 4,
@@ -42,6 +45,7 @@ export const MockData = [
         sold: 278,
         stock: 414,
         releaseDate: "2023-02-20",
+        trailer: "https://www.youtube.com/embed/91t0ha9x0AE" // Hades
     },
     {
         id: 5,
@@ -53,6 +57,7 @@ export const MockData = [
         sold: 188,
         stock: 171,
         releaseDate: "2024-05-05",
+        trailer: "https://www.youtube.com/embed/RO90omga8D4" // Doom
     },
     {
         id: 6,
@@ -64,6 +69,7 @@ export const MockData = [
         sold: 258,
         stock: 435,
         releaseDate: "2024-03-28",
+        trailer: "https://www.youtube.com/embed/9zv1S2nC6iU" // Green Hell
     },
     {
         id: 7,
@@ -75,6 +81,7 @@ export const MockData = [
         sold: 284,
         stock: 54,
         releaseDate: "2022-01-18",
+        trailer: "https://www.youtube.com/embed/JCDIYvZ3hSk" // Path of Exile
     },
     {
         id: 8,
@@ -86,6 +93,7 @@ export const MockData = [
         sold: 304,
         stock: 302,
         releaseDate: "2021-04-29",
+        trailer: "https://www.youtube.com/embed/eaW0tYpxyp0" // Red Dead Redemption
     },
     {
         id: 9,
@@ -97,6 +105,7 @@ export const MockData = [
         sold: 291,
         stock: 484,
         releaseDate: "2021-11-03",
+        trailer: "https://www.youtube.com/embed/MmB9b5njVbA" // Minecraft
     },
     {
         id: 10,
@@ -108,6 +117,7 @@ export const MockData = [
         sold: 374,
         stock: 20,
         releaseDate: "2024-05-12",
+        trailer: "https://www.youtube.com/embed/K0u_kAWLJOA" // God of War (PC)
     },
     {
         id: 11,
@@ -119,6 +129,7 @@ export const MockData = [
         sold: 132,
         stock: 385,
         releaseDate: "2022-05-23",
+        trailer: "https://www.youtube.com/embed/QkkoHAzjnUs" // GTA V
     },
     {
         id: 12,
@@ -130,6 +141,7 @@ export const MockData = [
         sold: 292,
         stock: 488,
         releaseDate: "2021-07-01",
+        trailer: "https://www.youtube.com/embed/5P7iZ_2v1dU" // Spider-Man 2
     },
     {
         id: 13,
@@ -141,6 +153,7 @@ export const MockData = [
         sold: 349,
         stock: 64,
         releaseDate: "2023-12-23",
+        trailer: "https://www.youtube.com/embed/6Q3fQ5lq7hM" // Palworld
     },
     {
         id: 14,
@@ -152,6 +165,7 @@ export const MockData = [
         sold: 125,
         stock: 54,
         releaseDate: "2023-04-11",
+        trailer: "https://www.youtube.com/embed/Cr5rQ1NZ0Tw" // Black Myth: Wukong
     },
     {
         id: 15,
@@ -163,6 +177,7 @@ export const MockData = [
         sold: 307,
         stock: 235,
         releaseDate: "2022-08-17",
+        trailer: "https://www.youtube.com/embed/c0i88t0Kacs" // Witcher 3
     },
     {
         id: 16,
@@ -174,6 +189,7 @@ export const MockData = [
         sold: 366,
         stock: 149,
         releaseDate: "2022-04-21",
+        trailer: "https://www.youtube.com/embed/9jF4wF1xFhE" // Football Manager 2024
     },
     {
         id: 17,
@@ -185,6 +201,7 @@ export const MockData = [
         sold: 315,
         stock: 259,
         releaseDate: "2020-04-07",
+        trailer: "https://www.youtube.com/embed/DRP62MGOrU8" // Diablo 2 Resurrected
     },
     {
         id: 18,
@@ -196,6 +213,7 @@ export const MockData = [
         sold: 143,
         stock: 367,
         releaseDate: "2022-03-15",
+        trailer: "https://www.youtube.com/embed/UAO2urG23S4" // Hollow Knight: Silksong
     },
     {
         id: 19,
@@ -207,6 +225,7 @@ export const MockData = [
         sold: 358,
         stock: 140,
         releaseDate: "2023-05-01",
+        trailer: "https://www.youtube.com/embed/1T22wNvoNiU" // Baldur's Gate 3
     },
     {
         id: 20,
@@ -218,6 +237,7 @@ export const MockData = [
         sold: 104,
         stock: 437,
         releaseDate: "2020-12-07",
+        trailer: "https://www.youtube.com/embed/BO1HAmV0qA8" // The Last of Us
     },
     {
         id: 21,
@@ -229,6 +249,7 @@ export const MockData = [
         sold: 288,
         stock: 450,
         releaseDate: "2020-09-04",
+        trailer: "https://www.youtube.com/embed/edYCtaNueQY" // Counter-Strike 2
     },
     {
         id: 22,
@@ -240,6 +261,7 @@ export const MockData = [
         sold: 239,
         stock: 434,
         releaseDate: "2022-08-08",
+        trailer: "https://www.youtube.com/embed/SmnqsdeHFT0" // Dota 2
     },
     {
         id: 23,
@@ -251,6 +273,7 @@ export const MockData = [
         sold: 292,
         stock: 245,
         releaseDate: "2022-04-13",
+        trailer: "https://www.youtube.com/embed/bmGz7W6cX6Y" // Monster Hunter Wilds
     },
     {
         id: 24,
@@ -262,6 +285,7 @@ export const MockData = [
         sold: 327,
         stock: 254,
         releaseDate: "2024-10-02",
+        trailer: "https://www.youtube.com/embed/BtyBjOW8sGY" // Hogwarts Legacy
     },
     {
         id: 25,
@@ -273,6 +297,7 @@ export const MockData = [
         sold: 162,
         stock: 50,
         releaseDate: "2024-03-15",
+        trailer: "https://www.youtube.com/embed/rXMX4YJ7Lks" // Sekiro
     },
     {
         id: 26,
@@ -284,6 +309,7 @@ export const MockData = [
         sold: 347,
         stock: 229,
         releaseDate: "2023-06-08",
+        trailer: "https://www.youtube.com/embed/ot7uXNQskhs" // Stardew Valley
     },
     {
         id: 27,
@@ -295,6 +321,7 @@ export const MockData = [
         sold: 306,
         stock: 403,
         releaseDate: "2021-06-14",
+        trailer: "https://www.youtube.com/embed/Id2EaldBaWw" // Resident Evil 4
     },
     {
         id: 28,
@@ -306,6 +333,7 @@ export const MockData = [
         sold: 299,
         stock: 348,
         releaseDate: "2022-11-15",
+        trailer: "https://www.youtube.com/embed/w7uOhFTrrq0" // Terraria
     },
     {
         id: 29,
@@ -317,6 +345,7 @@ export const MockData = [
         sold: 334,
         stock: 373,
         releaseDate: "2022-07-03",
+        trailer: "https://www.youtube.com/embed/0zVn6yHjvJU" // Helldivers 2
     },
     {
         id: 30,
@@ -339,6 +368,7 @@ export const MockData = [
         sold: 845,
         stock: 120,
         releaseDate: "2023-09-29",
+        trailer: "https://www.youtube.com/embed/ixl31324UxE" // Phantom Liberty
     },
     {
         id: 32,
