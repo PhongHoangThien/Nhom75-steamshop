@@ -1,7 +1,8 @@
 import {useState, useMemo} from "react";
 import {Product} from "../redux/productSlice";
-export const useProductFilter = (products: Product[], initialSort: string = "default") => {
+export const useProductFilter = (products: any, initialSort: string = "default") => {
     const [filters, setFilters] = useState({
+        name: "",
         genre: "all",
         minPrice: "",
         maxPrice: "",
@@ -11,8 +12,13 @@ export const useProductFilter = (products: Product[], initialSort: string = "def
     const filteredProducts = useMemo(() => {
         if (!products) return [];
         let result = [...products];
-        const {genre, minPrice, maxPrice, sortType} = activeFilters;
+        const {name, genre, minPrice, maxPrice, sortType} = activeFilters;
 
+        if (name.trim()) {
+            result = result.filter(p =>
+                p.name.toLowerCase().includes(name.toLowerCase())
+            );
+        }
         if (genre !== "all") {
             result = result.filter(p => p.category === genre);
         }
@@ -54,6 +60,7 @@ export const useProductFilter = (products: Product[], initialSort: string = "def
 
     const handleResetFilters = () => {
         const resetState = {
+            name: "",
             genre: "all",
             minPrice: "",
             maxPrice: "",
@@ -62,11 +69,17 @@ export const useProductFilter = (products: Product[], initialSort: string = "def
         setFilters(resetState);
         setActiveFilters(resetState);
     };
+    const setNameFilter = (value: string) => {
+        setFilters(prev => ({ ...prev, name: value }));
+        setActiveFilters(prev => ({ ...prev, name: value }));
+    };
+
     return {
         filters,
         filteredProducts,
         handleFilterChange,
         handleApplyFilters,
-        handleResetFilters
+        handleResetFilters,
+        setNameFilter,
     };
 };

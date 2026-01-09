@@ -1,8 +1,9 @@
 import React from 'react';
-import { FaFilter, FaSyncAlt, FaTags, FaMoneyBillWave, FaSortAmountDown } from "react-icons/fa";
+import {FaFilter, FaSyncAlt, FaTags, FaMoneyBillWave, FaSortAmountDown, FaSearch} from "react-icons/fa";
 import { ProductCategory } from "../data/ProductCategory";
 interface FilterBarProps {
     filters: {
+        name: string;
         genre: string;
         minPrice: string;
         maxPrice: string;
@@ -23,6 +24,23 @@ const FilterBar: React.FC<FilterBarProps> = ({
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-end">
                 <div className="lg:col-span-3">
                     <label className="flex items-center gap-2 text-xs font-bold text-textMuted uppercase mb-2">
+                        <FaSearch /> Tìm theo tên
+                    </label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        value={filters.name}
+                        onChange={handleFilterChange}
+                        placeholder="Nhập tên sản phẩm..."
+                        className="w-full bg-bg border border-border rounded-lg px-4 py-3 text-sm
+                   focus:ring-2 focus:ring-primary focus:border-transparent
+                   outline-none transition-all shadow-sm"
+                    />
+                </div>
+
+                <div className="lg:col-span-2">
+                    <label className="flex items-center gap-2 text-xs font-bold text-textMuted uppercase mb-2">
                         <FaTags /> Thể loại
                     </label>
                     <select
@@ -37,7 +55,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
                         ))}
                     </select>
                 </div>
-                <div className="lg:col-span-4">
+                <div className="lg:col-span-3">
                     <label className="flex items-center gap-2 text-xs font-bold text-textMuted uppercase mb-2">
                         <FaMoneyBillWave /> Khoảng giá (VNĐ)
                     </label>
@@ -55,7 +73,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
                         />
                     </div>
                 </div>
-                <div className="lg:col-span-3">
+                <div className="lg:col-span-2">
                     <label className="flex items-center gap-2 text-xs font-bold text-textMuted uppercase mb-2">
                         <FaSortAmountDown /> Sắp xếp
                     </label>

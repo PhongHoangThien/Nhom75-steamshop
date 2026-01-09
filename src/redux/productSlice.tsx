@@ -42,7 +42,7 @@ const productSlice = createSlice({
         },
         setProduct(state, action: PayloadAction<Product[]>) {
             state.products = action.payload;
-        }
+        },
     }
 });
 
@@ -50,7 +50,7 @@ export const {
     fetchProductsStart,
     fetchProductsSuccess,
     fetchProductsFailure,
-    setProduct
+    setProduct,
 } = productSlice.actions;
 
 export default productSlice.reducer;

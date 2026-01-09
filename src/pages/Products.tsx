@@ -1,30 +1,51 @@
-import ProductCard from "../components/ProductCard";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../redux/store";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import {setProduct} from "../redux/productSlice";
 import {MockData} from "../data/MockData";
+import FilterBar from "../components/FilterBar";
+import ProductList from "../components/ProductList";
+import {useProductData} from "../hook/useProductData";
+import {useProductFilter} from "../hook/useProductFilter";
+import {useSearchParams} from "react-router-dom";
 
 const Products = () => {
     const dispatch = useDispatch();
-    const products = useSelector((state: RootState) => state.products)
+    const { products, isLoading, error } = useProductData();
+    const {
+        filters,
+        filteredProducts,
+        handleFilterChange,
+        handleApplyFilters,
+        handleResetFilters,
+        setNameFilter,
+    } = useProductFilter(products);
+    const [searchParams] = useSearchParams();
+    const searchQuery = searchParams.get("search") || "";
 
     useEffect(() => {
         dispatch(setProduct(MockData));
     }, [])
 
+    useEffect(() => {
+        if (searchQuery) {
+            setNameFilter(searchQuery);
+        } else {
+            handleResetFilters();
+        }
+    }, [searchQuery]);
+
     return (
-        <div className="bg-panel py-12 px-4 md:px-16 lg:px-24 text-text">
-            <div className="container mx-auto py-12">
-                <h2 className="text-title font-bold mb-6 text-center">Danh sách gane</h2>
-                <div className="grid gird-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                    {products.products.map((product) => (
-                        <div className="">
-                            <ProductCard product={product} />
-                        </div>
-                    ))}
-                </div>
-            </div>
+        <div className="bg-panel min-h-screen py-8 px-4 md:px-16 lg:px-24 text-text font-sans">
+            <FilterBar
+                filters={filters}
+                handleFilterChange={handleFilterChange}
+                handleApplyFilters={handleApplyFilters}
+                handleResetFilters={handleResetFilters}
+            />
+            <ProductList
+                products={filteredProducts}
+                onReset={handleResetFilters}
+            />
         </div>
     )
 }

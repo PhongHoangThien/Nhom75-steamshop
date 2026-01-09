@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import NavBar from "./components/NavBar";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomePage from "./pages/HonePage";
@@ -13,9 +13,16 @@ import ForgotPassword from "./pages/ForgotPassword";
 import UserProfile from "./pages/UserProfile";
 import BestSeller from "./pages/ProductBestSeller";
 import Checkout from "./pages/Checkout";
+import OrderConfirmation from "./pages/OrderConfirmation";
+import ScrollToTop from "./components/ScrollToTop";
+import FilterProduct from "./pages/FilterProduct";
+
 function App() {
+    const [order, setOrder] = useState(null)
+
   return (
       <BrowserRouter basename={import.meta.env.BASE_URL}>
+          <ScrollToTop />
           <NavBar />
           <Routes>
               <Route path="/" element={<HomePage />} />
@@ -29,7 +36,9 @@ function App() {
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/user-profile" element={<UserProfile />} />
               <Route path="/order-history" element={<UserProfile />} />
-              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/checkout" element={<Checkout setOrder={setOrder}/>} />
+              <Route path="/order-confirmation" element={<OrderConfirmation order={order} />} />
+              <Route path="/filter-product" element={<FilterProduct />} />
           </Routes>
           <Footer />
       </BrowserRouter>
