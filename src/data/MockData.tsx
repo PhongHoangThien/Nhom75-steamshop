@@ -1,3 +1,19 @@
+const defaultSystemRequirements = {
+    minimum: {
+        os: "Windows 10 64-bit",
+        cpu: "Intel Core i5-8400 / AMD Ryzen 5 2600",
+        ram: "8 GB",
+        gpu: "NVIDIA GTX 1060 / AMD RX 580",
+        storage: "50 GB"
+    },
+    recommended: {
+        os: "Windows 10 / 11 64-bit",
+        cpu: "Intel Core i7-9700K / AMD Ryzen 5 3600",
+        ram: "16 GB",
+        gpu: "NVIDIA RTX 2060 / AMD RX 5700 XT",
+        storage: "50 GB SSD"
+    }
+};
 export const MockData = [
     {
         id: 1,
@@ -9,6 +25,23 @@ export const MockData = [
         sold: 194,
         stock: 194,
         releaseDate: "2021-04-23",
+        trailer: "https://www.youtube.com/embed/qIcTM8WXFjk", // Cyberpunk 2077
+        systemRequirements: {
+            minimum: {
+                os: "Windows 10 64-bit",
+                cpu: "Intel Core i5-2500K / AMD FX-6300",
+                ram: "8 GB",
+                gpu: "NVIDIA GTX 770 / AMD R9 280",
+                storage: "70 GB"
+            },
+            recommended: {
+                os: "Windows 10 / 11 64-bit",
+                cpu: "Intel Core i7-4790 / AMD Ryzen 5 1600",
+                ram: "16 GB",
+                gpu: "NVIDIA GTX 1070 / AMD RX Vega 56",
+                storage: "70 GB SSD"
+            }
+        }
     },
     {
         id: 2,
@@ -20,6 +53,7 @@ export const MockData = [
         sold: 157,
         stock: 289,
         releaseDate: "2021-08-19",
+        trailer: "https://www.youtube.com/embed/E3Huy2cdih0" // Elden Ring
     },
     {
         id: 3,
@@ -31,6 +65,7 @@ export const MockData = [
         sold: 324,
         stock: 47,
         releaseDate: "2023-02-13",
+        trailer: "https://www.youtube.com/embed/HqQMh_tij0c" // God of War
     },
     {
         id: 4,
@@ -42,6 +77,7 @@ export const MockData = [
         sold: 278,
         stock: 414,
         releaseDate: "2023-02-20",
+        trailer: "https://www.youtube.com/embed/91t0ha9x0AE" // Hades
     },
     {
         id: 5,
@@ -53,6 +89,7 @@ export const MockData = [
         sold: 188,
         stock: 171,
         releaseDate: "2024-05-05",
+        trailer: "https://www.youtube.com/embed/RO90omga8D4" // Doom
     },
     {
         id: 6,
@@ -64,6 +101,7 @@ export const MockData = [
         sold: 258,
         stock: 435,
         releaseDate: "2024-03-28",
+        trailer: "https://www.youtube.com/embed/9zv1S2nC6iU" // Green Hell
     },
     {
         id: 7,
@@ -75,6 +113,7 @@ export const MockData = [
         sold: 284,
         stock: 54,
         releaseDate: "2022-01-18",
+        trailer: "https://www.youtube.com/embed/JCDIYvZ3hSk" // Path of Exile
     },
     {
         id: 8,
@@ -86,6 +125,7 @@ export const MockData = [
         sold: 304,
         stock: 302,
         releaseDate: "2021-04-29",
+        trailer: "https://www.youtube.com/embed/eaW0tYpxyp0" // Red Dead Redemption
     },
     {
         id: 9,
@@ -97,6 +137,7 @@ export const MockData = [
         sold: 291,
         stock: 484,
         releaseDate: "2021-11-03",
+        trailer: "https://www.youtube.com/embed/MmB9b5njVbA" // Minecraft
     },
     {
         id: 10,
@@ -108,6 +149,7 @@ export const MockData = [
         sold: 374,
         stock: 20,
         releaseDate: "2024-05-12",
+        trailer: "https://www.youtube.com/embed/K0u_kAWLJOA" // God of War (PC)
     },
     {
         id: 11,
@@ -119,6 +161,7 @@ export const MockData = [
         sold: 132,
         stock: 385,
         releaseDate: "2022-05-23",
+        trailer: "https://www.youtube.com/embed/QkkoHAzjnUs" // GTA V
     },
     {
         id: 12,
@@ -130,6 +173,7 @@ export const MockData = [
         sold: 292,
         stock: 488,
         releaseDate: "2021-07-01",
+        trailer: "https://www.youtube.com/embed/5P7iZ_2v1dU" // Spider-Man 2
     },
     {
         id: 13,
@@ -141,6 +185,7 @@ export const MockData = [
         sold: 349,
         stock: 64,
         releaseDate: "2023-12-23",
+        trailer: "https://www.youtube.com/embed/6Q3fQ5lq7hM" // Palworld
     },
     {
         id: 14,
@@ -152,6 +197,7 @@ export const MockData = [
         sold: 125,
         stock: 54,
         releaseDate: "2023-04-11",
+        trailer: "https://www.youtube.com/embed/Cr5rQ1NZ0Tw" // Black Myth: Wukong
     },
     {
         id: 15,
@@ -163,6 +209,7 @@ export const MockData = [
         sold: 307,
         stock: 235,
         releaseDate: "2022-08-17",
+        trailer: "https://www.youtube.com/embed/c0i88t0Kacs" // Witcher 3
     },
     {
         id: 16,
@@ -174,6 +221,7 @@ export const MockData = [
         sold: 366,
         stock: 149,
         releaseDate: "2022-04-21",
+        trailer: "https://www.youtube.com/embed/9jF4wF1xFhE" // Football Manager 2024
     },
     {
         id: 17,
@@ -185,6 +233,7 @@ export const MockData = [
         sold: 315,
         stock: 259,
         releaseDate: "2020-04-07",
+        trailer: "https://www.youtube.com/embed/DRP62MGOrU8" // Diablo 2 Resurrected
     },
     {
         id: 18,
@@ -196,6 +245,7 @@ export const MockData = [
         sold: 143,
         stock: 367,
         releaseDate: "2022-03-15",
+        trailer: "https://www.youtube.com/embed/UAO2urG23S4" // Hollow Knight: Silksong
     },
     {
         id: 19,
@@ -207,6 +257,7 @@ export const MockData = [
         sold: 358,
         stock: 140,
         releaseDate: "2023-05-01",
+        trailer: "https://www.youtube.com/embed/1T22wNvoNiU" // Baldur's Gate 3
     },
     {
         id: 20,
@@ -218,28 +269,31 @@ export const MockData = [
         sold: 104,
         stock: 437,
         releaseDate: "2020-12-07",
+        trailer: "https://www.youtube.com/embed/BO1HAmV0qA8" // The Last of Us
     },
     {
         id: 21,
         name: "Counter-Strike 2",
-        price: 0,
+        price: 100000,
         image: "cs2.png",
         category: "Roleplay",
         discount: 8,
         sold: 288,
         stock: 450,
         releaseDate: "2020-09-04",
+        trailer: "https://www.youtube.com/embed/edYCtaNueQY" // Counter-Strike 2
     },
     {
         id: 22,
         name: "Dota 2",
-        price: 0,
+        price: 490000,
         image: "dota-2.png",
         category: "Rougelike",
         discount: 4,
         sold: 239,
         stock: 434,
         releaseDate: "2022-08-08",
+        trailer: "https://www.youtube.com/embed/SmnqsdeHFT0" // Dota 2
     },
     {
         id: 23,
@@ -251,6 +305,7 @@ export const MockData = [
         sold: 292,
         stock: 245,
         releaseDate: "2022-04-13",
+        trailer: "https://www.youtube.com/embed/bmGz7W6cX6Y" // Monster Hunter Wilds
     },
     {
         id: 24,
@@ -262,6 +317,7 @@ export const MockData = [
         sold: 327,
         stock: 254,
         releaseDate: "2024-10-02",
+        trailer: "https://www.youtube.com/embed/BtyBjOW8sGY" // Hogwarts Legacy
     },
     {
         id: 25,
@@ -273,6 +329,7 @@ export const MockData = [
         sold: 162,
         stock: 50,
         releaseDate: "2024-03-15",
+        trailer: "https://www.youtube.com/embed/rXMX4YJ7Lks" // Sekiro
     },
     {
         id: 26,
@@ -284,6 +341,7 @@ export const MockData = [
         sold: 347,
         stock: 229,
         releaseDate: "2023-06-08",
+        trailer: "https://www.youtube.com/embed/ot7uXNQskhs" // Stardew Valley
     },
     {
         id: 27,
@@ -295,6 +353,7 @@ export const MockData = [
         sold: 306,
         stock: 403,
         releaseDate: "2021-06-14",
+        trailer: "https://www.youtube.com/embed/Id2EaldBaWw" // Resident Evil 4
     },
     {
         id: 28,
@@ -306,6 +365,7 @@ export const MockData = [
         sold: 299,
         stock: 348,
         releaseDate: "2022-11-15",
+        trailer: "https://www.youtube.com/embed/w7uOhFTrrq0" // Terraria
     },
     {
         id: 29,
@@ -317,6 +377,7 @@ export const MockData = [
         sold: 334,
         stock: 373,
         releaseDate: "2022-07-03",
+        trailer: "https://www.youtube.com/embed/0zVn6yHjvJU" // Helldivers 2
     },
     {
         id: 30,
@@ -329,4 +390,338 @@ export const MockData = [
         stock: 123,
         releaseDate: "2020-08-05",
     },
-];
+    {
+        id: 31,
+        name: "EA SPORTS FC 24",
+        price: 1090000,
+        image: "fc24.png",
+        category: "Online",
+        discount: 0,
+        sold: 845,
+        stock: 120,
+        releaseDate: "2023-09-29",
+        trailer: "https://www.youtube.com/embed/ixl31324UxE" // Phantom Liberty
+    },
+    {
+        id: 32,
+        name: "Call of Duty: Modern Warfare III",
+        price: 1690000,
+        image: "cod-mw3.png",
+        category: "Shooter",
+        discount: 0,
+        sold: 620,
+        stock: 50,
+        releaseDate: "2023-11-10",
+    },
+    {
+        id: 33,
+        name: "Assassin's Creed Mirage",
+        price: 990000,
+        image: "ac-mirage.png",
+        category: "Adventure",
+        discount: 0,
+        sold: 312,
+        stock: 89,
+        releaseDate: "2023-10-05",
+    },
+    {
+        id: 34,
+        name: "Final Fantasy XVI",
+        price: 1390000,
+        image: "ff16.png",
+        category: "Roleplay",
+        discount: 25,
+        sold: 405,
+        stock: 67,
+        releaseDate: "2023-06-22",
+    },
+    {
+        id: 35,
+        name: "Starfield",
+        price: 1290000,
+        image: "starfield.png",
+        category: "Open world",
+        discount: 20,
+        sold: 560,
+        stock: 200,
+        releaseDate: "2023-09-06",
+    },
+    {
+        id: 36,
+        name: "Diablo IV",
+        price: 1490000,
+        image: "diablo-4.png",
+        category: "Roleplay",
+        discount: 0,
+        sold: 900,
+        stock: 150,
+        releaseDate: "2023-06-05",
+    },
+    {
+        id: 37,
+        name: "Street Fighter 6",
+        price: 1100000,
+        image: "sf6.png",
+        category: "Online",
+        discount: 45,
+        sold: 230,
+        stock: 80,
+        releaseDate: "2023-06-02",
+    },
+    {
+        id: 38,
+        name: "Mortal Kombat 1",
+        price: 1250000,
+        image: "mk1.png",
+        category: "Online",
+        discount: 30,
+        sold: 210,
+        stock: 95,
+        releaseDate: "2023-09-19",
+    },
+    {
+        id: 39,
+        name: "Armored Core VI",
+        price: 990000,
+        image: "armored-core-6.png",
+        category: "Shooter",
+        discount: 0,
+        sold: 180,
+        stock: 60,
+        releaseDate: "2023-08-25",
+    },
+    {
+        id: 40,
+        name: "Alan Wake 2",
+        price: 850000,
+        image: "alan-wake-2.png",
+        category: "Survival",
+        discount: 20,
+        sold: 150,
+        stock: 45,
+        releaseDate: "2023-10-27",
+    },
+    {
+        id: 41,
+        name: "Lies of P",
+        price: 790000,
+        image: "lies-of-p.png",
+        category: "Roleplay",
+        discount: 25,
+        sold: 340,
+        stock: 110,
+        releaseDate: "2023-09-19",
+    },
+    {
+        id: 42,
+        name: "Sea of Stars",
+        price: 450000,
+        image: "sea-of-stars.png",
+        category: "Turn base",
+        discount: 15,
+        sold: 280,
+        stock: 300,
+        releaseDate: "2023-08-29",
+    },
+    {
+        id: 43,
+        name: "Payday 3",
+        price: 660000,
+        image: "payday-3.png",
+        category: "Shooter",
+        discount: 0,
+        sold: 120,
+        stock: 200,
+        releaseDate: "2023-09-21",
+    },
+    {
+        id: 44,
+        name: "Cities: Skylines II",
+        price: 820000,
+        image: "cities-skylines-2.png",
+        category: "Offline",
+        discount: 0,
+        sold: 190,
+        stock: 150,
+        releaseDate: "2023-10-24",
+    },
+    {
+        id: 45,
+        name: "Ghostrunner 2",
+        price: 550000,
+        image: "ghostrunner-2.png",
+        category: "Adventure",
+        discount: 30,
+        sold: 160,
+        stock: 120,
+        releaseDate: "2023-10-26",
+    },
+    {
+        id: 46,
+        name: "The Talos Principle 2",
+        price: 380000,
+        image: "talos-principle-2.png",
+        category: "Puzzle",
+        discount: 0,
+        sold: 90,
+        stock: 80,
+        releaseDate: "2023-11-02",
+    },
+    {
+        id: 47,
+        name: "Persona 5 Tactica",
+        price: 1100000,
+        image: "p5-tactica.png",
+        category: "Turn base",
+        discount: 20,
+        sold: 210,
+        stock: 75,
+        releaseDate: "2023-11-17",
+    },
+    {
+        id: 48,
+        name: "Dead by Daylight",
+        price: 220000,
+        image: "dbd.png",
+        category: "Survival",
+        discount: 0,
+        sold: 980,
+        stock: 500,
+        releaseDate: "2016-06-14",
+    },
+    {
+        id: 49,
+        name: "Rust",
+        price: 540000,
+        image: "rust.png",
+        category: "Survival",
+        discount: 0,
+        sold: 750,
+        stock: 300,
+        releaseDate: "2018-02-08",
+    },
+    {
+        id: 50,
+        name: "Subnautica",
+        price: 260000,
+        image: "subnautica.png",
+        category: "Survival",
+        discount: 50,
+        sold: 640,
+        stock: 220,
+        releaseDate: "2018-01-23",
+    },
+    {
+        id: 51,
+        name: "Left 4 Dead 2",
+        price: 120000,
+        image: "l4d2.png",
+        category: "Zombie",
+        discount: 90,
+        sold: 2500,
+        stock: 1000,
+        releaseDate: "2009-11-17",
+    },
+    {
+        id: 52,
+        name: "Dying Light 2",
+        price: 890000,
+        image: "dying-light-2.png",
+        category: "Zombie",
+        discount: 50,
+        sold: 450,
+        stock: 180,
+        releaseDate: "2022-02-04",
+    },
+    {
+        id: 53,
+        name: "Vampire Survivors",
+        price: 70000,
+        image: "vampire-survivors.png",
+        category: "Rougelike",
+        discount: 20,
+        sold: 1200,
+        stock: 800,
+        releaseDate: "2022-10-20",
+    },
+    {
+        id: 54,
+        name: "Dead Cells",
+        price: 280000,
+        image: "dead-cells.png",
+        category: "Rougelike",
+        discount: 0,
+        sold: 560,
+        stock: 250,
+        releaseDate: "2018-08-06",
+    },
+    {
+        id: 55,
+        name: "The Forest",
+        price: 188000,
+        image: "the-forest.png",
+        category: "Survival",
+        discount: 0,
+        sold: 890,
+        stock: 300,
+        releaseDate: "2018-04-30",
+    },
+    {
+        id: 56,
+        name: "7 Days to Die",
+        price: 270000,
+        image: "7-days-to-die.png",
+        category: "Zombie",
+        discount: 0,
+        sold: 430,
+        stock: 210,
+        releaseDate: "2013-12-13",
+    },
+    {
+        id: 57,
+        name: "Project Zomboid",
+        price: 230000,
+        image: "project-zomboid.png",
+        category: "Zombie",
+        discount: 0,
+        sold: 670,
+        stock: 150,
+        releaseDate: "2013-11-08",
+    },
+    {
+        id: 58,
+        name: "Don't Starve Together",
+        price: 165000,
+        image: "dont-starve-together.png",
+        category: "Survival",
+        discount: 0,
+        sold: 1100,
+        stock: 450,
+        releaseDate: "2016-04-21",
+    },
+    {
+        id: 59,
+        name: "Cuphead",
+        price: 188000,
+        image: "cuphead.png",
+        category: "Adventure",
+        discount: 30,
+        sold: 540,
+        stock: 200,
+        releaseDate: "2017-09-29",
+    },
+    {
+        id: 60,
+        name: "The Binding of Isaac: Rebirth",
+        price: 188000,
+        image: "binding-of-isaac.png",
+        category: "Rougelike",
+        discount: 0,
+        sold: 720,
+        stock: 320,
+        releaseDate: "2014-11-04",
+    },
+].map(game => ({
+    ...game,
+    systemRequirements: game.systemRequirements ?? defaultSystemRequirements
+}));
