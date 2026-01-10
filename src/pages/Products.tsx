@@ -21,6 +21,8 @@ const Products = () => {
     } = useProductFilter(products);
     const [searchParams] = useSearchParams();
     const searchQuery = searchParams.get("search") || "";
+    const categoryQuery = searchParams.get("category") || "";
+
 
     useEffect(() => {
         dispatch(setProduct(MockData));
@@ -33,6 +35,24 @@ const Products = () => {
             handleResetFilters();
         }
     }, [searchQuery]);
+
+    // useEffect(() => {
+    //     // Reset trước để tránh bị dính filter cũ
+    //     handleResetFilters();
+    //
+    //     if (searchQuery) {
+    //         setNameFilter(searchQuery);
+    //     }
+    //
+    //     if (categoryQuery) {
+    //         handleFilterChange("category", categoryQuery);
+    //     }
+    //
+    //     // Sau khi set xong filter thì apply
+    //     if (searchQuery || categoryQuery) {
+    //         handleApplyFilters();
+    //     }
+    // }, [searchQuery, categoryQuery]);
 
     return (
         <div className="bg-panel min-h-screen py-8 px-4 md:px-16 lg:px-24 text-text font-sans">

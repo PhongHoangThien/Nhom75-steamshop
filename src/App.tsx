@@ -16,6 +16,8 @@ import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import ScrollToTop from "./components/ScrollToTop";
 import FilterProduct from "./pages/FilterProduct";
+import PaymentMethod from "./pages/PaymentMethod";
+
 
 function App() {
     const [order, setOrder] = useState(null)
@@ -39,6 +41,7 @@ function App() {
               <Route path="/checkout" element={<Checkout setOrder={setOrder}/>} />
               <Route path="/order-confirmation" element={<OrderConfirmation order={order} />} />
               <Route path="/filter-product" element={<FilterProduct />} />
+              <Route path="/payment-method" element={<PaymentMethod />} />
           </Routes>
           <Footer />
       </BrowserRouter>
