@@ -30,13 +30,13 @@ const InfoSection =  () => {
     ];
 
     return (
-        <div className="bg-panel pb-8 pt-12">
+        <div className="panel-theme pb-8 pt-12">
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 {infoItems.map((item, index) => (
-                    <div key={index} className="flex flex-col items-center text-center p-4 border rounded-lg shadow-md card-hover">
+                    <div key={index} className="flex flex-col items-center text-center p-4 border-theme rounded-lg shadow-md card-hover">
                         {item.icon}
                         <h3 className="mt-4 text-title font-semibold">{item.title}</h3>
-                        <p className="mt-2 text-textMuted">{item.description}</p>
+                        <p className="mt-2">{item.description}</p>
                     </div>
                 ))}
             </div>

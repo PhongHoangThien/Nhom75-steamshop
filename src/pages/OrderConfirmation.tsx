@@ -13,7 +13,7 @@ const OrderConfirmation = ({ order }: any) => {
                     </h2>
                     <p className="text-textMuted text-sm md:text-base">
                         Đơn hàng của bạn đang được xử lý. Chúng tôi sẽ gửi thông báo
-                        qua email hoặc số điện thoại bạn đã đăng ký.
+                        qua email hoặc số điện thoại của bạn.
                     </p>
                 </div>
 
@@ -76,7 +76,6 @@ const OrderConfirmation = ({ order }: any) => {
                     </div>
                 </div>
 
-                {/* Total */}
                 <div className="border-t border-border pt-4 flex justify-between items-center text-lg font-semibold mb-6">
                     <span>Tổng cộng</span>
                     <span className="text-primary">
