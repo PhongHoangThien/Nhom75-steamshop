@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router-dom";
 
 const CategorySection = () => {
+    const navigate = useNavigate();
+
     const categories = [
         {
             title: 'Rougelike',
@@ -25,20 +28,33 @@ const CategorySection = () => {
             title: 'Adventure',
             image: 'minecraft.png',
         },
-    ]
+    ];
+
     return (
-        <div className="container mx-auto grid gird-cols-1 sm:grid-cols-3 gap-6 cursor-pointer">
+        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
             {categories.map((category, index) => (
-                <div key={index} className="relative h-64 card-hover">
-                    <img src={`./images/games/${category.image}`} alt={category.title} className="w-full h-full object-cover rounded-lg" />
-                    <div className="absolute top-5 left-5 bg-panel/50 p-3">
-                        <p className="text-title text-text font-bold">{category.title}</p>
-                        {/*<p className="">Xem tất cả</p>*/}
+                <div
+                    key={index}
+                    onClick={() =>
+                        navigate(`/products?category=${encodeURIComponent(category.title)}`)
+                    }
+                    className="relative h-64 card-hover cursor-pointer transform hover:scale-105 transition duration-300"
+                >
+                    <img
+                        src={`./images/games/${category.image}`}
+                        alt={category.title}
+                        className="w-full h-full object-cover rounded-lg"
+                    />
+                    <div className="absolute top-5 left-5 bg-panel/70 backdrop-blur-sm p-3 rounded-lg">
+                        <p className="text-title text-text font-bold text-lg">
+                            {category.title}
+                        </p>
+                        {/*<p className="text-2xl text-gray-300">Xem tất cả</p>*/}
                     </div>
                 </div>
             ))}
         </div>
-    )
-}
+    );
+};
 
-export default CategorySection
+export default CategorySection;
