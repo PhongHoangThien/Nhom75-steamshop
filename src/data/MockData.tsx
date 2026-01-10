@@ -26,9 +26,6 @@ export const MockData = [
         stock: 194,
         releaseDate: "2021-04-23",
         trailer: "https://www.youtube.com/embed/qIcTM8WXFjk", // Cyberpunk 2077
-        reviewCount: 302,
-        developer: "CD PROJEKT RED",
-        description:"Hãy mua game Cyberpunk 2077 đi cảm ơn nhiều.",
         systemRequirements: {
             minimum: {
                 os: "Windows 10 64-bit",
