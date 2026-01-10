@@ -5,7 +5,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../redux/store";
 import {logout} from "../redux/authSlice";
 import {useState} from "react";
-import {setSearchTerm} from "../redux/productSlice";
 
 const NavBar = () => {
     const {theme, toggleTheme} = useTheme();
@@ -32,7 +31,7 @@ const NavBar = () => {
     }
 
     return (
-        <nav className='bg-bg shadow-md text-text top-0 z-50'>
+        <nav className='theme shadow-md text-text top-0 z-50'>
             <div className='container mx-auto px-4 py-3 md:px-16 lg:px-24 space-x-16 flex space-between items-center'>
 
                 <div className='text-lg'>
@@ -44,15 +43,14 @@ const NavBar = () => {
                 <div className='relative flex-1 mx-4'>
                     <form onSubmit={handleSearch}>
                         <input type="text" placeholder="Tìm kiếm sản phẩm"
-                               className='w-full bg-panelLight py-2 px-3 rounded-md'
+                               className='panel-theme border-theme w-full py-2 px-3 rounded-md'
                                onChange={(e) => setSearch(e.target.value)}
                         />
                         <button
                             type="submit"
-                            className="absolute right-0 top-0 h-full px-3 bg-bg flex items-center justify-center border
-                            border-border rounded-r-md hover:bg-primaryHover"
+                            className="btn-theme border-theme absolute right-0 top-0 h-full px-3 flex items-center justify-center rounded-r-md "
                         >
-                            <FaSearch className="w-5 h-5 text-textMuted"/>
+                            <FaSearch className="w-5 h-5"/>
                         </button>
                     </form>
                 </div>
@@ -61,8 +59,8 @@ const NavBar = () => {
                     {!isAuthenticated ? (
 
                         <>
-                            <button className='p-3 border border-border rounded-lg hover:bg-primaryHover'>
-                                <FaUser className='w-5 h-5 text-textMuted'/>
+                            <button className='btn-theme p-3 border rounded-lg '>
+                                <FaUser className='w-5 h-5'/>
                             </button>
                             <div>
                                 <Link to="/login" className='hover:text-primary transition-colors'>Đăng nhập</Link>
@@ -125,10 +123,10 @@ const NavBar = () => {
                     )}
                 </div>
                 <Link to="/cart"
-                      className='flex flex-row border border-border px-2 py-2 rounded-md space-x-2 hover:bg-primaryHover'>
-                    <FaShoppingCart className='w-6 h-6 text-textMuted'/>
+                      className='btn-theme flex flex-row px-2 py-2 rounded-md space-x-2'>
+                    <FaShoppingCart className='w-6 h-6'/>
                     &nbsp; <span className="hidden lg:block">Giỏ hàng</span>
-                    <p className='bg-panelLight text-center rounded-md w-5'>{products.length}</p>
+                    <p className='panel-theme text-center rounded-md w-5'>{products.length}</p>
                 </Link>
                 <div>
                     <button
@@ -139,7 +137,7 @@ const NavBar = () => {
                     </button>
                 </div>
             </div>
-            <div className='flex items-center justify-center space-x-20 pb-5 text-base text-text font-bold'>
+            <div className='flex items-center justify-center space-x-20 pb-5 text-base font-bold'>
                 <Link to="/" className="hover:underline">Trang chủ</Link>
                 <Link to="/products" className="hover:underline">Tìm game</Link>
                 <Link to="/best-seller" className="hover:underline">Game bán chạy</Link>

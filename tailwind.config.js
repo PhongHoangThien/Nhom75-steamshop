@@ -13,7 +13,7 @@ export default {
                 bg: colors.slate[900],
                 panel: colors.slate[800],
                 panelLight: colors.slate[700],
-                border: colors.slate[600],
+                border: colors.slate[400],
 
                 primary: colors.blue[500],
                 primaryHover: colors.slate[500],
@@ -23,8 +23,24 @@ export default {
 
                 success: colors.green[400],
                 danger: colors.red[400],
-
                 price: colors.lime[300],
+
+                // light mode
+                bg_light: colors.gray[300],
+                panel_light: colors.slate[100],
+                panelLight_light: colors.slate[50],
+                border_light: colors.slate[600],
+
+                primary_light: colors.blue[600],
+                primaryHover_light: colors.blue[700],
+
+                text_light: colors.slate[900],
+                textMuted_light: colors.slate[600],
+
+                success_light: colors.emerald[600],
+                danger_light: colors.red[500],
+
+                price_light: colors.lime[600],
             },
             spacing: {
                 card: "1.25rem",     // 20px

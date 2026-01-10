@@ -18,13 +18,13 @@ const HomePage= () => {
     }, [])
 
     return (
-        <div className="bg-panel py-2 px-4 md:px-16 lg:px-24 text-text">
+        <div className="panel-theme py-2 px-4 md:px-16 lg:px-24 text-text">
             <div className="container items-center justify-center mx-auto py-4 flex felx-col md:flex-row space-x-10">
                 <div className="w-full md:w-3/12 border border-border">
-                    <div className="bg-bg text-title font-bold px-2 py-2">Thể loại game</div>
-                    <ul className="bg-panelLight">
+                    <div className="theme text-title font-bold px-2 py-2">Thể loại game</div>
+                    <ul>
                         {ProductCategory.map((category, index) => (
-                            <li key={index} className="flex items-center py-2 px-4 text-sm font-medium hover:bg-panel">{category}</li>
+                            <li key={index} className="flex items-center py-2 px-4 text-sm font-medium hover:bg-transparent/20">{category}</li>
                         ))}
                     </ul>
                 </div>

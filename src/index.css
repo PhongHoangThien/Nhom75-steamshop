@@ -11,19 +11,27 @@
 }
 
 .theme {
-    @apply bg-text text-bg dark:bg-bg  dark:text-text
+    @apply bg-bg_light text-text_light dark:bg-bg  dark:text-text
 }
 
 .panel-theme {
-    @apply bg-text text-bg dark:bg-panelLight dark:text-text
+    @apply bg-panel_light text-text_light dark:bg-panelLight dark:text-text
 }
 
 .card-theme {
-    @apply bg-text text-bg dark:bg-bg dark:text-text
+    @apply bg-bg_light text-text_light dark:bg-bg dark:text-text
 }
 
 .btn-theme {
-    @apply  border bg-text text-bg hover:bg-textMuted border-textMuted dark:bg-bg dark:text-text dark:hover:bg-primaryHover dark:border-border
+    @apply  border bg-bg_light text-text_light hover:bg-panelLight_light border-border_light dark:bg-bg dark:text-text dark:hover:bg-primaryHover dark:border-border
+}
+
+.icon-theme {
+    @apply text-text_light dark:text-text;
+}
+
+.border-theme {
+    @apply border border-border_light dark:border-border;
 }
 
 .card-hover {
