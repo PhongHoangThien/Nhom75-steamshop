@@ -18,6 +18,10 @@
     @apply bg-panel_light text-text_light dark:bg-panelLight dark:text-text
 }
 
+.panelLight-theme {
+    @apply bg-panel_light text-text_light dark:bg-panel dark:text-text
+}
+
 .card-theme {
     @apply bg-bg_light text-text_light dark:bg-bg dark:text-text
 }
@@ -32,6 +36,10 @@
 
 .border-theme {
     @apply border border-border_light dark:border-border;
+}
+
+.borderColor {
+    @apply border-border_light dark:border-border;
 }
 
 .card-hover {

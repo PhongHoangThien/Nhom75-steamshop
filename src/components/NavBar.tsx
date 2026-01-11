@@ -1,10 +1,22 @@
 import {Link, useNavigate} from "react-router-dom";
-import {FaMoon, FaSearch, FaShoppingCart, FaSun, FaUser, FaSignOutAlt, FaHistory, FaHeart, FaCog} from "react-icons/fa";
+import {
+    FaMoon,
+    FaSearch,
+    FaShoppingCart,
+    FaSun,
+    FaUser,
+    FaSignOutAlt,
+    FaHistory,
+    FaHeart,
+    FaCog,
+    FaList
+} from "react-icons/fa";
 import {useTheme} from "../hook/useTheme";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../redux/store";
 import {logout} from "../redux/authSlice";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import { ProductCategory } from "../data/ProductCategory";
 
 const NavBar = () => {
     const {theme, toggleTheme} = useTheme();
@@ -13,6 +25,7 @@ const NavBar = () => {
     const navigate = useNavigate();
     const {isAuthenticated, user} = useSelector((state: RootState) => state.auth);
     const [search, setSearch] = useState("")
+    const dropdownRef = useRef<HTMLDivElement | null>(null);
 
     const handleLogout = () => {
         dispatch(logout());
@@ -30,6 +43,32 @@ const NavBar = () => {
         navigate(`/products?search=${encodeURIComponent(search)}`);
     }
 
+    const [open, setOpen] = useState(false);
+
+    const navItemClass = ({ isActive }: { isActive: boolean }) =>
+        `relative pb-1 text-xl font-black uppercase transition-all duration-300 no-underline hover:text-primary ${
+            isActive ? "text-primary" : "text-text"
+        } group`;
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                open &&
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target as Node)
+            ) {
+                setOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [open]);
+
+
     return (
         <nav className='theme shadow-md text-text top-0 z-50'>
             <div className='container mx-auto px-4 py-3 md:px-16 lg:px-24 space-x-16 flex space-between items-center'>
@@ -43,7 +82,7 @@ const NavBar = () => {
                 <div className='relative flex-1 mx-4'>
                     <form onSubmit={handleSearch}>
                         <input type="text" placeholder="Tìm kiếm sản phẩm"
-                               className='bg-transparent/10 border-theme w-full py-2 px-3 rounded-md'
+                               className='bg-panelLight/30 border-theme w-full py-2 px-3 rounded-md'
                                onChange={(e) => setSearch(e.target.value)}
                         />
                         <button
@@ -131,16 +170,43 @@ const NavBar = () => {
                 <div>
                     <button
                         onClick={toggleTheme}
-                        className="flex items-center justify-center w-10 h-10 rounded-full bg-text dark:bg-panelLight text-bg dark:text-text card-hover"
+                            className="flex items-center justify-center w-10 h-10 rounded-full panel-theme card-hover"
                     >
                         {theme === "dark" ? <FaSun/> : <FaMoon/>}
                     </button>
                 </div>
             </div>
-            <div className='flex items-center justify-center space-x-20 pb-5 text-base font-bold'>
+
+            <div className='flex items-center justify-center space-x-20 py-2 font-bold'>
                 <Link to="/" className="hover:underline">Trang chủ</Link>
+
+                <div className="relative" ref={dropdownRef}>
+                    <div
+                        className="flex items-center gap-2 cursor-pointer select-none rounded-md"
+                        onClick={() => setOpen(!open)}
+                    >
+                        <span className="font-bold">Thể loại game</span>
+                        <FaList />
+                    </div>
+
+                    {open && (
+                        <ul className="absolute left-0 top-full mt-2 panel-theme z-50 min-w-48 rounded-md shadow-xl">
+                            {ProductCategory.map((category, index) => (
+                                <li
+                                    key={index}
+                                    onClick={() => {
+                                        navigate(`/products?category=${encodeURIComponent(category)}`);
+                                        setOpen(false);
+                                    }}
+                                    className="panel-theme hover:bg-transparent/20 px-4 py-2 text-sm font-medium cursor-pointer whitespace-nowrap"
+                                >
+                                    {category}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
                 <Link to="/products" className="hover:underline">Tìm game</Link>
-                <Link to="/best-seller" className="hover:underline">Game bán chạy</Link>
                 <Link to="/product-on-sale" className="hover:underline">Game đang giảm giá</Link>
                 <Link to="/payment-method" className="hover:underline">Hình thức thanh toán</Link>
             </div>

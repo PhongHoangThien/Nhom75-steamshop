@@ -40,7 +40,6 @@ export default function ProductCard({ product }: any) {
                     {product.name}
                 </h3>
 
-                {/* Giá */}
                 <div className="mt-1">
                     {product.discount > 0 ? (
                         <div className="flex items-center gap-2">

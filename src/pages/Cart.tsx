@@ -12,21 +12,21 @@ const Cart = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="bg-panelLight py-8 px-4 md:px-16 lg:px-24">
+        <div className="panel-theme py-8 px-4 md:px-16 lg:px-24">
             <div className="container mx-auto">
-                <div className="flex items-center text-textMuted mb-6 space-x-2">
+                <div className="flex items-center mb-6 space-x-2">
                     <h3 className="text-2xl font-semibold">Giỏ hàng</h3>
                     <p className="text-sm">
                         ({cart.products.length} sản phẩm)
                     </p>
                 </div>
 
-                <div className="flex flex-col lg:flex-row gap-8">
-                    <div className="lg:w-2/3 bg-panel shadow p-6">
+                <div className="panel-theme flex flex-col lg:flex-row gap-8">
+                    <div className="panelLight-theme lg:w-2/3 shadow p-6">
                         {cart.products.length > 0 ? (
                             <div>
                                 {/* Cart header */}
-                                <div className="grid grid-cols-12 gap-4 border-b pb-3 mb-4 text-sm font-semibold text-textMuted">
+                                <div className="grid grid-cols-12 gap-4 border-b pb-3 mb-4 text-sm font-semibold">
                                     <div className="col-span-5">Sản phẩm</div>
                                     <div className="col-span-2 text-center">Đơn giá</div>
                                     <div className="col-span-2 text-center">Số lượng</div>
@@ -35,15 +35,15 @@ const Cart = () => {
                                 </div>
 
                                 {cart.products.map((product: any) => (
-                                    <div key={product.id} className="grid grid-cols-12 items-center gap-4 border-b py-4 text-sm text-text">
-                                        <Link className="col-span-5 flex gap-4" to={`/game/${product.id}`}>
+                                    <div key={product.id} className="grid grid-cols-12 items-center gap-4 border-b py-4 text-sm">
+                                        <Link className="col-span-5 flex gap-4" to={`/product/${product.id}`}>
                                             <img
                                                 src={`./images/games/${product.image}`}
                                                 alt={product.name}
                                                 className="w-48 h-32 object-cover card-hover"
                                             />
-                                            <div className="text-textMuted text-xs mt-1 space-y-2">
-                                                <h3 className="text-base text-text font-bold">
+                                            <div className="text-xs mt-1 space-y-2">
+                                                <h3 className="text-base font-bold">
                                                     {product.name}
                                                 </h3>
                                                 <p>{product.category}thể loại</p>
@@ -53,7 +53,7 @@ const Cart = () => {
                                         </Link>
 
                                         <div className="col-span-2 text-center">
-                                            <p className="text-textMuted line-through text-xs">
+                                            <p className="line-through text-xs">
                                                 {(product.price * 1.1).toLocaleString()} đ
                                             </p>
                                             <p className="font-medium">
@@ -64,12 +64,12 @@ const Cart = () => {
                                         <div className="col-span-2 flex justify-center">
                                             <div className="flex items-center border rounded">
                                                 <button
-                                                    className="px-2 hover:bg-panelLight"
+                                                    className="px-2 btn-theme"
                                                     onClick={() => dispatch(decreaseQuantity(product.id))}
                                                 >-</button>
                                                 <span className="px-3 min-w-[32px] text-center">{product.quantity}</span>
                                                 <button
-                                                    className="px-2 hover:bg-panelLight"
+                                                    className="px-2 btn-theme"
                                                     onClick={() => dispatch(increaseQuantity(product.id))}
                                                 >+</button>
                                             </div>
@@ -81,7 +81,7 @@ const Cart = () => {
 
                                         <div className="col-span-1 flex justify-center">
                                             <button
-                                                className="text-textMuted hover:text-red-500"
+                                                className="hover:text-red-500"
                                                 onClick={() => dispatch(removeFromCart(product.id))}
                                             >
                                                 <FaRegTrashCan />
@@ -97,18 +97,18 @@ const Cart = () => {
                                     alt=""
                                     className="w-48 mb-6 opacity-80"
                                 />
-                                <h3 className="text-xl text-text font-semibold mb-2">
+                                <h3 className="text-xl font-semibold mb-2">
                                     Giỏ hàng của bạn đang trống
                                 </h3>
-                                <p className="text-textMuted">
+                                <p>
                                     Thêm sản phẩm vào giỏ và quay lại để thanh toán nhé!
                                 </p>
                             </div>
                         )}
                     </div>
 
-                    <div className="lg:w-1/3 bg-panel">
-                        <div className="rounded-xl text-text shadow p-6 sticky top-24">
+                    <div className="panelLight-theme lg:w-1/3">
+                        <div className="rounded-xl shadow p-6 sticky top-24">
                             <h3 className="text-lg font-semibold mb-4">
                                 Thông tin thanh toán
                             </h3>
