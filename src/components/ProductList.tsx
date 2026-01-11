@@ -8,7 +8,7 @@ interface ProductListProps {
     onReset: () => void;
 }
 
-const PRODUCTS_PER_PAGE = 20; // mỗi trang 10 game
+const PRODUCTS_PER_PAGE = 20;
 
 const ProductList: React.FC<ProductListProps> = ({ products, onReset }) => {
     const [currentPage, setCurrentPage] = useState(1);

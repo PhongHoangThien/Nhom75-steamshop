@@ -1,53 +1,76 @@
 import { Link } from "react-router-dom";
-import { Product } from "../redux/productSlice";
+import { FaCartPlus } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
 
-interface Props {
-    product: Product;
-}
+export default function ProductCard({ product }: any) {
+    const dispatch = useDispatch();
 
-const ProductCard = ({ product }: Props) => {
+    const handleAddToCart = (e: any, product: any) => {
+        e.stopPropagation();
+        e.preventDefault();
+        dispatch(addToCart(product));
+    };
+
+    // Giá sau khi giảm
+    const finalPrice =
+        product.discount > 0
+            ? Math.round(product.price * (100 - product.discount) / 100)
+            : product.price;
+
     return (
-        <div className="relative bg-panelLight rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+        <div className="bg-bg p-4 rounded relative card-hover h-full flex flex-col">
 
             {/* Badge giảm giá */}
             {product.discount > 0 && (
-                <div className="absolute top-2 left-2 z-10 bg-gradient-to-r from-red-600 to-pink-600
-                        text-white text-xs font-bold px-2 py-1 rounded-full">
+                <div className="absolute top-2 left-2 z-10
+                    bg-gradient-to-r from-red-600 to-pink-600
+                    text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                     -{product.discount}%
                 </div>
             )}
 
-            <Link to={`/product/${product.id}`}>
+            <Link to={`/product/${product.id}`} className="flex-1">
                 <img
                     src={`${import.meta.env.BASE_URL}images/games/${product.image}`}
                     alt={product.name}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-48 object-cover mb-4 rounded-md"
                 />
 
-                <div className="p-3 space-y-2">
-                    <h3 className="font-semibold text-sm line-clamp-2">
-                        {product.name}
-                    </h3>
+                <h3 className="text-lg font-semibold line-clamp-1">
+                    {product.name}
+                </h3>
 
-                    {/* Giá */}
+                {/* Giá */}
+                <div className="mt-1">
                     {product.discount > 0 ? (
                         <div className="flex items-center gap-2">
-              <span className="text-gray-400 line-through text-sm">
-                {product.price.toLocaleString()}đ
-              </span>
-                            <span className="text-green-400 font-bold">
-                {(product.price * (100 - product.discount) / 100).toLocaleString()}đ
-              </span>
+                            <span className="text-red-500 font-bold">
+                                {finalPrice.toLocaleString()}đ
+                            </span>
+                            <span className="line-through text-textMuted text-sm">
+                                {product.price.toLocaleString()}đ
+                            </span>
                         </div>
                     ) : (
-                        <span className="text-green-400 font-bold">
-              {product.price.toLocaleString()}đ
-            </span>
+                        <p className="text-textMuted">
+                            {product.price.toLocaleString()}đ
+                        </p>
                     )}
                 </div>
             </Link>
+
+            {/* Nút thêm vào giỏ */}
+            <div
+                className="absolute bottom-4 right-2 flex items-center justify-center w-8 h-8 bg-panel
+                group text-textMuted rounded-full hover:w-32 hover:bg-panelLight transition-all duration-300 overflow-hidden"
+                onClick={(e) => handleAddToCart(e, product)}
+            >
+                <FaCartPlus className="min-w-[1.25rem] text-lg" />
+                <span className="hidden group-hover:block text-sm ml-2 whitespace-nowrap">
+                    Thêm giỏ hàng
+                </span>
+            </div>
         </div>
     );
-};
-
-export default ProductCard;
+}
