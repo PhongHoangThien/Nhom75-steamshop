@@ -39,16 +39,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, onReset }) => {
             {/* Danh sách game */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                 {currentProducts.map((product) => (
-                    <div key={product.id} className="transform hover:-translate-y-1 transition-transform duration-300">
-                        <div className="relative group">
-                            {product.discount > 0 && (
-                                <div className="absolute top-2 left-2 z-10 bg-gradient-to-r from-red-600 to-pink-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                                    -{product.discount}%
-                                </div>
-                            )}
-                            <ProductCard product={product} />
-                        </div>
-                    </div>
+                    <ProductCard product={product} />
                 ))}
             </div>
 

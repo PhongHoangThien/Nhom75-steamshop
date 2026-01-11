@@ -19,9 +19,8 @@ export default function ProductCard({ product }: any) {
             : product.price;
 
     return (
-        <div className="bg-bg p-4 rounded relative card-hover h-full flex flex-col">
+        <div className="theme p-4 rounded relative card-hover h-full flex flex-col">
 
-            {/* Badge giảm giá */}
             {product.discount > 0 && (
                 <div className="absolute top-2 left-2 z-10
                     bg-gradient-to-r from-red-600 to-pink-600
@@ -60,14 +59,13 @@ export default function ProductCard({ product }: any) {
                 </div>
             </Link>
 
-            {/* Nút thêm vào giỏ */}
             <div
-                className="absolute bottom-4 right-2 flex items-center justify-center w-8 h-8 bg-panel
-                group text-textMuted rounded-full hover:w-32 hover:bg-panelLight transition-all duration-300 overflow-hidden"
+                className="panel-theme absolute bottom-4 right-2 flex items-center justify-center w-8 h-8
+                group rounded-full hover:w-24 overflow-hidden"
                 onClick={(e) => handleAddToCart(e, product)}
             >
-                <FaCartPlus className="min-w-[1.25rem] text-lg" />
-                <span className="hidden group-hover:block text-sm ml-2 whitespace-nowrap">
+                <FaCartPlus className="w-5 h-5 group-hover:hidden" />
+                <span className="hidden group-hover:block text-xs">
                     Thêm giỏ hàng
                 </span>
             </div>

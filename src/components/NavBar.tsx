@@ -1,18 +1,18 @@
-import { Link, useNavigate, NavLink } from "react-router-dom";
-import { FaMoon, FaSearch, FaShoppingCart, FaSun, FaUser, FaSignOutAlt, FaHistory, FaHeart, FaCog } from "react-icons/fa";
-import { useTheme } from "../hook/useTheme";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { logout } from "../redux/authSlice";
-import { useState } from "react";
+import {Link, useNavigate} from "react-router-dom";
+import {FaMoon, FaSearch, FaShoppingCart, FaSun, FaUser, FaSignOutAlt, FaHistory, FaHeart, FaCog} from "react-icons/fa";
+import {useTheme} from "../hook/useTheme";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../redux/store";
+import {logout} from "../redux/authSlice";
+import {useState} from "react";
 
 const NavBar = () => {
-    const { theme, toggleTheme } = useTheme();
+    const {theme, toggleTheme} = useTheme();
     const products = useSelector((state: RootState) => state.cart.products);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { isAuthenticated, user } = useSelector((state: RootState) => state.auth);
-    const [search, setSearch] = useState("");
+    const {isAuthenticated, user} = useSelector((state: RootState) => state.auth);
+    const [search, setSearch] = useState("")
 
     const handleLogout = () => {
         dispatch(logout());
@@ -21,41 +21,34 @@ const NavBar = () => {
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
+
         if (!search.trim()) {
             navigate("/products");
             return;
         }
+
         navigate(`/products?search=${encodeURIComponent(search)}`);
     }
 
-    // Class xử lý Active và Hover - Tăng kích thước chữ lên text-xl (rất to)
-    const navItemClass = ({ isActive }: { isActive: boolean }) =>
-        `relative pb-1 text-xl font-black uppercase transition-all duration-300 no-underline hover:text-primary ${
-            isActive ? "text-primary" : "text-text"
-        } group`;
-
     return (
-        <nav className='theme shadow-md text-text sticky top-0 z-50 bg-panel'>
-            {/* Hàng trên - Giảm padding py-3 xuống py-2 để giảm chiều cao */}
-            <div className='container mx-auto px-4 py-2 md:px-16 lg:px-24 space-x-16 flex justify-between items-center'>
+        <nav className='theme shadow-md text-text top-0 z-50'>
+            <div className='container mx-auto px-4 py-3 md:px-16 lg:px-24 space-x-16 flex space-between items-center'>
 
                 <div className='text-lg'>
-                    <Link to="/" className="flex relative transition-transform hover:scale-105 duration-300">
-                        <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Logo" className="w-32 h-auto"/>
+                    <Link to="/" className="flex relative card-hover">
+                        <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="" className="w-32 h-auto"/>
                     </Link>
                 </div>
 
                 <div className='relative flex-1 mx-4'>
-                    <form onSubmit={handleSearch} className="relative group">
-                        <input
-                            type="text"
-                            placeholder="Tìm kiếm sản phẩm"
-                            className='panel-theme border-theme w-full py-2 px-4 rounded-md text-lg font-bold outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300'
-                            onChange={(e) => setSearch(e.target.value)}
+                    <form onSubmit={handleSearch}>
+                        <input type="text" placeholder="Tìm kiếm sản phẩm"
+                               className='bg-transparent/10 border-theme w-full py-2 px-3 rounded-md'
+                               onChange={(e) => setSearch(e.target.value)}
                         />
                         <button
                             type="submit"
-                            className="absolute right-0 top-0 h-full px-4 flex items-center justify-center text-textMuted group-hover:text-primary transition-colors duration-300"
+                            className="btn-theme border-theme absolute right-0 top-0 h-full px-3 flex items-center justify-center rounded-r-md "
                         >
                             <FaSearch className="w-5 h-5"/>
                         </button>
@@ -64,52 +57,62 @@ const NavBar = () => {
 
                 <div className='flex items-center space-x-4'>
                     {!isAuthenticated ? (
+
                         <>
-                            <button className='btn-theme p-3 border rounded-lg hover:border-primary transition-all duration-300'>
+                            <button className='btn-theme p-3 border rounded-lg '>
                                 <FaUser className='w-5 h-5'/>
                             </button>
-                            <div className="text-lg font-black uppercase">
-                                <Link to="/login" className='hover:text-primary transition-colors duration-300 no-underline'>Đăng nhập</Link>
+                            <div>
+                                <Link to="/login" className='hover:text-primary transition-colors'>Đăng nhập</Link>
                                 <span className="mx-1">/</span>
-                                <Link to="/register" className='hover:text-primary transition-colors duration-300 no-underline'>Đăng kí</Link>
+                                <Link to="/register" className='hover:text-primary transition-colors'>Đăng kí</Link>
                             </div>
                         </>
                     ) : (
                         <div className="relative group z-50">
-                            <div className="flex items-center gap-3 cursor-pointer py-1 group/user">
-                                <img src={`${import.meta.env.BASE_URL}images/avatar.png`} alt="Avatar" className="w-10 h-10 rounded-full border border-border object-cover group-hover/user:border-primary transition-all duration-300" />
-                                <span className="font-black text-lg max-w-[150px] truncate hidden xl:block group-hover/user:text-primary transition-colors duration-300">
+                            <div className="flex items-center gap-2 cursor-pointer py-1">
+                                <img src={`${import.meta.env.BASE_URL}images/avatar.png`} alt="Avatar" className="w-10 h-10 rounded-full border border-border object-cover" />
+                                <span className="font-bold text-sm max-w-[120px] truncate hidden xl:block">
                                     {user?.username}
                                 </span>
                             </div>
-
-                            <div className="absolute right-0 top-full pt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-4 group-hover:translate-y-0">
-                                <div className="bg-panel border border-border rounded-lg shadow-2xl overflow-hidden">
-                                    <div className="p-4 border-b border-border bg-panelLight/30 text-lg">
-                                        <p className="text-textMuted mb-1 text-sm font-bold uppercase">Số dư tài khoản</p>
+                            <div
+                                className="absolute right-0 top-full pt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
+                                <div
+                                    className="bg-panel border border-border rounded-md shadow-xl overflow-hidden text-sm">
+                                    <div className="p-3 border-b border-border bg-panelLight/30">
+                                        <p className="text-textMuted mb-1">Số dư tài khoản</p>
                                         <div className="flex items-center gap-2">
-                                            <span className="text-2xl font-black text-text font-mono">0đ</span>
-                                            <button className="text-primary hover:scale-125 transition-transform text-xl font-bold">+</button>
+                                            <span className="text-lg font-bold text-text">0đ</span>
+                                            <button className="text-primary hover:text-blue-400 text-lg font-bold"
+                                                    title="Nạp tiền">+
+                                            </button>
                                         </div>
                                     </div>
-                                    <ul className="py-2 text-lg font-bold">
+                                    <ul className="py-1">
                                         <li>
-                                            <Link to="/user-profile" className="flex items-center px-4 py-2.5 hover:bg-panelLight hover:text-primary transition-all duration-200 gap-3">
+                                            <Link to="/user-profile"
+                                                  className="flex items-center px-4 py-2 hover:bg-panelLight transition gap-2">
                                                 <FaCog className="text-textMuted"/> Quản lý tài khoản
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to="/order-history" className="flex items-center px-4 py-2.5 hover:bg-panelLight hover:text-primary transition-all duration-200 gap-3">
+                                            <Link to="/order-history"
+                                                  className="flex items-center px-4 py-2 hover:bg-panelLight transition gap-2">
                                                 <FaHistory className="text-textMuted"/> Lịch sử đơn hàng
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to="/wishlist" className="flex items-center px-4 py-2.5 hover:bg-panelLight hover:text-primary transition-all duration-200 gap-3">
+                                            <Link to="/wishlist"
+                                                  className="flex items-center px-4 py-2 hover:bg-panelLight transition gap-2">
                                                 <FaHeart className="text-textMuted"/> Sản phẩm yêu thích
                                             </Link>
                                         </li>
-                                        <li className="border-t border-border mt-2">
-                                            <button onClick={handleLogout} className="flex w-full items-center px-4 py-3 hover:bg-red-500/10 transition-all duration-200 gap-3 text-red-500 font-black">
+                                        <li className="border-t border-border mt-1">
+                                            <button
+                                                onClick={handleLogout}
+                                                className="flex w-full items-center px-4 py-3 hover:bg-panelLight transition gap-2 text-red-500"
+                                            >
                                                 <FaSignOutAlt/> Đăng xuất
                                             </button>
                                         </li>
@@ -119,194 +122,30 @@ const NavBar = () => {
                         </div>
                     )}
                 </div>
-
-                <Link to="/cart" className='btn-theme flex flex-row px-4 py-2 rounded-md space-x-2 items-center hover:scale-105 transition-transform duration-300'>
+                <Link to="/cart"
+                      className='btn-theme flex flex-row px-2 py-2 rounded-md space-x-2'>
                     <FaShoppingCart className='w-6 h-6'/>
-                    <span className="hidden lg:block text-lg font-black uppercase">Giỏ hàng</span>
-                    <p className='bg-primary text-white text-center rounded-full px-2 py-0.5 font-bold min-w-[24px] text-xs'>{products.length}</p>
+                    &nbsp; <span className="hidden lg:block">Giỏ hàng</span>
+                    <p className='panel-theme text-center rounded-md w-5'>{products.length}</p>
                 </Link>
-
-                {/* Sửa lại Logic Icon: Sáng hiện Trăng, Tối hiện Mặt trời */}
-                <button
-                    onClick={toggleTheme}
-                    className="flex items-center justify-center min-w-[40px] h-10 rounded-full bg-text dark:bg-panelLight text-bg dark:text-text hover:rotate-12 transition-transform duration-300"
-                >
-                    {theme === "dark" ? <FaSun className="text-yellow-400"/> : <FaMoon className="text-blue-500"/>}
-                </button>
+                <div>
+                    <button
+                        onClick={toggleTheme}
+                        className="flex items-center justify-center w-10 h-10 rounded-full bg-text dark:bg-panelLight text-bg dark:text-text card-hover"
+                    >
+                        {theme === "dark" ? <FaSun/> : <FaMoon/>}
+                    </button>
+                </div>
             </div>
-
-            {/* Hàng dưới - Giảm padding pb-5 pt-2 xuống pb-3 pt-1 để thanh mỏng lại */}
-            <div className='flex items-center justify-center space-x-12 pb-3 pt-1'>
-                {["/", "/products", "/best-seller", "/product-on-sale", "/payment-method"].map((path, idx) => {
-                    const labels = ["Trang chủ", "Tìm game", "Bán chạy", "Giảm giá", "Thanh toán"];
-                    return (
-                        <NavLink key={path} to={path} className={navItemClass}>
-                            {({ isActive }) => (
-                                <>
-                                    {labels[idx]}
-                                    {/* Thanh bar animation: Hiện khi hover HOẶC khi đang active */}
-                                    <span className={`absolute bottom-0 left-0 h-1 bg-primary transition-all duration-300 ease-out origin-left ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-                                </>
-                            )}
-                        </NavLink>
-                    );
-                })}
+            <div className='flex items-center justify-center space-x-20 pb-5 text-base font-bold'>
+                <Link to="/" className="hover:underline">Trang chủ</Link>
+                <Link to="/products" className="hover:underline">Tìm game</Link>
+                <Link to="/best-seller" className="hover:underline">Game bán chạy</Link>
+                <Link to="/product-on-sale" className="hover:underline">Game đang giảm giá</Link>
+                <Link to="/payment-method" className="hover:underline">Hình thức thanh toán</Link>
             </div>
         </nav>
-    );
-};
+    )
+}
 
 export default NavBar;
-// import {Link, useNavigate} from "react-router-dom";
-// import {FaMoon, FaSearch, FaShoppingCart, FaSun, FaUser, FaSignOutAlt, FaHistory, FaHeart, FaCog} from "react-icons/fa";
-// import {useTheme} from "../hook/useTheme";
-// import {useDispatch, useSelector} from "react-redux";
-// import {RootState} from "../redux/store";
-// import {logout} from "../redux/authSlice";
-// import {useState} from "react";
-// import { NavLink } from "react-router-dom";
-//
-//
-// const NavBar = () => {
-//     const {theme, toggleTheme} = useTheme();
-//     const products = useSelector((state: RootState) => state.cart.products);
-//     const dispatch = useDispatch();
-//     const navigate = useNavigate();
-//     const {isAuthenticated, user} = useSelector((state: RootState) => state.auth);
-//     const [search, setSearch] = useState("")
-//
-//     const handleLogout = () => {
-//         dispatch(logout());
-//         navigate("/login");
-//     };
-//
-//     const handleSearch = (e: React.FormEvent) => {
-//         e.preventDefault();
-//
-//         if (!search.trim()) {
-//             navigate("/products");
-//             return;
-//         }
-//
-//         navigate(`/products?search=${encodeURIComponent(search)}`);
-//     }
-//
-//     return (
-//         <nav className='theme shadow-md text-text top-0 z-50'>
-//             <div className='container mx-auto px-4 py-3 md:px-16 lg:px-24 space-x-16 flex space-between items-center'>
-//
-//                 <div className='text-lg'>
-//                     <Link to="/" className="flex relative card-hover">
-//                         <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="" className="w-32 h-auto"/>
-//                     </Link>
-//                 </div>
-//
-//                 <div className='relative flex-1 mx-4'>
-//                     <form onSubmit={handleSearch}>
-//                         <input type="text" placeholder="Tìm kiếm sản phẩm"
-//                                className='panel-theme border-theme w-full py-2 px-3 rounded-md'
-//                                onChange={(e) => setSearch(e.target.value)}
-//                         />
-//                         <button
-//                             type="submit"
-//                             className="btn-theme border-theme absolute right-0 top-0 h-full px-3 flex items-center justify-center rounded-r-md "
-//                         >
-//                             <FaSearch className="w-5 h-5"/>
-//                         </button>
-//                     </form>
-//                 </div>
-//
-//                 <div className='flex items-center space-x-4'>
-//                     {!isAuthenticated ? (
-//
-//                         <>
-//                             <button className='btn-theme p-3 border rounded-lg '>
-//                                 <FaUser className='w-5 h-5'/>
-//                             </button>
-//                             <div>
-//                                 <Link to="/login" className='hover:text-primary transition-colors'>Đăng nhập</Link>
-//                                 <span className="mx-1">/</span>
-//                                 <Link to="/register" className='hover:text-primary transition-colors'>Đăng kí</Link>
-//                             </div>
-//                         </>
-//                     ) : (
-//                         <div className="relative group z-50">
-//                             <div className="flex items-center gap-2 cursor-pointer py-1">
-//                                 <img src={`${import.meta.env.BASE_URL}images/avatar.png`} alt="Avatar" className="w-10 h-10 rounded-full border border-border object-cover" />
-//                                 <span className="font-bold text-sm max-w-[120px] truncate hidden xl:block">
-//                                     {user?.username}
-//                                 </span>
-//                             </div>
-//                             <div
-//                                 className="absolute right-0 top-full pt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
-//                                 <div
-//                                     className="bg-panel border border-border rounded-md shadow-xl overflow-hidden text-sm">
-//                                     <div className="p-3 border-b border-border bg-panelLight/30">
-//                                         <p className="text-textMuted mb-1">Số dư tài khoản</p>
-//                                         <div className="flex items-center gap-2">
-//                                             <span className="text-lg font-bold text-text">0đ</span>
-//                                             <button className="text-primary hover:text-blue-400 text-lg font-bold"
-//                                                     title="Nạp tiền">+
-//                                             </button>
-//                                         </div>
-//                                     </div>
-//                                     <ul className="py-1">
-//                                         <li>
-//                                             <Link to="/user-profile"
-//                                                   className="flex items-center px-4 py-2 hover:bg-panelLight transition gap-2">
-//                                                 <FaCog className="text-textMuted"/> Quản lý tài khoản
-//                                             </Link>
-//                                         </li>
-//                                         <li>
-//                                             <Link to="/order-history"
-//                                                   className="flex items-center px-4 py-2 hover:bg-panelLight transition gap-2">
-//                                                 <FaHistory className="text-textMuted"/> Lịch sử đơn hàng
-//                                             </Link>
-//                                         </li>
-//                                         <li>
-//                                             <Link to="/wishlist"
-//                                                   className="flex items-center px-4 py-2 hover:bg-panelLight transition gap-2">
-//                                                 <FaHeart className="text-textMuted"/> Sản phẩm yêu thích
-//                                             </Link>
-//                                         </li>
-//                                         <li className="border-t border-border mt-1">
-//                                             <button
-//                                                 onClick={handleLogout}
-//                                                 className="flex w-full items-center px-4 py-3 hover:bg-panelLight transition gap-2 text-red-500"
-//                                             >
-//                                                 <FaSignOutAlt/> Đăng xuất
-//                                             </button>
-//                                         </li>
-//                                     </ul>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     )}
-//                 </div>
-//                 <Link to="/cart"
-//                       className='btn-theme flex flex-row px-2 py-2 rounded-md space-x-2'>
-//                     <FaShoppingCart className='w-6 h-6'/>
-//                     &nbsp; <span className="hidden lg:block">Giỏ hàng</span>
-//                     <p className='panel-theme text-center rounded-md w-5'>{products.length}</p>
-//                 </Link>
-//                 <div>
-//                     <button
-//                         onClick={toggleTheme}
-//                         className="flex items-center justify-center w-10 h-10 rounded-full bg-text dark:bg-panelLight text-bg dark:text-text card-hover"
-//                     >
-//                         {theme === "dark" ? <FaSun/> : <FaMoon/>}
-//                     </button>
-//                 </div>
-//             </div>
-//             <div className='flex items-center justify-center space-x-20 pb-5 text-base font-bold'>
-//                 <Link to="/" className="hover:underline">Trang chủ</Link>
-//                 <Link to="/products" className="hover:underline">Tìm game</Link>
-//                 <Link to="/best-seller" className="hover:underline">Game bán chạy</Link>
-//                 <Link to="/product-on-sale" className="hover:underline">Game đang giảm giá</Link>
-//                 <Link to="/payment-method" className="hover:underline">Hình thức thanh toán</Link>
-//             </div>
-//         </nav>
-//     )
-// }
-//
-// export default NavBar;
