@@ -71,7 +71,8 @@ const NavBar = () => {
                     ) : (
                         <div className="relative group z-50">
                             <div className="flex items-center gap-2 cursor-pointer py-1">
-                                <img src={`${import.meta.env.BASE_URL}images/avatar.png`} alt="Avatar" className="w-10 h-10 rounded-full border border-border object-cover" />
+                                <img src={`${import.meta.env.BASE_URL}images/avatar.png`} alt="Avatar"
+                                     className="w-10 h-10 rounded-full border border-border object-cover"/>
                                 <span className="font-bold text-sm max-w-[120px] truncate hidden xl:block">
                                     {user?.username}
                                 </span>
@@ -83,7 +84,9 @@ const NavBar = () => {
                                     <div className="p-3 border-b border-border bg-panelLight/30">
                                         <p className="text-textMuted mb-1">Số dư tài khoản</p>
                                         <div className="flex items-center gap-2">
-                                            <span className="text-lg font-bold text-text">0đ</span>
+                                            <span className="text-lg font-bold text-text">
+                                                {user?.balance?.toLocaleString() || 0}đ
+                                            </span>
                                             <button className="text-primary hover:text-blue-400 text-lg font-bold"
                                                     title="Nạp tiền">+
                                             </button>
