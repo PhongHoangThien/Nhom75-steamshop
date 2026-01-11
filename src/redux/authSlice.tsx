@@ -7,6 +7,7 @@ export interface User {
     password?: string;
     role?: string;
     avatar?: string;
+    balance?: number;
 }
 
 interface AuthState {
@@ -58,13 +59,20 @@ const authSlice = createSlice({
         registerFailure(state, action: PayloadAction<string>) {
             state.isLoading = false;
             state.error = action.payload;
+        },
+        updateBalance(state, action: PayloadAction<number>) {
+            if (state.user) {
+                const currentBalance = state.user.balance || 0;
+                state.user.balance = currentBalance + action.payload;
+            }
         }
     }
 });
 
 export const {
     loginStart, loginSuccess, loginFailure, logout,
-    registerStart, registerSuccess, registerFailure
+    registerStart, registerSuccess, registerFailure,
+    updateBalance
 } = authSlice.actions;
 
 export default authSlice.reducer;

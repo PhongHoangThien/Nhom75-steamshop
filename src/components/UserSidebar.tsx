@@ -35,20 +35,21 @@ const UserSidebar: React.FC<UserSidebarProps> = ({ user, activeTab }) => {
                         alt="Avatar"
                         className="w-24 h-24 rounded-full object-cover border-4 border-panelLight"
                     />
-                    <div className="absolute inset-0 bg-black/50 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                        <FaCamera className="text-white text-xl" />
+                    <div
+                        className="absolute inset-0 bg-black/50 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                        <FaCamera className="text-white text-xl"/>
                     </div>
                 </div>
                 <h3 className="mt-4 font-bold text-lg">{user.username}</h3>
                 <p className="text-textMuted text-sm">{user.email}</p>
 
                 <div className="mt-4 bg-panelLight w-full py-2 rounded-md flex items-center justify-center gap-2 text-primary font-bold">
-                    <FaWallet /> <span>0đ</span>
+                    <FaWallet/> <span>{user.balance?.toLocaleString() || 0}đ</span>
                 </div>
             </div>
             <div className="bg-panel rounded-lg border border-border overflow-hidden">
                 <button onClick={() => navigate('/user-profile')} className={getTabClass('profile')}>
-                    <FaUser /> Thông tin tài khoản
+                    <FaUser/> Thông tin tài khoản
                 </button>
                 <button onClick={() => navigate('/order-history')} className={getTabClass('orders')}>
                     <FaHistory /> Lịch sử đơn hàng
