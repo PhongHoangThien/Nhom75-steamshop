@@ -36,6 +36,8 @@ function App() {
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/user-profile" element={<UserProfile />} />
               <Route path="/order-history" element={<UserProfile />} />
+              <Route path="/wishlist" element={<UserProfile />} />
+              <Route path="/change-password" element={<UserProfile />} />
               <Route path="/checkout" element={<Checkout setOrder={setOrder}/>} />
               <Route path="/order-confirmation" element={<OrderConfirmation order={order} />} />
               <Route path="/filter-product" element={<FilterProduct />} />

@@ -1,17 +1,23 @@
 import { useParams } from "react-router-dom";
 import { MockData } from "../data/MockData";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
 import RelatedGames from "../components/RelatedGames";
+import { RootState } from "../redux/store";
+import { toggleWishlist } from "../redux/wishlistSlice";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 export default function ProductDetails() {
     const { id } = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const wishlistItems = useSelector((state: RootState) => state.wishlist.items);
 
     const game = MockData.find((g) => g.id === Number(id));
+
+    const isLiked = game ? wishlistItems.some(item => item.id === game.id) : false;
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -97,6 +103,18 @@ export default function ProductDetails() {
                                 className="px-8 py-3 bg-primary hover:bg-blue-600 text-white transition-all rounded-xl font-bold text-lg shadow-lg shadow-blue-500/30"
                             >
                                 Mua ngay
+                            </button>
+
+                            <button
+                                onClick={() => dispatch(toggleWishlist(game))}
+                                className={`p-3 border rounded-xl transition-all shadow-sm flex items-center justify-center ${
+                                    isLiked
+                                        ? "bg-danger/10 border-danger text-danger"
+                                        : "bg-panelLight border-border text-textMuted hover:border-danger hover:text-danger"
+                                }`}
+                                title={isLiked ? "Bỏ yêu thích" : "Thêm vào yêu thích"}
+                            >
+                                {isLiked ? <FaHeart size={24} /> : <FaRegHeart size={24} />}
                             </button>
 
                             <div className="text-textMuted space-y-4 text-sm w-full mt-6 border-t border-border pt-6">
