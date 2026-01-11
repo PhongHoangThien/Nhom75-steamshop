@@ -34,7 +34,7 @@ const HomePage = () => {
 
             <div className="container mx-auto py-12">
                 <h2 className="text-title font-bold mb-6 text-center">
-                    Game thịnh hành
+                    GAME THỊNH HÀNH
                 </h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">

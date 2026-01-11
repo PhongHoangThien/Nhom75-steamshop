@@ -9,7 +9,7 @@ const ChangePasswordTab = () => {
 
             <form className="space-y-6 max-w-lg" onSubmit={handleSubmit}>
                 <div>
-                    <label className="block text-textMuted text-sm mb-2">Mật khẩu hiện tại</label>
+                    <label className="block dark:text-textMuted text-text_light text-sm mb-2">Mật khẩu hiện tại</label>
                     <PasswordInput
                         name="currentPassword"
                         value={passwords.currentPassword}
@@ -19,7 +19,7 @@ const ChangePasswordTab = () => {
                     />
                 </div>
                 <div>
-                    <label className="block text-textMuted text-sm mb-2">Mật khẩu mới</label>
+                    <label className="block dark:text-textMuted text-text_light text-sm mb-2">Mật khẩu mới</label>
                     <PasswordInput
                         name="newPassword"
                         value={passwords.newPassword}
@@ -29,7 +29,7 @@ const ChangePasswordTab = () => {
                     />
                 </div>
                 <div>
-                    <label className="block text-textMuted text-sm mb-2">Nhập lại mật khẩu mới</label>
+                    <label className="block dark:text-textMuted text-text_light text-sm mb-2">Nhập lại mật khẩu mới</label>
                     <PasswordInput
                         name="confirmPassword"
                         value={passwords.confirmPassword}

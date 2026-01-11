@@ -1,13 +1,32 @@
 import {Link} from "react-router-dom";
 import {FaDiscord, FaFacebook, FaReddit, FaTwitter} from "react-icons/fa";
+import { useTheme } from "../hook/useTheme";
 
 const Footer = () => {
+    const { theme } = useTheme();
     return (
-        <footer className="theme">
+
+        <footer className="footer-theme font-bold">
             <div className="w-4/5 mx-auto px-4 md:px-12 lg:px-24 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div className="space-y-4">
                     <div className="flex items-center gap-3 text-sm">
-                        <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Multiple Shop" className="w-24 h-auto" />
+                        <Link to="/" className="flex items-center">
+                            {/* Light */}
+                            <img
+                                src={`${import.meta.env.BASE_URL}images/logo-light.png`}
+                                alt="Multiple Shop"
+                                className="w-24 h-auto block dark:hidden"
+                            />
+
+                            {/* Dark */}
+                            <img
+                                src={`${import.meta.env.BASE_URL}images/logo-dark.png`}
+                                alt="Multiple Shop"
+                                className="w-24 h-auto hidden dark:block"
+                            />
+                        </Link>
+
+
                     </div>
 
                     <p>
@@ -15,7 +34,7 @@ const Footer = () => {
                     </p>
 
                     <p>
-                        Địa chỉ: Linh Trung, Thủ Đức, Hồ Chí Minh
+                    Địa chỉ: Linh Trung, Thủ Đức, Hồ Chí Minh
                     </p>
 
                     <p className="text-xs">

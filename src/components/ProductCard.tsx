@@ -19,7 +19,7 @@ export default function ProductCard({ product }: any) {
             : product.price;
 
     return (
-        <div className="theme p-4 rounded relative card-hover h-full flex flex-col">
+        <div className="card-panel-theme p-4 rounded relative card-hover h-full flex flex-col">
 
             {product.discount > 0 && (
                 <div className="absolute top-2 left-2 z-10
@@ -36,22 +36,22 @@ export default function ProductCard({ product }: any) {
                     className="w-full h-48 object-cover mb-4 rounded-md"
                 />
 
-                <h3 className="text-lg font-semibold line-clamp-1">
+                <h3 className="  text-lg line-clamp-1">
                     {product.name}
                 </h3>
 
                 <div className="mt-1">
                     {product.discount > 0 ? (
                         <div className="flex items-center gap-2">
-                            <span className="text-red-500 font-bold">
+                            <span className="text-green-500 font-bold">
                                 {finalPrice.toLocaleString()}đ
                             </span>
-                            <span className="line-through text-textMuted text-sm">
+                            <span className="line-through text-red-500 text-sm">
                                 {product.price.toLocaleString()}đ
                             </span>
                         </div>
                     ) : (
-                        <p className="text-textMuted">
+                        <p className="dark:text-text text-text_light font-bold">
                             {product.price.toLocaleString()}đ
                         </p>
                     )}

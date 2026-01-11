@@ -49,7 +49,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, onReset }) => {
                     <button
                         disabled={currentPage === 1}
                         onClick={() => setCurrentPage(currentPage - 1)}
-                        className="px-3 py-1 rounded bg-gray-700 text-white disabled:opacity-40"
+                        className="px-3 py-1 rounded bg-gray-700 text-white disabled:opacity-40 border-white border-[1px]"
                     >
                         ‹
                     </button>
@@ -62,8 +62,8 @@ const ProductList: React.FC<ProductListProps> = ({ products, onReset }) => {
                                 onClick={() => setCurrentPage(page)}
                                 className={`px-3 py-1 rounded ${
                                     currentPage === page
-                                        ? "bg-green-500 text-black font-bold"
-                                        : "bg-gray-700 text-white hover:bg-gray-600"
+                                        ? "dark:bg-gray-800 bg-blue-500 text-white font-bold border-white border-[1px]"
+                                        : "bg-gray-700 text-white hover:bg-gray-600 border-white border-[1px]"
                                 }`}
                             >
                                 {page}
@@ -74,7 +74,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, onReset }) => {
                     <button
                         disabled={currentPage === totalPages}
                         onClick={() => setCurrentPage(currentPage + 1)}
-                        className="px-3 py-1 rounded bg-gray-700 text-white disabled:opacity-40"
+                        className="px-3 py-1 rounded bg-gray-700 text-white disabled:opacity-40 border-white border-[1px]"
                     >
                         ›
                     </button>

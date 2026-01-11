@@ -55,7 +55,7 @@ const Products = () => {
     // }, [searchQuery, categoryQuery]);
 
     return (
-        <div className="bg-panel min-h-screen py-8 px-4 md:px-16 lg:px-24 text-text font-sans">
+        <div className="panel-theme min-h-screen py-8 px-4 md:px-16 lg:px-24 text-text font-sans">
             <FilterBar
                 filters={filters}
                 handleFilterChange={handleFilterChange}

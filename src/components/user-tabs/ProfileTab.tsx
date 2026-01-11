@@ -13,7 +13,7 @@ const ProfileTab: React.FC<{ user: User }> = ({ user }) => {
             <form className="space-y-6" onSubmit={handleSave}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-textMuted text-sm mb-2">Tên hiển thị</label>
+                        <label className="block text-text_light dark:text-textMuted text-sm mb-2">Tên hiển thị</label>
                         <InputField
                             name="username"
                             value={formData.username}
@@ -21,7 +21,7 @@ const ProfileTab: React.FC<{ user: User }> = ({ user }) => {
                         />
                     </div>
                     <div>
-                        <label className="block text-textMuted text-sm mb-2">Số điện thoại</label>
+                        <label className="block text-text_light dark:text-textMuted text-sm mb-2">Số điện thoại</label>
                         <InputField
                             name="phone"
                             placeholder="Chưa cập nhật"
@@ -32,7 +32,7 @@ const ProfileTab: React.FC<{ user: User }> = ({ user }) => {
                 </div>
 
                 <div>
-                    <label className="block text-textMuted text-sm mb-2">Email (Không thể thay đổi)</label>
+                    <label className="block text-text_light dark:text-textMuted text-sm mb-2">Email (Không thể thay đổi)</label>
                     <InputField
                         type="email"
                         value={user.email}

@@ -7,7 +7,7 @@ const OrderHistoryTab = () => {
             <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                     <thead>
-                    <tr className="text-textMuted text-sm border-b border-border">
+                    <tr className="text-text_light dark:text-textMuted text-sm border-b border-border">
                         <th className="py-3 px-2">Mã đơn</th>
                         <th className="py-3 px-2">Sản phẩm</th>
                         <th className="py-3 px-2">Thời gian</th>
@@ -17,12 +17,12 @@ const OrderHistoryTab = () => {
                     </thead>
                     <tbody className="text-sm">
                     {/* Mock Data - Sau này có thể thay bằng props */}
-                    <tr className="border-b border-border hover:bg-panelLight transition">
-                        <td className="py-4 px-2 text-primary font-medium">#10234</td>
+                    <tr className="border-b border-border dark:hover:bg-panelLight transition hover:bg-option_hover ">
+                        <td className="py-4 px-2 hover:text-text text-primary font-medium">#10234</td>
                         <td className="py-4 px-2">Elden Ring (Steam Key)</td>
                         <td className="py-4 px-2">06/01/2026</td>
                         <td className="py-4 px-2 font-bold">800.000đ</td>
-                        <td className="py-4 px-2"><span className="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs">Hoàn thành</span></td>
+                        <td className="py-4 px-2"><span className="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-bold">Hoàn thành</span></td>
                     </tr>
                     </tbody>
                 </table>
