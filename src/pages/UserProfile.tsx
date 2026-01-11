@@ -29,7 +29,7 @@ const UserProfile = () => {
     };
 
     return (
-        <div className="bg-bg min-h-screen py-8 px-4 md:px-16 lg:px-24 text-text">
+        <div className="panel-theme min-h-screen py-8 px-4 md:px-16 lg:px-24 text-text">
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                     <div className="md:col-span-1 space-y-4">

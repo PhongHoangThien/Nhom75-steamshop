@@ -11,7 +11,7 @@ const WishlistTab = () => {
     const wishlistItems = useSelector((state: RootState) => state.wishlist.items);
 
     return (
-        <div className="bg-panel p-6 rounded-lg border border-border animate-fade-in">
+        <div className="panel-theme p-6 rounded-lg border border-border animate-fade-in">
             <h2 className="text-xl font-bold mb-6 pb-4 border-b border-border flex items-center gap-2">
                 <FaHeart className="text-danger" /> Sản phẩm yêu thích
             </h2>

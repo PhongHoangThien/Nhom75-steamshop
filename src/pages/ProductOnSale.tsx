@@ -18,7 +18,7 @@ const GameOnSale = () => {
     if (error) return <div className="min-h-screen bg-panel flex items-center justify-center text-danger">Lỗi: {error}</div>;
 
     return (
-        <div className="bg-panel min-h-screen py-8 px-4 md:px-16 lg:px-24 text-text font-sans">
+        <div className="panel-theme min-h-screen py-8 px-4 md:px-16 lg:px-24 text-text font-sans">
             <div className="container mx-auto">
                 {/* Header... */}
                 <div className="flex items-center gap-4 mb-8 border-b border-border pb-6">

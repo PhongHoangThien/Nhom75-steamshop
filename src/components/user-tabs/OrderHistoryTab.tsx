@@ -2,7 +2,7 @@ import React from 'react';
 
 const OrderHistoryTab = () => {
     return (
-        <div className="bg-panel p-6 rounded-lg border border-border animate-fade-in">
+        <div className="panel-theme p-6 rounded-lg border border-border animate-fade-in">
             <h2 className="text-xl font-bold mb-6 pb-4 border-b border-border">Lịch sử giao dịch</h2>
             <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">

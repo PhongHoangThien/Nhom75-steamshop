@@ -8,6 +8,7 @@ export const UsersData: User[] = [
     password: "123456",
     role: "user",
     avatar: "/images/logo.png",
+    phone: "0912345678",
     balance: 500000
   },
   {
@@ -17,6 +18,7 @@ export const UsersData: User[] = [
     password: "admin",
     role: "admin",
     avatar: "/images/logo.png",
+    phone: "0932345678",
     balance: 999999999
   }
 ];

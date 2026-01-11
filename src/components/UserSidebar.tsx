@@ -28,10 +28,10 @@ const UserSidebar: React.FC<UserSidebarProps> = ({ user, activeTab }) => {
 
     return (
         <div className="space-y-4">
-            <div className="bg-panel p-6 rounded-lg border border-border flex flex-col items-center text-center">
+            <div className="panel-theme p-6 rounded-lg border border-border flex flex-col items-center text-center">
                 <div className="relative group cursor-pointer">
                     <img
-                        src={user.avatar || `${import.meta.env.BASE_URL}images/avatar.png`}
+                        src={`${import.meta.env.BASE_URL}/images/avatar.png`}
                         alt="Avatar"
                         className="w-24 h-24 rounded-full object-cover border-4 border-panelLight"
                     />
@@ -47,7 +47,7 @@ const UserSidebar: React.FC<UserSidebarProps> = ({ user, activeTab }) => {
                     <FaWallet/> <span>{user.balance?.toLocaleString() || 0}đ</span>
                 </div>
             </div>
-            <div className="bg-panel rounded-lg border border-border overflow-hidden">
+            <div className="panel-theme rounded-lg border border-border overflow-hidden">
                 <button onClick={() => navigate('/user-profile')} className={getTabClass('profile')}>
                     <FaUser/> Thông tin tài khoản
                 </button>
