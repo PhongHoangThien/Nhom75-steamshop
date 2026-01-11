@@ -22,8 +22,8 @@ const UserSidebar: React.FC<UserSidebarProps> = ({ user, activeTab }) => {
     const getTabClass = (tabName: string) => {
         const baseClass = "w-full flex items-center gap-3 px-6 py-4 transition text-left";
         return activeTab === tabName
-            ? `${baseClass} bg-panelLight text-primary border-l-4 border-primary`
-            : `${baseClass} text-textMuted hover:bg-panelLight`;
+            ? `${baseClass} bg-primary text-text dark:bg-panelLight dark:text-primary border-l-4 border-primary`
+            : `${baseClass} text-text_light dark:text-textMuted dark:bg-panelLight hover:bg-primary hover:text-text`;
     };
 
     return (
@@ -41,17 +41,17 @@ const UserSidebar: React.FC<UserSidebarProps> = ({ user, activeTab }) => {
                     </div>
                 </div>
                 <h3 className="mt-4 font-bold text-lg">{user.username}</h3>
-                <p className="text-textMuted text-sm">{user.email}</p>
+                <p className="text-text_light dark:text-textMuted text-sm">{user.email}</p>
 
-                <div className="mt-4 bg-panelLight w-full py-2 rounded-md flex items-center justify-center gap-2 text-primary font-bold">
-                    <FaWallet/> <span>{user.balance?.toLocaleString() || 0}đ</span>
+                <div className="mt-4 theme-keep-color-white  w-full py-2 rounded-md flex items-center justify-center gap-2 text-white font-bold">
+                    <FaWallet/> <span className="text-white">{user.balance?.toLocaleString() || 0}đ</span>
                 </div>
             </div>
-            <div className="panel-theme rounded-lg border border-border overflow-hidden">
-                <button onClick={() => navigate('/user-profile')} className={getTabClass('profile')}>
+            <div className="theme-user-options rounded-lg border font-bold overflow-hidden ">
+                <button onClick={() => navigate('/user-profile')} className={`${getTabClass('profile')} bg-theme-user-options`}>
                     <FaUser/> Thông tin tài khoản
                 </button>
-                <button onClick={() => navigate('/order-history')} className={getTabClass('orders')}>
+                <button onClick={() => navigate('/order-history')} className={`${getTabClass('orders')} bg-theme-user-options`}>
                     <FaHistory /> Lịch sử đơn hàng
                 </button>
                 <button onClick={() => navigate('/wishlist')} className={getTabClass('wishlist')}>
@@ -63,7 +63,7 @@ const UserSidebar: React.FC<UserSidebarProps> = ({ user, activeTab }) => {
 
                 <button
                     onClick={handleLogout}
-                    className="w-full flex items-center gap-3 px-6 py-4 text-danger hover:bg-panelLight transition border-t border-border text-left"
+                    className="w-full flex items-center gap-3 px-6 py-4 text-danger transition border-t border-border text-left dark:bg-panelLight hover:bg-primary dra"
                 >
                     <FaSignOutAlt /> Đăng xuất
                 </button>

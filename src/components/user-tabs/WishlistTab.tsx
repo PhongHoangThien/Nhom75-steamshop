@@ -44,7 +44,7 @@ const WishlistTab = () => {
                     <div className="inline-block p-4 bg-panelLight rounded-full mb-4">
                         <FaHeart size={40} className="text-textMuted opacity-50" />
                     </div>
-                    <p className="text-textMuted">Danh sách yêu thích của bạn đang trống.</p>
+                    <p className="dark:text-textMuted text-text_light">Danh sách yêu thích của bạn đang trống.</p>
                     <Link to="/" className="text-primary hover:underline mt-2 inline-block font-medium">
                         Khám phá sản phẩm ngay
                     </Link>

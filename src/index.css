@@ -14,11 +14,27 @@
     @apply bg-bg_light text-text_light dark:bg-bg  dark:text-text
 }
 
+.footer-theme {
+    @apply bg-bg_light dark:bg-bg text-text
+}
+
+.toggle-theme {
+    @apply bg-bg_light text-text dark:bg-bg  dark:text-text
+}
+
 .panel-theme {
     @apply bg-panel_light text-text_light dark:bg-panelLight dark:text-text
 }
 
+.card-panel-theme {
+    @apply bg-panel_card_light text-text_light dark:bg-panel dark:text-text border-textMuted_light border-[1px]
+}
+
 .panelLight-theme {
+    @apply bg-panel_light text-text_light dark:bg-panel dark:text-text
+}
+
+.filter-bar-panelLight-theme {
     @apply bg-panel_light text-text_light dark:bg-panel dark:text-text
 }
 
@@ -27,7 +43,19 @@
 }
 
 .btn-theme {
-    @apply  border bg-bg_light text-text_light hover:bg-panelLight_light border-border_light dark:bg-bg dark:text-text dark:hover:bg-primaryHover dark:border-border
+    @apply  hover:text-primary border bg-bg_light text-text hover:bg-panelLight_light border-border_light dark:bg-bg dark:text-text dark:hover:bg-primaryHover dark:border-border
+}
+
+.btn-theme-nav{
+    @apply hover:border-text_light  hover:text-text_light  border bg-bg_light text-text hover:bg-panelLight_light border-text dark:bg-bg dark:text-text dark:hover:bg-primaryHover dark:border-border
+}
+
+.theme-keep-color-white{
+    @apply border bg-bg_light text-text border-text dark:bg-bg dark:text-text dark:border-border
+}
+
+.border-theme-nav {
+    @apply border border-text dark:border-border;
 }
 
 .icon-theme {
@@ -48,4 +76,7 @@
 
 .card-hover {
     @apply cursor-pointer transform transition-transform hover:scale-105;
+}
+.theme-user-options{
+    @apply dark:hover:bg-panelLight transition gap-2 hover:bg-text hover:text-text_light dark:hover:text-text;
 }

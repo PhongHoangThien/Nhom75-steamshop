@@ -7,7 +7,7 @@ export const UsersData: User[] = [
     email: "student@hcmuaf.edu.vn",
     password: "123456",
     role: "user",
-    avatar: "/images/logo.png",
+    avatar: "/images/logo-dark.png",
     phone: "0912345678",
     balance: 500000
   },
@@ -17,7 +17,7 @@ export const UsersData: User[] = [
     email: "admin@gmail.com",
     password: "admin",
     role: "admin",
-    avatar: "/images/logo.png",
+    avatar: "/images/logo-dark.png",
     phone: "0932345678",
     balance: 999999999
   }

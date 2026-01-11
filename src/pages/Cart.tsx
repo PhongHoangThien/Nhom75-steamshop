@@ -21,7 +21,7 @@ const Cart = () => {
                     </p>
                 </div>
 
-                <div className="panel-theme flex flex-col lg:flex-row gap-8">
+                <div className=" panel-theme flex flex-col lg:flex-row gap-8 ">
                     <div className="panelLight-theme lg:w-2/3 shadow p-6">
                         {cart.products.length > 0 ? (
                             <div>
