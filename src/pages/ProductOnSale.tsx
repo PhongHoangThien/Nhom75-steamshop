@@ -20,7 +20,6 @@ const GameOnSale = () => {
     return (
         <div className="panel-theme min-h-screen py-8 px-4 md:px-16 lg:px-24 text-text font-sans">
             <div className="container mx-auto">
-                {/* Header... */}
                 <div className="flex items-center gap-4 mb-8 border-b border-border pb-6">
                     <div className="relative">
                         <div className="absolute inset-0 bg-danger blur-lg opacity-40 rounded-full"></div>
