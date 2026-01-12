@@ -32,10 +32,10 @@ const RelatedGames: React.FC<RelatedGamesProps> = ({ currentCategory, currentId 
     return (
         <div className="mt-12 relative group">
             <div className="flex items-center gap-4 mb-6">
-                <h2 className="text-2xl font-bold text-white border-l-4 border-primary pl-4 uppercase">
+                <h2 className="text-2xl font-bold text-text_light dark:text-white border-l-4 border-primary pl-4 uppercase">
                     Có thể bạn sẽ thích
                 </h2>
-                <div className="h-[1px] bg-gray-700 flex-1"></div> {/* Đường kẻ trang trí */}
+                <div className="text-text_light dark:bg-white h-[1px] bg-gray-700 flex-1"></div> {/* Đường kẻ trang trí */}
             </div>
 
             <div className="relative">

@@ -59,12 +59,12 @@ export default function ProductCard({ product }: any) {
             </Link>
 
             <div
-                className="panel-theme absolute bottom-4 right-2 flex items-center justify-center w-8 h-8
+                className="cart-card-panel-theme absolute bottom-4 right-2 flex items-center justify-center w-8 h-8
                 group rounded-full hover:w-24 overflow-hidden"
                 onClick={(e) => handleAddToCart(e, product)}
             >
                 <FaCartPlus className="w-5 h-5 group-hover:hidden" />
-                <span className="hidden group-hover:block text-xs">
+                <span className="font-bold hidden group-hover:block text-xs">
                     Thêm giỏ hàng
                 </span>
             </div>
