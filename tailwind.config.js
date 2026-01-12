@@ -53,7 +53,10 @@ export default {
                 option_hover: colors.blue[200],
 
                 primary: colors.blue[500],       // Xanh dương sáng (Màu chủ đạo, dùng cho nút bấm, link quan trọng)
+                primary_low: colors.blue[100],
+                primary_high: colors.blue[200],
                 primaryHover: colors.slate[500], // Xám trung tính (Màu nút khi di chuột vào - *Lưu ý: màu này sẽ biến nút xanh thành xám khi hover*)
+
 
                 text: colors.slate[100],         // Trắng xám (Màu chữ chính, sáng rõ trên nền đen)
                 textMuted: colors.slate[300],    // Xám nhạt (Màu chữ phụ, mô tả, thông tin ít quan trọng hơn)

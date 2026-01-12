@@ -32,10 +32,10 @@ export default function ProductDetails() {
     }
 
     return (
-        <div className="min-h-screen bg-panel text-text px-6 py-10 font-sans">
+        <div className="panel-theme min-h-screen bg-panel px-6 py-10 font-sans">
             <div className="max-w-6xl mx-auto space-y-10">
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-bg p-8 rounded-2xl shadow-lg border border-border">
+                <div className="theme-game-detail grid grid-cols-1 md:grid-cols-2 gap-12 bg-bg p-8 rounded-2xl shadow-lg">
 
                     <div className="flex flex-col space-y-8">
                         <div className="relative">
@@ -49,8 +49,8 @@ export default function ProductDetails() {
                             </span>
                         </div>
                         {game.trailer && (
-                            <div className="bg-panel p-6 rounded-2xl border border-border">
-                                <h2 className="text-xl font-bold mb-4 text-title">Trailer</h2>
+                            <div className="theme-game-detail-child p-6 rounded-2xl">
+                                <h2 className=" font-bold mb-4 text-title">Trailer</h2>
                                 <div className="relative w-full pt-[56.25%] rounded-xl overflow-hidden shadow-inner">
                                     <iframe
                                         src={game.trailer}
@@ -65,15 +65,15 @@ export default function ProductDetails() {
                     </div>
 
                     <div className="flex flex-col gap-6">
-                        <h1 className="text-4xl font-extrabold leading-tight text-title">{game.name}</h1>
+                        <h1 className="text-text_light dark:text-text font-extrabold leading-tight text-title">{game.name}</h1>
                         <div className="mt-2">
                             {game.discount && game.discount > 0 ? (
                                 <div className="space-y-2">
-                                    <div className="text-textMuted line-through text-xl">
+                                    <div className=" line-through text-xl text-danger_light">
                                         {game.price.toLocaleString()}đ
                                     </div>
                                     <div className="flex items-center gap-4">
-                                        <div className="text-4xl font-bold text-primary">
+                                        <div className="text-4xl font-bold text-green-500">
                                             {((game.price * (100 - game.discount)) / 100).toLocaleString()}đ
                                         </div>
                                         <span className="bg-danger/10 text-danger text-sm font-bold px-3 py-1 rounded-full border border-danger/20">
@@ -91,7 +91,7 @@ export default function ProductDetails() {
                         <div className="flex flex-wrap gap-4 mt-6">
                             <button
                                 onClick={() => dispatch(addToCart(game))}
-                                className="px-8 py-3 bg-panelLight border border-primary text-primary hover:bg-primary hover:text-white transition-all rounded-xl font-bold text-lg shadow-sm"
+                                className=" px-8 py-3 border btn-theme-nav transition-all rounded-xl font-bold text-lg box-shadow "
                             >
                                 Thêm vào giỏ
                             </button>
@@ -100,65 +100,65 @@ export default function ProductDetails() {
                                     dispatch(addToCart(game));
                                     navigate("/cart");
                                 }}
-                                className="px-8 py-3 bg-primary hover:bg-blue-600 text-white transition-all rounded-xl font-bold text-lg shadow-lg shadow-blue-500/30"
+                                className="px-8 py-3 btn-theme-nav transition-all rounded-xl font-bold text-lg box-shadow"
                             >
                                 Mua ngay
                             </button>
 
                             <button
                                 onClick={() => dispatch(toggleWishlist(game))}
-                                className={`p-3 border rounded-xl transition-all shadow-sm flex items-center justify-center ${
+                                className={`box-shadow p-3 rounded-xl transition-all shadow-sm flex items-center justify-center ${
                                     isLiked
-                                        ? "bg-danger/10 border-danger text-danger"
-                                        : "bg-panelLight border-border text-textMuted hover:border-danger hover:text-danger"
+                                        ? "btn-theme-nav border-danger text-danger"
+                                        : "btn-theme-nav border-border text-textMuted hover:border-danger hover:text-danger"
                                 }`}
                                 title={isLiked ? "Bỏ yêu thích" : "Thêm vào yêu thích"}
                             >
                                 {isLiked ? <FaHeart size={24} /> : <FaRegHeart size={24} />}
                             </button>
 
-                            <div className="text-textMuted space-y-4 text-sm w-full mt-6 border-t border-border pt-6">
-                                <p className="flex justify-between"><span>Lượt tải:</span> <span className="text-text font-medium">{game.sold || "Đang cập nhật"}</span></p>
-                                <p className="flex justify-between"><span>Ngày phát hành:</span> <span className="text-text font-medium">{game.releaseDate || "Đang cập nhật"}</span></p>
-                                <p className="flex justify-between"><span>Nhà phát triển:</span> <span className="text-text font-medium">{game.developer || "Divine Shop"}</span></p>
+                            <div className="text-text_light font-bold dark:text-textMuted space-y-4 text-sm w-full mt-6 border-t border-border pt-6">
+                                <p className="flex justify-between"><span>Lượt tải:</span> <span className="text-text_light  dark:text-textMuted font-medium">{game.sold || "Đang cập nhật"}</span></p>
+                                <p className="flex justify-between"><span>Ngày phát hành:</span> <span className="text-text_light  dark:text-textMuted font-medium">{game.releaseDate || "Đang cập nhật"}</span></p>
+                                <p className="flex justify-between"><span>Nhà phát triển:</span> <span className="text-text_light bold dark:text-textMuted font-medium">{game.developer || "Divine Shop"}</span></p>
                             </div>
                         </div>
                     </div>
 
                     {game.systemRequirements && (
-                        <div className="bg-panel p-6 rounded-2xl border border-border">
-                            <h2 className="text-xl font-bold mb-4 text-title">Yêu cầu tối thiểu</h2>
-                            <ul className="text-sm text-textMuted space-y-3">
-                                <li><span className="font-semibold text-text">OS:</span> {game.systemRequirements.minimum.os}</li>
-                                <li><span className="font-semibold text-text">CPU:</span> {game.systemRequirements.minimum.cpu}</li>
-                                <li><span className="font-semibold text-text">RAM:</span> {game.systemRequirements.minimum.ram}</li>
-                                <li><span className="font-semibold text-text">GPU:</span> {game.systemRequirements.minimum.gpu}</li>
-                                <li><span className="font-semibold text-text">Storage:</span> {game.systemRequirements.minimum.storage}</li>
+                        <div className="theme-game-detail-child p-6 rounded-2xl border border-border">
+                            <h2 className=" font-bold mb-4 text-title">Yêu cầu tối thiểu</h2>
+                            <ul className="text-sm text-text_light font-bold dark:text-textMuted space-y-3">
+                                <li><span className="font-semibold ">OS:</span> {game.systemRequirements.minimum.os}</li>
+                                <li><span className="font-semibold ">CPU:</span> {game.systemRequirements.minimum.cpu}</li>
+                                <li><span className="font-semibold ">RAM:</span> {game.systemRequirements.minimum.ram}</li>
+                                <li><span className="font-semibold text">GPU:</span> {game.systemRequirements.minimum.gpu}</li>
+                                <li><span className="font-semibold ">Storage:</span> {game.systemRequirements.minimum.storage}</li>
                             </ul>
                         </div>
                     )}
                     {game.systemRequirements && (
-                        <div className="bg-panel p-6 rounded-2xl border border-border">
-                            <h2 className="text-xl font-bold mb-4 text-title">Yêu cầu khuyến nghị</h2>
-                            <ul className="text-sm text-textMuted space-y-3">
-                                <li><span className="font-semibold text-text">OS:</span> {game.systemRequirements.recommended.os}</li>
-                                <li><span className="font-semibold text-text">CPU:</span> {game.systemRequirements.recommended.cpu}</li>
-                                <li><span className="font-semibold text-text">RAM:</span> {game.systemRequirements.recommended.ram}</li>
-                                <li><span className="font-semibold text-text">GPU:</span> {game.systemRequirements.recommended.gpu}</li>
-                                <li><span className="font-semibold text-text">Storage:</span> {game.systemRequirements.recommended.storage}</li>
+                        <div className="theme-game-detail-child p-6 rounded-2xl border border-border">
+                            <h2 className=" font-bold mb-4 text-title">Yêu cầu khuyến nghị</h2>
+                            <ul className="text-sm  space-y-3">
+                                <li><span className="font-semibold ">OS:</span> {game.systemRequirements.recommended.os}</li>
+                                <li><span className="font-semibold ">CPU:</span> {game.systemRequirements.recommended.cpu}</li>
+                                <li><span className="font-semibold ">RAM:</span> {game.systemRequirements.recommended.ram}</li>
+                                <li><span className="font-semibold ">GPU:</span> {game.systemRequirements.recommended.gpu}</li>
+                                <li><span className="font-semibold ">Storage:</span> {game.systemRequirements.recommended.storage}</li>
                             </ul>
                         </div>
                     )}
                 </div>
 
-                <div className="bg-bg p-8 rounded-2xl border border-border shadow-sm">
-                    <h2 className="text-2xl font-bold mb-4 text-title">Mô tả game</h2>
-                    <p className="text-textMuted leading-relaxed">
+                <div className="theme-game-detail p-8 rounded-2xl ">
+                    <h2 className=" font-bold mb-4 text-title">Mô tả game</h2>
+                    <p className=" leading-relaxed">
                         {game.description || "Hiện chưa có mô tả chi tiết cho game này."}
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="font-bold grid grid-cols-1 md:grid-cols-3 gap-6">
                     <InfoBox title="Nền tảng" value="PC / Windows"/>
                     <InfoBox title="Đánh giá" value="★★★★☆ (4.5)"/>
                     <InfoBox title="Trạng thái" value="Đang bán"/>
@@ -173,9 +173,9 @@ export default function ProductDetails() {
 
 function InfoBox({title, value}: { title: string; value: string }) {
     return (
-        <div className="bg-bg border border-border rounded-xl p-5 text-center shadow-sm">
-            <p className="text-textMuted text-sm">{title}</p>
-            <p className="text-text font-bold mt-1 text-lg">{value}</p>
+        <div className="theme-game-detail  border border-border rounded-xl p-5 text-center shadow-sm">
+            <p className=" text-sm">{title}</p>
+            <p className=" font-bold mt-1 text-lg">{value}</p>
         </div>
     );
 }

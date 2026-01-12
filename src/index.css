@@ -14,6 +14,14 @@
     @apply bg-bg_light text-text_light dark:bg-bg  dark:text-text
 }
 
+.theme-user-options{
+    @apply dark:hover:bg-panelLight transition gap-2 hover:bg-text hover:text-text_light dark:hover:text-text;
+}
+
+.theme-game-detail{
+    @apply bg-primary_low dark:bg-bg text-text_light dark:text-text border border-border
+}
+
 .footer-theme {
     @apply bg-bg_light dark:bg-bg text-text
 }
@@ -27,7 +35,19 @@
 }
 
 .card-panel-theme {
-    @apply bg-panel_card_light text-text_light dark:bg-panel dark:text-text border-textMuted_light border-[1px]
+    @apply bg-primary_low text-text_light dark:border-panel dark:bg-panel dark:text-text border-primary border-[1px]
+}
+
+.cart-card-panel-theme {
+    @apply bg-primary text-text dark:border-textMuted_light dark:bg-panel dark:text-text border-primary_high border-[1px]
+}
+
+.child-card-panel-theme{
+    @apply bg-primary text-text dark:border-textMuted dark:bg-panel dark:text-text border-primary border-[1px]
+}
+
+.theme-game-detail-child{
+    @apply bg-primary_high dark:bg-panelLight  text-text_light dark:text-text dark:border-panel border-primary border-[1px]
 }
 
 .panelLight-theme {
@@ -77,6 +97,7 @@
 .card-hover {
     @apply cursor-pointer transform transition-transform hover:scale-105;
 }
-.theme-user-options{
-    @apply dark:hover:bg-panelLight transition gap-2 hover:bg-text hover:text-text_light dark:hover:text-text;
+
+.box-shadow{
+    @apply shadow-lg shadow-blue-500/30;
 }
