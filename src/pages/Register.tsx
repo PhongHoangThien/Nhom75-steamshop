@@ -4,10 +4,11 @@ import { FaTimes } from "react-icons/fa";
 import { useAuthForm } from "../hook/useAuthForm";
 import InputField from "../components/auth/InputField";
 import PasswordInput from "../components/auth/PasswordInput";
+import {useTheme} from "../hook/useTheme";
 
 const Register = () => {
     const { registerData, handleRegisterChange, submitRegister } = useAuthForm();
-
+    const {theme} = useTheme();
     return (
         <>
             <div className="w-full min-h-[85vh] theme"></div>
@@ -50,8 +51,17 @@ const Register = () => {
                             </button>
                         </form>
                     </div>
-                    <div className="hidden md:flex md:w-[30%] bg-bg_light dark:bg-bg items-center justify-center p-8 border-l border-theme">
-                        <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Register" className="max-w-full h-auto object-contain mx-auto opacity-90"/>
+                    <div
+                        className="hidden md:flex md:w-[30%] bg-bg_light dark:bg-bg items-center justify-center p-8 border-l border-theme">
+                        <img
+                            src={
+                                theme === "dark"
+                                    ? `${import.meta.env.BASE_URL}images/logo-dark.png`
+                                    : `${import.meta.env.BASE_URL}images/logo-light.png`
+                            }
+                            alt="Register"
+                            className="max-w-full h-auto object-contain mx-auto opacity-90"
+                        />
                     </div>
                 </div>
             </div>
