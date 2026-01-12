@@ -59,7 +59,6 @@ const NavBar = () => {
 
                 <div className='text-lg'>
                     <Link to="/" className="flex relative card-hover">
-                        {/*<img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="" className="w-32 h-auto"/>*/}
                         <Link to="/" className="flex items-center">
                             <img
                                 src={
@@ -122,8 +121,10 @@ const NavBar = () => {
                                             <span className="text-lg font-bold text-text">
                                                 {user?.balance?.toLocaleString() || 0}đ
                                             </span>
-                                            <button className="text-primary hover:text-blue-400 text-lg font-bold"
-                                                    title="Nạp tiền">+
+                                            <button
+                                                onClick={() => navigate('/payment-method')}
+                                                className="text-primary hover:text-blue-400 text-lg font-bold cursor-pointer"
+                                                title="Nạp tiền">+
                                             </button>
                                         </div>
                                     </div>
@@ -137,7 +138,7 @@ const NavBar = () => {
                                         <li>
                                             <Link to="/order-history"
                                                   className="flex items-center px-4 py-2 theme-user-options">
-                                                <FaHistory className=""/> Lịch sử đơn hàng
+                                            <FaHistory className=""/> Lịch sử đơn hàng
                                             </Link>
                                         </li>
                                         <li>

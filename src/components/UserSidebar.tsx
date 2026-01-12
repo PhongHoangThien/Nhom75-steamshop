@@ -43,12 +43,13 @@ const UserSidebar: React.FC<UserSidebarProps> = ({ user, activeTab }) => {
                 <h3 className="mt-4 font-bold text-lg">{user.username}</h3>
                 <p className="text-text_light dark:text-textMuted text-sm">{user.email}</p>
 
-                <div className="mt-4 theme-keep-color-white  w-full py-2 rounded-md flex items-center justify-center gap-2 text-white font-bold">
+                <div onClick={() => navigate('/payment-method')} className="mt-4 theme-keep-color-white w-full py-2 rounded-md flex items-center justify-center gap-2 text-white font-bold cursor-pointer hover:opacity-90 transition">
                     <FaWallet/> <span className="text-white">{user.balance?.toLocaleString() || 0}đ</span>
                 </div>
             </div>
             <div className="theme-user-options rounded-lg border font-bold overflow-hidden ">
-                <button onClick={() => navigate('/user-profile')} className={`${getTabClass('profile')} bg-theme-user-options`}>
+                <button onClick={() => navigate('/user-profile')}
+                        className={`${getTabClass('profile')} bg-theme-user-options`}>
                     <FaUser/> Thông tin tài khoản
                 </button>
                 <button onClick={() => navigate('/order-history')} className={`${getTabClass('orders')} bg-theme-user-options`}>
