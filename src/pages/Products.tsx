@@ -1,4 +1,4 @@
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import React, {useEffect} from "react";
 import {setProduct} from "../redux/productSlice";
 import {MockData} from "../data/MockData";
@@ -10,7 +10,7 @@ import {useSearchParams} from "react-router-dom";
 
 const Products = () => {
     const dispatch = useDispatch();
-    const { products, isLoading, error } = useProductData();
+    const { products } = useProductData();
     const {
         filters,
         filteredProducts,
@@ -18,41 +18,28 @@ const Products = () => {
         handleApplyFilters,
         handleResetFilters,
         setNameFilter,
+        setGenreFilter,
     } = useProductFilter(products);
+
     const [searchParams] = useSearchParams();
     const searchQuery = searchParams.get("search") || "";
     const categoryQuery = searchParams.get("category") || "";
 
-
     useEffect(() => {
         dispatch(setProduct(MockData));
-    }, [])
+    }, []);
 
     useEffect(() => {
         if (searchQuery) {
             setNameFilter(searchQuery);
+            setGenreFilter("all");
+        } else if (categoryQuery) {
+            setGenreFilter(categoryQuery);
+            setNameFilter("");
         } else {
             handleResetFilters();
         }
-    }, [searchQuery]);
-
-    // useEffect(() => {
-    //     // Reset trước để tránh bị dính filter cũ
-    //     handleResetFilters();
-    //
-    //     if (searchQuery) {
-    //         setNameFilter(searchQuery);
-    //     }
-    //
-    //     if (categoryQuery) {
-    //         handleFilterChange("category", categoryQuery);
-    //     }
-    //
-    //     // Sau khi set xong filter thì apply
-    //     if (searchQuery || categoryQuery) {
-    //         handleApplyFilters();
-    //     }
-    // }, [searchQuery, categoryQuery]);
+    }, [searchQuery, categoryQuery]);
 
     return (
         <div className="panel-theme min-h-screen py-8 px-4 md:px-16 lg:px-24 text-text font-sans">
