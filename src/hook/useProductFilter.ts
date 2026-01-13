@@ -1,5 +1,6 @@
 import {useState, useMemo} from "react";
 import {Product} from "../redux/productSlice";
+
 export const useProductFilter = (products: any, initialSort: string = "default") => {
     const [filters, setFilters] = useState({
         name: "",
@@ -69,9 +70,15 @@ export const useProductFilter = (products: any, initialSort: string = "default")
         setFilters(resetState);
         setActiveFilters(resetState);
     };
+
     const setNameFilter = (value: string) => {
         setFilters(prev => ({ ...prev, name: value }));
         setActiveFilters(prev => ({ ...prev, name: value }));
+    };
+
+    const setGenreFilter = (value: string) => {
+        setFilters(prev => ({ ...prev, genre: value }));
+        setActiveFilters(prev => ({ ...prev, genre: value }));
     };
 
     return {
@@ -81,5 +88,6 @@ export const useProductFilter = (products: any, initialSort: string = "default")
         handleApplyFilters,
         handleResetFilters,
         setNameFilter,
+        setGenreFilter,
     };
 };
