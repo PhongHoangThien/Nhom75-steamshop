@@ -1,6 +1,6 @@
 import {useSelector} from "react-redux";
-import {RootState} from "../redux/store";
-import ProductCard from "../components/ProductCard";
+import {RootState} from "../../redux/store";
+import ProductCard from "../../components/ui/ProductCard";
 
 const FilterProduct = () => {
     const filterProducts = useSelector((state: RootState) => state.products.filteredProducts);

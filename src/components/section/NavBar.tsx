@@ -1,11 +1,12 @@
 import {Link, NavLink, useNavigate} from "react-router-dom";
 import {FaMoon, FaSearch, FaShoppingCart, FaSun, FaUser, FaSignOutAlt, FaHistory, FaHeart, FaCog, FaList} from "react-icons/fa";
-import {useTheme} from "../hook/useTheme";
+import {useTheme} from "../../hook/useTheme";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../redux/store";
-import {logout} from "../redux/authSlice";
+import {RootState} from "../../redux/store";
+import {logout} from "../../redux/authSlice";
 import {useEffect, useRef, useState} from "react";
-import { ProductCategory } from "../data/ProductCategory";
+import { ProductCategory } from "../../data/ProductCategory";
+import Logo from "../common/Logo";
 
 const NavBar = () => {
     const {theme, toggleTheme} = useTheme();
@@ -54,26 +55,11 @@ const NavBar = () => {
 
 
     return (
-        <nav className='theme shadow-md text-text top-0 z-50 '>
+        <nav className='theme shadow-md text-text top-0 z-50 relative pt-3'>
             <div className='container mx-auto px-4 py-3 md:px-16 lg:px-24 space-x-16 flex space-between items-center'>
-
-                <div className='text-lg'>
-                    <Link to="/" className="flex relative card-hover">
-                        <Link to="/" className="flex items-center">
-                            <img
-                                src={
-                                    theme === "dark"
-                                        ? `${import.meta.env.BASE_URL}images/logo-dark.png`
-                                        : `${import.meta.env.BASE_URL}images/logo-light.png`
-                                }
-                                alt="Logo"
-                                className="w-32 h-auto transition-opacity"
-                            />
-                        </Link>
-
-                    </Link>
+                <div className="relative h-0 flex justify-center -top-10 -right-10">
+                    <Logo theme={theme} />
                 </div>
-
                 <div className='relative flex-1 mx-4'>
                     <form onSubmit={handleSearch}>
                         <input type="text" placeholder="Tìm kiếm sản phẩm"
@@ -186,7 +172,7 @@ const NavBar = () => {
                 </div>
             </div>
 
-            <div className='flex items-center justify-center space-x-20 py-2 text-lg font-bold'>
+            <div className='flex items-center justify-center space-x-20 py-2 text-lg font-bold mt-3'>
                 <div className="relative" ref={dropdownRef}>
                     <div
                         className="flex hover:scale-110 items-center gap-2 cursor-pointer select-none rounded-md text-white hover:text-text dark:hover:text-primary"

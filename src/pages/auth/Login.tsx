@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
-import { useAuthForm } from "../hook/useAuthForm";
-import InputField from "../components/auth/InputField";
-import PasswordInput from "../components/auth/PasswordInput";
-import SocialButtons from "../components/auth/SocialButtons";
-import {useTheme} from "../hook/useTheme";
+import { useAuthForm } from "../../hook/useAuthForm";
+import InputField from "../../components/auth/InputField";
+import PasswordInput from "../../components/auth/PasswordInput";
+import SocialButtons from "../../components/auth/SocialButtons";
+import {useTheme} from "../../hook/useTheme";
 const Login = () => {
     const { loginData, isLoading, error, handleLoginChange, submitLogin } = useAuthForm();
     const {theme} = useTheme();

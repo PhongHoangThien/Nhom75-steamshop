@@ -1,22 +1,22 @@
 import React, {useState} from 'react';
-import NavBar from "./components/NavBar";
+import NavBar from "./components/section/NavBar";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomePage from "./pages/HonePage";
-import ProductDetails from "./pages/ProductDetails";
-import Footer from "./components/Footer";
-import Products from "./pages/Products";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import ProductDetails from "./pages/product/ProductDetails";
+import Footer from "./components/section/Footer";
+import Products from "./pages/product/Products";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 import Cart from "./pages/Cart";
-import ProductOnSale from "./pages/ProductOnSale";
-import ForgotPassword from "./pages/ForgotPassword";
-import UserProfile from "./pages/UserProfile";
-import BestSeller from "./pages/ProductBestSeller";
-import Checkout from "./pages/Checkout";
-import OrderConfirmation from "./pages/OrderConfirmation";
-import ScrollToTop from "./components/ScrollToTop";
-import FilterProduct from "./pages/FilterProduct";
-import PaymentMethod from "./pages/PaymentMethod";
+import ProductOnSale from "./pages/product/ProductOnSale";
+import ForgotPassword from "./pages/auth/ForgotPassword";
+import UserProfile from "./pages/auth/UserProfile";
+import BestSeller from "./pages/product/ProductBestSeller";
+import Checkout from "./pages/cart/Checkout";
+import OrderConfirmation from "./pages/cart/OrderConfirmation";
+import ScrollToTop from "./components/common/ScrollToTop";
+import FilterProduct from "./pages/product/FilterProduct";
+import PaymentMethod from "./pages/cart/PaymentMethod";
 
 
 function App() {

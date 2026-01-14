@@ -21,8 +21,8 @@ const Cart = () => {
                     </p>
                 </div>
 
-                <div className=" panel-theme flex flex-col lg:flex-row gap-8 ">
-                    <div className="panelLight-theme lg:w-2/3 shadow p-6">
+                <div className="flex flex-col lg:flex-row gap-8 ">
+                    <div className="card-panel-theme lg:w-2/3 shadow p-6">
                         {cart.products.length > 0 ? (
                             <div>
                                 {/* Cart header */}
@@ -107,7 +107,7 @@ const Cart = () => {
                         )}
                     </div>
 
-                    <div className="panelLight-theme lg:w-1/3">
+                    <div className="card-panel-theme lg:w-1/3">
                         <div className="rounded-xl shadow p-6 sticky top-24">
                             <h3 className="text-lg font-semibold mb-4">
                                 Thông tin thanh toán

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { MockData } from "../data/MockData";
-import ProductCard from "./ProductCard";
+import { MockData } from "../../data/MockData";
+import ProductCard from "../ui/ProductCard";
 
 interface RelatedGamesProps {
     currentCategory: string;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FaHeart, FaTrash } from "react-icons/fa";
 import { removeFromWishlist } from "../../redux/wishlistSlice";
 import { RootState } from "../../redux/store";
-import ProductCard from "../ProductCard";
+import ProductCard from "../ui/ProductCard";
 
 const WishlistTab = () => {
     const dispatch = useDispatch();

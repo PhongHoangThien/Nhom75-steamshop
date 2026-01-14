@@ -2,8 +2,8 @@ import React from 'react';
 import { FaCamera, FaHistory, FaKey, FaSignOutAlt, FaUser, FaWallet, FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { logout } from "../redux/authSlice";
-import { User } from "../redux/authSlice";
+import { logout } from "../../redux/authSlice";
+import { User } from "../../redux/authSlice";
 
 interface UserSidebarProps {
     user: User;

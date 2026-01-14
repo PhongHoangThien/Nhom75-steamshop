@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
-import { MockData } from "../data/MockData";
+import { MockData } from "../../data/MockData";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../redux/cartSlice";
+import { addToCart } from "../../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
-import RelatedGames from "../components/RelatedGames";
-import { RootState } from "../redux/store";
-import { toggleWishlist } from "../redux/wishlistSlice";
+import RelatedGames from "../../components/section/RelatedGames";
+import { RootState } from "../../redux/store";
+import { toggleWishlist } from "../../redux/wishlistSlice";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 export default function ProductDetails() {

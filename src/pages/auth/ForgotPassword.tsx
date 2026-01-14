@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { FaTimes, FaEnvelope, FaArrowLeft } from "react-icons/fa";
-import InputField from "../components/auth/InputField";
+import InputField from "../../components/auth/InputField";
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState("");

@@ -1,6 +1,6 @@
 import React from 'react';
 import {FaFilter, FaSyncAlt, FaTags, FaMoneyBillWave, FaSortAmountDown, FaSearch} from "react-icons/fa";
-import { ProductCategory } from "../data/ProductCategory";
+import { ProductCategory } from "../../data/ProductCategory";
 interface FilterBarProps {
     filters: {
         name: string;

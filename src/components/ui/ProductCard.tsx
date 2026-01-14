@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/cartSlice";
+import { addToCart } from "../../redux/cartSlice";
 
 export default function ProductCard({ product }: any) {
     const dispatch = useDispatch();
