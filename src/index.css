@@ -35,7 +35,7 @@
 }
 
 .card-panel-theme {
-    @apply bg-primary_low text-text_light dark:border-panel dark:bg-panel dark:text-text border-primary border-[1px]
+    @apply bg-primary_low text-text_light dark:border-panel dark:bg-panel dark:text-text border-primary shadow-md
 }
 
 .cart-card-panel-theme {

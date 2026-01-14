@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { useUserTabs } from "../hook/useUserTabs";
-import UserSidebar from "../components/UserSidebar";
-import ProfileTab from "../components/user-tabs/ProfileTab";
-import OrderHistoryTab from "../components/user-tabs/OrderHistoryTab";
-import WishlistTab from "../components/user-tabs/WishlistTab";
-import ChangePasswordTab from "../components/user-tabs/ChangePasswordTab";
+import { RootState } from "../../redux/store";
+import { useUserTabs } from "../../hook/useUserTabs";
+import UserSidebar from "../../components/ui/UserSidebar";
+import ProfileTab from "../../components/user-tabs/ProfileTab";
+import OrderHistoryTab from "../../components/user-tabs/OrderHistoryTab";
+import WishlistTab from "../../components/user-tabs/WishlistTab";
+import ChangePasswordTab from "../../components/user-tabs/ChangePasswordTab";
 
 const UserProfile = () => {
     const { user } = useSelector((state: RootState) => state.auth);

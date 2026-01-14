@@ -1,9 +1,9 @@
 import React from 'react';
 import { FaFire, FaSpinner } from "react-icons/fa";
-import FilterBar from "../components/FilterBar";
-import ProductList from "../components/ProductList";
-import { useProductFilter } from "../hook/useProductFilter";
-import { useProductData } from "../hook/useProductData";
+import FilterBar from "../../components/ui/FilterBar";
+import ProductList from "../../components/ui/ProductList";
+import { useProductFilter } from "../../hook/useProductFilter";
+import { useProductData } from "../../hook/useProductData";
 
 const GameOnSale = () => {
     const { products, isLoading, error } = useProductData();

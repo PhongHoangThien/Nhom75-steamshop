@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
+import {Link} from "react-router-dom";
 
 const banners = [
     "./images/banner/banner1.png",
@@ -31,12 +32,14 @@ const BannerSlider = () => {
     return (
         <div className="relative w-full h-[400px] overflow-hidden rounded-xl">
             {banners.map((img, i) => (
-                <img
-                    key={i}
-                    src={img}
-                    className={`absolute w-full h-full object-cover duration-500
+                <Link to={"/product-on-sale"}>
+                    <img
+                        key={i}
+                        src={img}
+                        className={`absolute w-full h-full object-cover duration-500
                     ${i === index ? "opacity-100" : "opacity-0"}`}
-                 alt="banner"/>
+                        alt="banner"/>
+                </Link>
             ))}
 
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
@@ -57,7 +60,6 @@ const BannerSlider = () => {
                 <FaChevronLeft />
             </button>
 
-            {/* Right arrow */}
             <button
                 onClick={nextSlide}
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-bg/40 hover:bg-bg/60 text-text p-3">

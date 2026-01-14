@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProductCard from "./ProductCard";
 import { FaFilter } from "react-icons/fa";
-import { Product } from "../redux/productSlice";
+import { Product } from "../../redux/productSlice";
 
 interface ProductListProps {
     products: Product[];

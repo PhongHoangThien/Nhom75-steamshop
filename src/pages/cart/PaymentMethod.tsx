@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaSpinner } from "react-icons/fa";
-import { usePayment } from '../hook/usePayment';
-import { getPaymentInfo } from '../services/paymentService';
-import { PAYMENT_METHODS } from '../data/paymentMethods';
-import MethodSelector from '../components/payment/MethodSelector';
-import AmountSelector from '../components/payment/AmountSelector';
-import PaymentDetails from '../components/payment/PaymentDetails';
-import {useTheme} from "../hook/useTheme";
+import { usePayment } from '../../hook/usePayment';
+import { getPaymentInfo } from '../../services/paymentService';
+import { PAYMENT_METHODS } from '../../data/paymentMethods';
+import MethodSelector from '../../components/payment/MethodSelector';
+import AmountSelector from '../../components/payment/AmountSelector';
+import PaymentDetails from '../../components/payment/PaymentDetails';
+import {useTheme} from "../../hook/useTheme";
 const PaymentMethod = () => {
     const {isAuthenticated, amount, setAmount, selectedMethod, setSelectedMethod, copied, isProcessing, transferContent, handleCopy, handleConfirmPayment} = usePayment();
     const paymentInfo = getPaymentInfo(selectedMethod, amount, transferContent);

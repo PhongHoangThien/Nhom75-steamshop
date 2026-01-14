@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/store";
+import { RootState } from "../../redux/store";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {addToCart, clearCart} from "../redux/cartSlice";
+import {addToCart, clearCart} from "../../redux/cartSlice";
 
 const Checkout = ({setOrder}: any) => {
     const dispatch = useDispatch();

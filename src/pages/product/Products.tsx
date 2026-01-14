@@ -1,11 +1,11 @@
 import {useDispatch} from "react-redux";
 import React, {useEffect} from "react";
-import {setProduct} from "../redux/productSlice";
-import {MockData} from "../data/MockData";
-import FilterBar from "../components/FilterBar";
-import ProductList from "../components/ProductList";
-import {useProductData} from "../hook/useProductData";
-import {useProductFilter} from "../hook/useProductFilter";
+import {setProduct} from "../../redux/productSlice";
+import {MockData} from "../../data/MockData";
+import FilterBar from "../../components/ui/FilterBar";
+import ProductList from "../../components/ui/ProductList";
+import {useProductData} from "../../hook/useProductData";
+import {useProductFilter} from "../../hook/useProductFilter";
 import {useSearchParams} from "react-router-dom";
 
 const Products = () => {
