@@ -1,6 +1,3 @@
-// src/data/bankInfo.ts
-
-// ... giữ nguyên phần BANK_INFO cũ
 export const BANK_INFO = {
     bankName: "Ngân hàng Quân Đội (MB Bank)",
     bankId: "MB",
@@ -11,7 +8,7 @@ export const BANK_INFO = {
 };
 export const MOMO_INFO = {
     appName: "Ví điện tử MoMo",
-    phoneNumber: "0987654321", // Số điện thoại nhận tiền
+    phoneNumber: "0987654321",
     accountName: "STEAM SHOP",
     content: "Nap Tien",
     getQrUrl: (amount: number, content: string) => {
