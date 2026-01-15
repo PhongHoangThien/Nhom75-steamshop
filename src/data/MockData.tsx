@@ -54,6 +54,7 @@ export const MockData = [
         stock: 289,
         releaseDate: "2021-08-19",
         trailer: "https://www.youtube.com/embed/E3Huy2cdih0"
+
     },
     {
         id: 3,
@@ -65,7 +66,8 @@ export const MockData = [
         sold: 324,
         stock: 47,
         releaseDate: "2023-02-13",
-        trailer: "https://www.youtube.com/embed/HqQMh_tij0c"
+        // trailer: "https://www.youtube.com/embed/HqQMh_tij0c"
+        trailer: "https://www.youtube.com/embed/K0u_kAWLJOA"
     },
     {
         id: 4,
@@ -101,7 +103,8 @@ export const MockData = [
         sold: 258,
         stock: 435,
         releaseDate: "2024-03-28",
-        trailer: "https://www.youtube.com/embed/9zv1S2nC6iU"
+        // trailer: "https://www.youtube.com/embed/9zv1S2nC6iU"
+        trailer: "https://www.youtube.com/embed/QF28UilEFcU"
     },
     {
         id: 7,
@@ -113,7 +116,8 @@ export const MockData = [
         sold: 284,
         stock: 54,
         releaseDate: "2022-01-18",
-        trailer: "https://www.youtube.com/embed/JCDIYvZ3hSk"
+        // trailer: "https://www.youtube.com/embed/JCDIYvZ3hSk"
+        trailer: "https://www.youtube.com/embed/en8no_jEfAQ"
     },
     {
         id: 8,
@@ -173,7 +177,8 @@ export const MockData = [
         sold: 292,
         stock: 488,
         releaseDate: "2021-07-01",
-        trailer: "https://www.youtube.com/embed/5P7iZ_2v1dU"
+        // trailer: "https://www.youtube.com/embed/5P7iZ_2v1dU"
+        trailer: "https://www.youtube.com/embed/nq1M_Wc4FIc"
     },
     {
         id: 13,
@@ -185,7 +190,8 @@ export const MockData = [
         sold: 349,
         stock: 64,
         releaseDate: "2023-12-23",
-        trailer: "https://www.youtube.com/embed/6Q3fQ5lq7hM"
+        // trailer: "https://www.youtube.com/embed/6Q3fQ5lq7hM"
+        trailer: "https://www.youtube.com/embed/1ncfUjL67rg"
     },
     {
         id: 14,
@@ -221,8 +227,10 @@ export const MockData = [
         sold: 366,
         stock: 149,
         releaseDate: "2022-04-21",
-        trailer: "https://www.youtube.com/embed/9jF4wF1xFhE"
+        // trailer: "https://www.youtube.com/embed/9jF4wF1xFhE"
+        trailer: "https://www.youtube.com/embed/QvyMqBtiJDg"
     },
+
     {
         id: 17,
         name: "Diablo 2: Resurrected",
@@ -233,7 +241,8 @@ export const MockData = [
         sold: 315,
         stock: 259,
         releaseDate: "2020-04-07",
-        trailer: "https://www.youtube.com/embed/DRP62MGOrU8"
+        // trailer: "https://www.youtube.com/embed/DRP62MGOrU8"
+        trailer: "https://www.youtube.com/embed/eAIEDm4sUxA"
     },
     {
         id: 18,
@@ -269,7 +278,8 @@ export const MockData = [
         sold: 104,
         stock: 437,
         releaseDate: "2020-12-07",
-        trailer: "https://www.youtube.com/embed/BO1HAmV0qA8"
+        // trailer: "https://www.youtube.com/embed/BO1HAmV0qA8"
+        trailer: "https://www.youtube.com/embed/W01L70IGBgE"
     },
     {
         id: 21,
