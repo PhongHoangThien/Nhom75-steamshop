@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCamera, FaHistory, FaKey, FaSignOutAlt, FaUser, FaWallet, FaHeart } from "react-icons/fa";
+import { FaCamera, FaHistory, FaKey, FaSignOutAlt, FaUser, FaWallet, FaHeart, FaFileInvoiceDollar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/authSlice";
@@ -35,8 +35,7 @@ const UserSidebar: React.FC<UserSidebarProps> = ({ user, activeTab }) => {
                         alt="Avatar"
                         className="w-24 h-24 rounded-full object-cover border-4 border-panelLight"
                     />
-                    <div
-                        className="absolute inset-0 bg-black/50 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                    <div className="absolute inset-0 bg-black/50 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
                         <FaCamera className="text-white text-xl"/>
                     </div>
                 </div>
@@ -47,13 +46,17 @@ const UserSidebar: React.FC<UserSidebarProps> = ({ user, activeTab }) => {
                     <FaWallet/> <span className="text-white">{user.balance?.toLocaleString() || 0}đ</span>
                 </div>
             </div>
+
             <div className="theme-user-options rounded-lg border font-bold overflow-hidden ">
-                <button onClick={() => navigate('/user-profile')}
-                        className={`${getTabClass('profile')} bg-theme-user-options`}>
+                <button onClick={() => navigate('/user-profile')} className={getTabClass('profile')}>
                     <FaUser/> Thông tin tài khoản
                 </button>
-                <button onClick={() => navigate('/order-history')} className={`${getTabClass('orders')} bg-theme-user-options`}>
+
+                <button onClick={() => navigate('/order-history')} className={getTabClass('orders')}>
                     <FaHistory /> Lịch sử đơn hàng
+                </button>
+                <button onClick={() => navigate('/transaction-history')} className={getTabClass('transactions')}>
+                    <FaFileInvoiceDollar /> Lịch sử nạp tiền
                 </button>
                 <button onClick={() => navigate('/wishlist')} className={getTabClass('wishlist')}>
                     <FaHeart /> Sản phẩm yêu thích
@@ -62,10 +65,7 @@ const UserSidebar: React.FC<UserSidebarProps> = ({ user, activeTab }) => {
                     <FaKey /> Đổi mật khẩu
                 </button>
 
-                <button
-                    onClick={handleLogout}
-                    className="w-full flex items-center gap-3 px-6 py-4 text-danger transition border-t border-border text-left dark:bg-panelLight hover:bg-primary dra"
-                >
+                <button onClick={handleLogout} className="w-full flex items-center gap-3 px-6 py-4 text-danger transition border-t border-border text-left dark:bg-panelLight hover:bg-primary dra">
                     <FaSignOutAlt /> Đăng xuất
                 </button>
             </div>

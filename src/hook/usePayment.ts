@@ -5,6 +5,7 @@ import { RootState } from "../redux/store";
 import { updateBalance } from "../redux/authSlice";
 import { PAYMENT_METHODS } from '../data/paymentMethods';
 import { BANK_INFO } from '../data/bankInfo';
+import { addTransaction } from "../redux/transactionSlice";
 
 export const usePayment = () => {
     const dispatch = useDispatch();
@@ -26,28 +27,28 @@ export const usePayment = () => {
 
     const handleConfirmPayment = () => {
         setIsProcessing(true);
+
         setTimeout(() => {
             dispatch(updateBalance(amount));
+
+            const methodDetails = PAYMENT_METHODS.find(m => m.id === selectedMethod);
+
+            dispatch(addTransaction({
+                id: `TRX-${Date.now()}`,
+                amount: amount,
+                method: methodDetails?.name || selectedMethod,
+                date: new Date().toISOString(),
+                status: 'success',
+                note: transferContent
+            }));
+
             setIsProcessing(false);
 
-            const methodName = PAYMENT_METHODS.find(m => m.id === selectedMethod)?.name || "Thanh toán";
-            alert(`Nạp thành công ${amount.toLocaleString()}đ qua ${methodName}!`);
+            alert(`Nạp thành công ${amount.toLocaleString()}đ qua ${methodDetails?.name || "Thanh toán"}!`);
 
-            navigate("/user-profile");
+            navigate("/transaction-history");
         }, 2000);
     };
 
-    return {
-        user,
-        isAuthenticated,
-        amount,
-        setAmount,
-        selectedMethod,
-        setSelectedMethod,
-        copied,
-        isProcessing,
-        transferContent,
-        handleCopy,
-        handleConfirmPayment
-    };
+    return {user, isAuthenticated, amount, setAmount, selectedMethod, setSelectedMethod, copied, isProcessing, transferContent, handleCopy, handleConfirmPayment    };
 };

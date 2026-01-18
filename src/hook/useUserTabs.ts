@@ -1,31 +1,20 @@
-import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
+import { useLocation } from "react-router-dom";
 
 export const useUserTabs = () => {
     const location = useLocation();
-    const navigate = useNavigate();
-    const { isAuthenticated } = useSelector((state: RootState) => state.auth);
-    const [activeTab, setActiveTab] = useState('profile');
+    const path = location.pathname;
 
-    useEffect(() => {
-        if (!isAuthenticated) {
-            navigate("/login");
-            return;
-        }
+    let activeTab = 'profile';
 
-        const path = location.pathname;
-        if (path === '/wishlist') {
-            setActiveTab('wishlist');
-        } else if (path === '/order-history') {
-            setActiveTab('orders');
-        } else if (path === '/change-password') {
-            setActiveTab('password');
-        } else {
-            setActiveTab('profile');
-        }
-    }, [isAuthenticated, navigate, location.pathname]);
+    if (path.includes('/order-history')) {
+        activeTab = 'orders';
+    } else if (path.includes('/wishlist')) {
+        activeTab = 'wishlist';
+    } else if (path.includes('/change-password')) {
+        activeTab = 'password';
+    } else if (path.includes('/transaction-history')) {
+        activeTab = 'transactions';
+    }
 
     return { activeTab };
 };
