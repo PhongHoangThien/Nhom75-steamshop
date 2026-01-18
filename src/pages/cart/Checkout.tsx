@@ -42,15 +42,15 @@ const Checkout = ({setOrder}: any) => {
     };
 
     return (
-        <div className="bg-panelLight py-8 px-4 md:px-16 lg:px-24 text-text">
+        <div className="panel-theme py-8 px-4 md:px-16 lg:px-24">
             <div className="container mx-auto">
                 <h3 className="text-2xl font-semibold mb-6">
                     Thanh toán
                 </h3>
 
                 <div className="flex flex-col lg:flex-row gap-8">
-                    <div className="lg:w-2/3 bg-panel shadow p-6 rounded-xl">
-                        <h4 className="text-lg font-semibold mb-4 text-textMuted">
+                    <div className="card-panel-theme lg:w-2/3 shadow p-6 rounded-xl">
+                        <h4 className="text-lg font-semibold mb-4">
                             Sản phẩm trong đơn hàng
                         </h4>
 
@@ -70,10 +70,10 @@ const Checkout = ({setOrder}: any) => {
                                         <h5 className="font-semibold">
                                             {product.name}
                                         </h5>
-                                        <p className="text-sm text-textMuted">
+                                        <p className="text-sm">
                                             {product.category}
                                         </p>
-                                        <p className="text-sm text-textMuted">
+                                        <p className="text-sm">
                                             {product.price.toLocaleString()} đ × {product.quantity}
                                         </p>
                                     </div>
@@ -86,7 +86,7 @@ const Checkout = ({setOrder}: any) => {
                         </div>
                     </div>
 
-                    <div className="lg:w-1/3 bg-panel shadow p-6 rounded-xl sticky top-24">
+                    <div className="card-panel-theme lg:w-1/3 shadow p-6 rounded-xl sticky top-24">
                         <h4 className="text-lg font-semibold mb-4">
                             Thông tin thanh toán
                         </h4>
@@ -102,13 +102,11 @@ const Checkout = ({setOrder}: any) => {
                             </div>
 
                             <div className="flex items-center justify-between space-x-4">
-                                <label className="text-textMuted">
-                                    SĐT:
-                                </label>
+                                <p> SĐT:</p>
                                 <input
                                     value={phone}
                                     onChange={(e) => setPhone(e.target.value)}
-                                    className="w-full bg-panelLight py-2 px-3 rounded-md"
+                                    className="w-full py-2 px-3 rounded-md"
                                     placeholder="Nhập số điện thoại"
                                 />
                             </div>
@@ -169,7 +167,7 @@ const Checkout = ({setOrder}: any) => {
                             Đặt hàng
                         </button>
 
-                        <div className="mt-4 text-xs text-textMuted">
+                        <div className="mt-4 text-xs">
                             Thanh toán an toàn · Giao hàng nhanh
                         </div>
                     </div>

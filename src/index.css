@@ -101,3 +101,7 @@
 .box-shadow{
     @apply shadow-lg shadow-blue-500/30;
 }
+
+.price-theme {
+    @apply text-price_light dark:text-price;
+}

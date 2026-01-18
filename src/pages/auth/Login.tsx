@@ -6,6 +6,7 @@ import InputField from "../../components/auth/InputField";
 import PasswordInput from "../../components/auth/PasswordInput";
 import SocialButtons from "../../components/auth/SocialButtons";
 import {useTheme} from "../../hook/useTheme";
+import Logo from "../../components/common/Logo";
 const Login = () => {
     const { loginData, isLoading, error, handleLoginChange, submitLogin } = useAuthForm();
     const {theme} = useTheme();
@@ -69,15 +70,7 @@ const Login = () => {
                     </div>
                     <div
                         className="hidden md:flex md:w-[30%] bg-bg_light dark:bg-bg items-center justify-center p-8 border-l border-theme">
-                        <img
-                            src={
-                                theme === "dark"
-                                    ? `${import.meta.env.BASE_URL}images/logo-dark.png`
-                                    : `${import.meta.env.BASE_URL}images/logo-light.png`
-                            }
-                            alt="Login"
-                            className="max-w-full h-auto object-contain mx-auto opacity-90"
-                        />
+                            <Logo />
                     </div>
                 </div>
             </div>

@@ -28,9 +28,14 @@ const cartSlice = createSlice({
                     id: newItem.id,
                     name: newItem.name,
                     price: newItem.price,
+                    image: newItem.image,
+                    category: newItem.category,
+                    discount: newItem.discount,
+                    sold: newItem.sold,
+                    stock: newItem.stock,
+                    release: newItem.release,
                     quantity: 1,
                     totalPrice: newItem.price,
-                    image: newItem.image,
                 });
                 state.totalPrice += newItem.price;
                 state.totalQuantity++;

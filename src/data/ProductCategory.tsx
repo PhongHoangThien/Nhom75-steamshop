@@ -9,4 +9,6 @@ export const ProductCategory = [
     "Puzzle",
     "Open world",
     "Turn base",
+    "Online",
+    "Offline"
 ]

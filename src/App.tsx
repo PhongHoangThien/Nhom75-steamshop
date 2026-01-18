@@ -7,7 +7,7 @@ import Footer from "./components/section/Footer";
 import Products from "./pages/product/Products";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
-import Cart from "./pages/Cart";
+import Cart from "./pages/cart/Cart";
 import ProductOnSale from "./pages/product/ProductOnSale";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import UserProfile from "./pages/auth/UserProfile";

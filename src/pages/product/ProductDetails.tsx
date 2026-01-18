@@ -35,14 +35,14 @@ export default function ProductDetails() {
         <div className="panel-theme min-h-screen bg-panel px-6 py-10 font-sans">
             <div className="max-w-6xl mx-auto space-y-10">
 
-                <div className="theme-game-detail grid grid-cols-1 md:grid-cols-2 gap-12 bg-bg p-8 rounded-2xl shadow-lg">
+                <div className="theme-game-detail grid grid-cols-1 md:grid-cols-2 gap-12 bg-bg p-8 rounded-2xl">
 
                     <div className="flex flex-col space-y-8">
                         <div className="relative">
                             <img
                                 src={`${import.meta.env.BASE_URL}images/games/${game.image}`}
                                 alt={game.name}
-                                className="w-full rounded-xl object-cover shadow-md"
+                                className="w-full rounded-xl object-cover"
                             />
                             <span className="absolute top-3 left-3 bg-black/70 text-white px-3 py-1 text-sm rounded-lg backdrop-blur-md">
                                 {game.category}
@@ -51,7 +51,7 @@ export default function ProductDetails() {
                         {game.trailer && (
                             <div className="theme-game-detail-child p-6 rounded-2xl">
                                 <h2 className=" font-bold mb-4 text-title">Trailer</h2>
-                                <div className="relative w-full pt-[56.25%] rounded-xl overflow-hidden shadow-inner">
+                                <div className="relative w-full pt-[56.25%] rounded-xl overflow-hidden">
                                     <iframe
                                         src={game.trailer}
                                         title="Game Trailer"
@@ -91,7 +91,7 @@ export default function ProductDetails() {
                         <div className="flex flex-wrap gap-4 mt-6">
                             <button
                                 onClick={() => dispatch(addToCart(game))}
-                                className=" px-8 py-3 border btn-theme-nav transition-all rounded-xl font-bold text-lg box-shadow "
+                                className=" px-8 py-3 border btn-theme-nav transition-all rounded-xl font-bold text-lg"
                             >
                                 Thêm vào giỏ
                             </button>
@@ -100,7 +100,7 @@ export default function ProductDetails() {
                                     dispatch(addToCart(game));
                                     navigate("/cart");
                                 }}
-                                className="px-8 py-3 btn-theme-nav transition-all rounded-xl font-bold text-lg box-shadow"
+                                className="px-8 py-3 btn-theme-nav transition-all rounded-xl font-bold text-lg"
                             >
                                 Mua ngay
                             </button>
@@ -120,7 +120,7 @@ export default function ProductDetails() {
                             <div className="text-text_light font-bold dark:text-textMuted space-y-4 text-sm w-full mt-6 border-t border-border pt-6">
                                 <p className="flex justify-between"><span>Lượt tải:</span> <span className="text-text_light  dark:text-textMuted font-medium">{game.sold || "Đang cập nhật"}</span></p>
                                 <p className="flex justify-between"><span>Ngày phát hành:</span> <span className="text-text_light  dark:text-textMuted font-medium">{game.releaseDate || "Đang cập nhật"}</span></p>
-                                <p className="flex justify-between"><span>Nhà phát triển:</span> <span className="text-text_light bold dark:text-textMuted font-medium">{game.developer || "Divine Shop"}</span></p>
+                                <p className="flex justify-between"><span>Nhà phát triển:</span> <span className="text-text_light bold dark:text-textMuted font-medium">{"Steam Shop"}</span></p>
                             </div>
                         </div>
                     </div>
@@ -154,7 +154,7 @@ export default function ProductDetails() {
                 <div className="theme-game-detail p-8 rounded-2xl ">
                     <h2 className=" font-bold mb-4 text-title">Mô tả game</h2>
                     <p className=" leading-relaxed">
-                        {game.description || "Hiện chưa có mô tả chi tiết cho game này."}
+                        { "Hiện chưa có mô tả chi tiết cho game này."}
                     </p>
                 </div>
 
