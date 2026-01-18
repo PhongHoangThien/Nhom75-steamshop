@@ -25,7 +25,7 @@ export const MockData = [
         sold: 194,
         stock: 194,
         releaseDate: "2021-04-23",
-        trailer: "https://www.youtube.com/embed/qIcTM8WXFjk",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA",
         systemRequirements: {
             minimum: {
                 os: "Windows 10 64-bit",
@@ -53,8 +53,7 @@ export const MockData = [
         sold: 157,
         stock: 289,
         releaseDate: "2021-08-19",
-        trailer: "https://www.youtube.com/embed/E3Huy2cdih0"
-
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 3,
@@ -66,8 +65,7 @@ export const MockData = [
         sold: 324,
         stock: 47,
         releaseDate: "2023-02-13",
-        // trailer: "https://www.youtube.com/embed/HqQMh_tij0c"
-        trailer: "https://www.youtube.com/embed/K0u_kAWLJOA"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 4,
@@ -79,7 +77,7 @@ export const MockData = [
         sold: 278,
         stock: 414,
         releaseDate: "2023-02-20",
-        trailer: "https://www.youtube.com/embed/91t0ha9x0AE"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 5,
@@ -91,7 +89,7 @@ export const MockData = [
         sold: 188,
         stock: 171,
         releaseDate: "2024-05-05",
-        trailer: "https://www.youtube.com/embed/RO90omga8D4"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 6,
@@ -103,8 +101,7 @@ export const MockData = [
         sold: 258,
         stock: 435,
         releaseDate: "2024-03-28",
-        // trailer: "https://www.youtube.com/embed/9zv1S2nC6iU"
-        trailer: "https://www.youtube.com/embed/QF28UilEFcU"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 7,
@@ -116,8 +113,7 @@ export const MockData = [
         sold: 284,
         stock: 54,
         releaseDate: "2022-01-18",
-        // trailer: "https://www.youtube.com/embed/JCDIYvZ3hSk"
-        trailer: "https://www.youtube.com/embed/en8no_jEfAQ"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 8,
@@ -129,7 +125,7 @@ export const MockData = [
         sold: 304,
         stock: 302,
         releaseDate: "2021-04-29",
-        trailer: "https://www.youtube.com/embed/eaW0tYpxyp0"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 9,
@@ -141,19 +137,7 @@ export const MockData = [
         sold: 291,
         stock: 484,
         releaseDate: "2021-11-03",
-        trailer: "https://www.youtube.com/embed/MmB9b5njVbA"
-    },
-    {
-        id: 10,
-        name: "God of War",
-        price: 790000,
-        image: "god-of-war.png",
-        category: "Open world",
-        discount: 92,
-        sold: 374,
-        stock: 20,
-        releaseDate: "2024-05-12",
-        trailer: "https://www.youtube.com/embed/K0u_kAWLJOA"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 11,
@@ -165,7 +149,7 @@ export const MockData = [
         sold: 132,
         stock: 385,
         releaseDate: "2022-05-23",
-        trailer: "https://www.youtube.com/embed/QkkoHAzjnUs"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 12,
@@ -177,8 +161,7 @@ export const MockData = [
         sold: 292,
         stock: 488,
         releaseDate: "2021-07-01",
-        // trailer: "https://www.youtube.com/embed/5P7iZ_2v1dU"
-        trailer: "https://www.youtube.com/embed/nq1M_Wc4FIc"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 13,
@@ -190,8 +173,7 @@ export const MockData = [
         sold: 349,
         stock: 64,
         releaseDate: "2023-12-23",
-        // trailer: "https://www.youtube.com/embed/6Q3fQ5lq7hM"
-        trailer: "https://www.youtube.com/embed/1ncfUjL67rg"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 14,
@@ -203,7 +185,7 @@ export const MockData = [
         sold: 125,
         stock: 54,
         releaseDate: "2023-04-11",
-        trailer: "https://www.youtube.com/embed/Cr5rQ1NZ0Tw"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 15,
@@ -215,7 +197,7 @@ export const MockData = [
         sold: 307,
         stock: 235,
         releaseDate: "2022-08-17",
-        trailer: "https://www.youtube.com/embed/c0i88t0Kacs"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 16,
@@ -227,10 +209,8 @@ export const MockData = [
         sold: 366,
         stock: 149,
         releaseDate: "2022-04-21",
-        // trailer: "https://www.youtube.com/embed/9jF4wF1xFhE"
-        trailer: "https://www.youtube.com/embed/QvyMqBtiJDg"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
-
     {
         id: 17,
         name: "Diablo 2: Resurrected",
@@ -241,8 +221,7 @@ export const MockData = [
         sold: 315,
         stock: 259,
         releaseDate: "2020-04-07",
-        // trailer: "https://www.youtube.com/embed/DRP62MGOrU8"
-        trailer: "https://www.youtube.com/embed/eAIEDm4sUxA"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 18,
@@ -254,7 +233,7 @@ export const MockData = [
         sold: 143,
         stock: 367,
         releaseDate: "2022-03-15",
-        trailer: "https://www.youtube.com/embed/UAO2urG23S4"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 19,
@@ -266,7 +245,7 @@ export const MockData = [
         sold: 358,
         stock: 140,
         releaseDate: "2023-05-01",
-        trailer: "https://www.youtube.com/embed/1T22wNvoNiU"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 20,
@@ -278,8 +257,7 @@ export const MockData = [
         sold: 104,
         stock: 437,
         releaseDate: "2020-12-07",
-        // trailer: "https://www.youtube.com/embed/BO1HAmV0qA8"
-        trailer: "https://www.youtube.com/embed/W01L70IGBgE"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 21,
@@ -291,7 +269,7 @@ export const MockData = [
         sold: 288,
         stock: 450,
         releaseDate: "2020-09-04",
-        trailer: "https://www.youtube.com/embed/edYCtaNueQY"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 22,
@@ -303,7 +281,7 @@ export const MockData = [
         sold: 239,
         stock: 434,
         releaseDate: "2022-08-08",
-        trailer: "https://www.youtube.com/embed/SmnqsdeHFT0"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 23,
@@ -315,7 +293,7 @@ export const MockData = [
         sold: 292,
         stock: 245,
         releaseDate: "2022-04-13",
-        trailer: "https://www.youtube.com/embed/bmGz7W6cX6Y"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 24,
@@ -327,7 +305,7 @@ export const MockData = [
         sold: 327,
         stock: 254,
         releaseDate: "2024-10-02",
-        trailer: "https://www.youtube.com/embed/BtyBjOW8sGY"
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 25,
@@ -339,7 +317,7 @@ export const MockData = [
         sold: 162,
         stock: 50,
         releaseDate: "2024-03-15",
-        trailer: "https://www.youtube.com/embed/rXMX4YJ7Lks" // Sekiro
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA" // Sekiro
     },
     {
         id: 26,
@@ -351,7 +329,7 @@ export const MockData = [
         sold: 347,
         stock: 229,
         releaseDate: "2023-06-08",
-        trailer: "https://www.youtube.com/embed/ot7uXNQskhs" // Stardew Valley
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA" // Stardew Valley
     },
     {
         id: 27,
@@ -363,7 +341,7 @@ export const MockData = [
         sold: 306,
         stock: 403,
         releaseDate: "2021-06-14",
-        trailer: "https://www.youtube.com/embed/Id2EaldBaWw" // Resident Evil 4
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA" // Resident Evil 4
     },
     {
         id: 28,
@@ -399,6 +377,7 @@ export const MockData = [
         sold: 136,
         stock: 123,
         releaseDate: "2020-08-05",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 31,
@@ -422,6 +401,7 @@ export const MockData = [
         sold: 620,
         stock: 50,
         releaseDate: "2023-11-10",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 33,
@@ -433,6 +413,7 @@ export const MockData = [
         sold: 312,
         stock: 89,
         releaseDate: "2023-10-05",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 34,
@@ -444,6 +425,7 @@ export const MockData = [
         sold: 405,
         stock: 67,
         releaseDate: "2023-06-22",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 35,
@@ -455,6 +437,7 @@ export const MockData = [
         sold: 560,
         stock: 200,
         releaseDate: "2023-09-06",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 36,
@@ -466,6 +449,7 @@ export const MockData = [
         sold: 900,
         stock: 150,
         releaseDate: "2023-06-05",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 37,
@@ -477,6 +461,7 @@ export const MockData = [
         sold: 230,
         stock: 80,
         releaseDate: "2023-06-02",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 38,
@@ -488,6 +473,7 @@ export const MockData = [
         sold: 210,
         stock: 95,
         releaseDate: "2023-09-19",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 39,
@@ -499,6 +485,7 @@ export const MockData = [
         sold: 180,
         stock: 60,
         releaseDate: "2023-08-25",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 40,
@@ -510,6 +497,7 @@ export const MockData = [
         sold: 150,
         stock: 45,
         releaseDate: "2023-10-27",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 41,
@@ -521,6 +509,7 @@ export const MockData = [
         sold: 340,
         stock: 110,
         releaseDate: "2023-09-19",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 42,
@@ -532,6 +521,7 @@ export const MockData = [
         sold: 280,
         stock: 300,
         releaseDate: "2023-08-29",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 43,
@@ -543,6 +533,7 @@ export const MockData = [
         sold: 120,
         stock: 200,
         releaseDate: "2023-09-21",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 44,
@@ -554,6 +545,7 @@ export const MockData = [
         sold: 190,
         stock: 150,
         releaseDate: "2023-10-24",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 45,
@@ -565,6 +557,7 @@ export const MockData = [
         sold: 160,
         stock: 120,
         releaseDate: "2023-10-26",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 46,
@@ -576,6 +569,7 @@ export const MockData = [
         sold: 90,
         stock: 80,
         releaseDate: "2023-11-02",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 47,
@@ -587,6 +581,7 @@ export const MockData = [
         sold: 210,
         stock: 75,
         releaseDate: "2023-11-17",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 48,
@@ -598,6 +593,7 @@ export const MockData = [
         sold: 980,
         stock: 500,
         releaseDate: "2016-06-14",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 49,
@@ -609,6 +605,7 @@ export const MockData = [
         sold: 750,
         stock: 300,
         releaseDate: "2018-02-08",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 50,
@@ -620,6 +617,7 @@ export const MockData = [
         sold: 640,
         stock: 220,
         releaseDate: "2018-01-23",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 51,
@@ -631,6 +629,7 @@ export const MockData = [
         sold: 2500,
         stock: 1000,
         releaseDate: "2009-11-17",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 52,
@@ -642,6 +641,7 @@ export const MockData = [
         sold: 450,
         stock: 180,
         releaseDate: "2022-02-04",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 53,
@@ -653,6 +653,7 @@ export const MockData = [
         sold: 1200,
         stock: 800,
         releaseDate: "2022-10-20",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 54,
@@ -664,6 +665,7 @@ export const MockData = [
         sold: 560,
         stock: 250,
         releaseDate: "2018-08-06",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 55,
@@ -675,6 +677,7 @@ export const MockData = [
         sold: 890,
         stock: 300,
         releaseDate: "2018-04-30",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 56,
@@ -686,6 +689,7 @@ export const MockData = [
         sold: 430,
         stock: 210,
         releaseDate: "2013-12-13",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 57,
@@ -697,6 +701,7 @@ export const MockData = [
         sold: 670,
         stock: 150,
         releaseDate: "2013-11-08",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 58,
@@ -708,6 +713,7 @@ export const MockData = [
         sold: 1100,
         stock: 450,
         releaseDate: "2016-04-21",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 59,
@@ -719,6 +725,7 @@ export const MockData = [
         sold: 540,
         stock: 200,
         releaseDate: "2017-09-29",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },
     {
         id: 60,
@@ -730,6 +737,7 @@ export const MockData = [
         sold: 720,
         stock: 320,
         releaseDate: "2014-11-04",
+        trailer: "https://www.youtube.com/watch?v=K0u_kAWLJOA"
     },{
         id: 61,
         name: "Sifu",

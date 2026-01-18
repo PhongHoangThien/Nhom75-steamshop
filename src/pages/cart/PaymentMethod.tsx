@@ -8,6 +8,7 @@ import MethodSelector from '../../components/payment/MethodSelector';
 import AmountSelector from '../../components/payment/AmountSelector';
 import PaymentDetails from '../../components/payment/PaymentDetails';
 import {useTheme} from "../../hook/useTheme";
+import Logo from "../../components/common/Logo";
 const PaymentMethod = () => {
     const {isAuthenticated, amount, setAmount, selectedMethod, setSelectedMethod, copied, isProcessing, transferContent, handleCopy, handleConfirmPayment} = usePayment();
     const paymentInfo = getPaymentInfo(selectedMethod, amount, transferContent);
@@ -17,15 +18,7 @@ const PaymentMethod = () => {
         return (
             <div
                 className="min-h-[70vh] flex flex-col items-center justify-center bg-panelLight_light dark:bg-panel text-text_light dark:text-text transition-colors duration-300">
-                <img
-                    src={
-                        theme === "dark"
-                            ? `${import.meta.env.BASE_URL}images/logo-dark.png`
-                            : `${import.meta.env.BASE_URL}images/logo-light.png`
-                    }
-                    alt="Logo"
-                    className="w-48 mb-6 opacity-80"
-                />
+                <Logo />
                 <h2 className="text-2xl font-bold mb-4">Vui lòng đăng nhập để nạp tiền</h2>
                 <Link to="/login"
                       className="bg-primary hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-bold transition">

@@ -4,14 +4,14 @@ const OrderConfirmation = ({ order }: any) => {
     const navigate = useNavigate();
 
     return (
-        <div className="bg-panelLight min-h-screen py-10 px-4 md:px-16 lg:px-24 text-text">
-            <div className="container mx-auto max-w-3xl bg-panel shadow rounded-xl p-8">
+        <div className="panel-theme min-h-screen py-10 px-4 md:px-16 lg:px-24 text-text">
+            <div className="card-panel-theme container mx-auto max-w-3xl shadow rounded-xl p-8">
 
                 <div className="text-center mb-8">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-3 text-price">
+                    <h2 className="price-theme text-2xl md:text-3xl font-bold mb-3">
                         Cảm ơn quý khách đã mua hàng!
                     </h2>
-                    <p className="text-textMuted text-sm md:text-base">
+                    <p className="text-sm md:text-base">
                         Đơn hàng của bạn đang được xử lý. Chúng tôi sẽ gửi thông báo
                         qua email hoặc số điện thoại của bạn.
                     </p>
@@ -63,7 +63,7 @@ const OrderConfirmation = ({ order }: any) => {
                                     <h4 className="font-semibold">
                                         {product.name}
                                     </h4>
-                                    <p className="text-sm text-textMuted">
+                                    <p className="text-sm">
                                         Số lượng: {product.quantity}
                                     </p>
                                 </div>
