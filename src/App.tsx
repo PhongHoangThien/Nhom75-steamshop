@@ -11,7 +11,6 @@ import Cart from "./pages/cart/Cart";
 import ProductOnSale from "./pages/product/ProductOnSale";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import UserProfile from "./pages/auth/UserProfile";
-import BestSeller from "./pages/product/ProductBestSeller";
 import Checkout from "./pages/cart/Checkout";
 import OrderConfirmation from "./pages/cart/OrderConfirmation";
 import ScrollToTop from "./components/common/ScrollToTop";
@@ -37,6 +36,7 @@ function App() {
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/user-profile" element={<UserProfile />} />
               <Route path="/order-history" element={<UserProfile />} />
+              <Route path="/transaction-history" element={<UserProfile />} />
               <Route path="/wishlist" element={<UserProfile />} />
               <Route path="/change-password" element={<UserProfile />} />
               <Route path="/checkout" element={<Checkout setOrder={setOrder}/>} />
