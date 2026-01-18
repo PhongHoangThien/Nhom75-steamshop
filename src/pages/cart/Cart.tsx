@@ -1,8 +1,10 @@
 import {useDispatch, useSelector} from "react-redux";
 import { FaRegTrashCan } from "react-icons/fa6";
 import {Link, useNavigate} from "react-router-dom";
-import {decreaseQuantity, increaseQuantity, removeFromCart} from "../redux/cartSlice";
-import {RootState} from "../redux/store";
+import {decreaseQuantity, increaseQuantity, removeFromCart} from "../../redux/cartSlice";
+import {RootState} from "../../redux/store";
+import RelatedGames from "../../components/section/RelatedGames";
+import React from "react";
 
 const Cart = () => {
     const cart = useSelector((state: any) => state.cart);
@@ -46,9 +48,8 @@ const Cart = () => {
                                                 <h3 className="text-base font-bold">
                                                     {product.name}
                                                 </h3>
-                                                <p>{product.category}thể loại</p>
-                                                <p>{product.publisher}nph</p>
-                                                <p>{product.discount} % giảm giá</p>
+                                                <p>{product.category}</p>
+                                                <p>giảm giá: {product.discount}%</p>
                                             </div>
                                         </Link>
 

@@ -47,7 +47,7 @@ export default {
                 success_light: colors.emerald[600],
                 danger_light: colors.red[500],
 
-                price_light: colors.lime[600],
+                price_light: colors.green[500],
             },
             spacing: {
                 card: "1.25rem",     // 20px
