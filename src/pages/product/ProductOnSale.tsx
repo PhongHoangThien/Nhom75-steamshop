@@ -11,12 +11,12 @@ const GameOnSale = () => {
     const {
         filters,
         filteredProducts,
-        handleFilterChange, // Đây là hàm gốc, chỉ update state UI
+        handleFilterChange,
         handleApplyFilters,
         handleResetFilters,
         setNameFilter,
         setGenreFilter
-    } = useProductFilter(saleProducts); // Truyền saleProducts vào thay vì products gốc
+    } = useProductFilter(saleProducts);
     if (isLoading) return <div className="min-h-screen bg-panel flex items-center justify-center"><FaSpinner className="animate-spin text-primary text-4xl"/></div>;
     if (error) return <div className="min-h-screen bg-panel flex items-center justify-center text-danger">Lỗi: {error}</div>;
     const onFilterChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -50,7 +50,7 @@ const GameOnSale = () => {
                 </div>
                 <FilterBar
                     filters={filters}
-                    handleFilterChange={onFilterChange} // 👈 TRUYỀN HÀM WRAPPER VÀO ĐÂY
+                    handleFilterChange={onFilterChange}
                     handleApplyFilters={handleApplyFilters}
                     handleResetFilters={handleResetFilters}
                 />
