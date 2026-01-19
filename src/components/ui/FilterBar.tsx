@@ -1,6 +1,7 @@
 import React from 'react';
 import {FaFilter, FaSyncAlt, FaTags, FaMoneyBillWave, FaSortAmountDown, FaSearch} from "react-icons/fa";
 import { ProductCategory } from "../../data/ProductCategory";
+
 interface FilterBarProps {
     filters: {
         name: string;
@@ -13,41 +14,48 @@ interface FilterBarProps {
     handleApplyFilters: () => void;
     handleResetFilters: () => void;
 }
+
 const FilterBar: React.FC<FilterBarProps> = ({
                                                  filters,
                                                  handleFilterChange,
                                                  handleApplyFilters,
                                                  handleResetFilters
                                              }) => {
+    // Class chung cho các ô input/select để đỡ lặp lại code
+    // Đã thêm: text-gray-900 (chữ đen đậm), bg-white (nền trắng), placeholder:text-gray-400 (placeholder màu xám nhạt)
+    const inputClass = "w-full border border-border rounded-lg px-4 py-3 text-sm " +
+        "text-gray-900 bg-white placeholder:text-gray-400 " + // <-- SỬA Ở ĐÂY
+        "focus:ring-2 focus:ring-primary focus:border-transparent " +
+        "outline-none transition-all shadow-sm";
+
     return (
         <div className="filter-bar-panelLight-theme rounded-xl shadow-lg border border-border/50 p-5 mb-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-end">
+                {/* 1. Tìm theo tên */}
                 <div className="lg:col-span-3">
                     <label className="flex items-center gap-2 text-xs font-bold uppercase mb-2">
                         <FaSearch /> Tìm theo tên
                     </label>
-
                     <input
                         type="text"
                         name="name"
                         value={filters.name}
                         onChange={handleFilterChange}
                         placeholder="Nhập tên sản phẩm..."
-                        className="w-full border border-border rounded-lg px-4 py-3 text-sm
-                   focus:ring-2 focus:ring-primary focus:border-transparent
-                   outline-none transition-all shadow-sm"
+                        className={inputClass} // Áp dụng class mới
                     />
                 </div>
 
-                <div className="lg:col-span-2 ">
-                    <label className="flex items-center gap-2 text-xs font-bold  uppercase mb-2">
+                {/* 2. Thể loại */}
+                <div className="lg:col-span-2">
+                    <label className="flex items-center gap-2 text-xs font-bold uppercase mb-2">
                         <FaTags /> Thể loại
                     </label>
                     <select
                         name="genre"
                         value={filters.genre}
                         onChange={handleFilterChange}
-                        className="text-text_light w-full border border-border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none shadow-sm cursor-pointer hover:border-primary/50"
+                        className={`${inputClass} cursor-pointer hover:border-primary/50`} // Kết hợp class chung + riêng
                     >
                         <option value="all">Tất cả thể loại</option>
                         {ProductCategory.map((g, i) => (
@@ -55,8 +63,9 @@ const FilterBar: React.FC<FilterBarProps> = ({
                         ))}
                     </select>
                 </div>
-                <div className="lg:col-span-3">
 
+                {/* 3. Khoảng giá */}
+                <div className="lg:col-span-3">
                     <label className="flex items-center gap-2 text-xs font-bold uppercase mb-2">
                         <FaMoneyBillWave /> Khoảng giá (VNĐ)
                     </label>
@@ -64,16 +73,18 @@ const FilterBar: React.FC<FilterBarProps> = ({
                         <input
                             type="number" name="minPrice" placeholder="0"
                             value={filters.minPrice} onChange={handleFilterChange}
-                            className="w-full border border-border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all shadow-sm"
+                            className={inputClass}
                         />
                         <span className="text-textMuted font-bold">-</span>
                         <input
                             type="number" name="maxPrice" placeholder="MAX"
                             value={filters.maxPrice} onChange={handleFilterChange}
-                            className="w-full border border-border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all shadow-sm"
+                            className={inputClass}
                         />
                     </div>
                 </div>
+
+                {/* 4. Sắp xếp */}
                 <div className="lg:col-span-2">
                     <label className="flex items-center gap-2 text-xs font-bold uppercase mb-2">
                         <FaSortAmountDown /> Sắp xếp
@@ -82,7 +93,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
                         name="sortType"
                         value={filters.sortType}
                         onChange={handleFilterChange}
-                        className="text-text_light w-full border border-border rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all shadow-sm cursor-pointer hover:border-primary/50"
+                        className={`${inputClass} cursor-pointer hover:border-primary/50`}
                     >
                         <option value="default">Mặc định</option>
                         <option value="best-selling">Bán chạy nhất</option>
@@ -93,6 +104,8 @@ const FilterBar: React.FC<FilterBarProps> = ({
                         <option value="z-a">Tên: Z đến A</option>
                     </select>
                 </div>
+
+                {/* 5. Buttons */}
                 <div className="lg:col-span-2 flex gap-2">
                     <button
                         onClick={handleApplyFilters}

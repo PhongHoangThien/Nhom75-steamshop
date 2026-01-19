@@ -99,7 +99,9 @@ const NavBar = () => {
                         { path: "/", label: "Trang chủ" },
                         { path: "/products", label: "Tìm game" },
                         { path: "/product-on-sale", label: "Game đang giảm giá" },
+                        { path: "/blogs", label: "Blogs" },
                         { path: "/payment-method", label: "Thanh toán" },
+
                     ].map(({ path, label }) => (
                         <NavLink
                             key={path}
