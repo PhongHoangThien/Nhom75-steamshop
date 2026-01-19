@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Hoặc import { Link } from 'react-router-dom'
-
+import { Link } from "react-router-dom";
 interface BlogCardProps {
     blog: {
         id: number | string;
@@ -9,14 +8,12 @@ interface BlogCardProps {
         title: string;
         date: string;
         author: string;
-        // Các trường khác nếu có
     };
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
     return (
         <div className="group flex flex-col h-full">
-            {/* 1. THUMBNAIL IMAGE */}
             <div className="relative overflow-hidden rounded-xl aspect-[16/9] mb-4">
                 <Link to={`/blog/${blog.id}`}>
                     <img
@@ -26,8 +23,6 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
                     />
                 </Link>
             </div>
-
-            {/* 2. BODY CONTENT */}
             <div className="flex flex-col flex-1">
                 {/* CATEGORY BADGE */}
                 <div className="mb-3">
@@ -35,24 +30,19 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
                         {blog.category}
                     </span>
                 </div>
-
-                {/* TITLE */}
                 <Link to={`/blog/${blog.id}`} className="block">
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight mb-3 group-hover:text-red-600 transition-colors line-clamp-2">
                         {blog.title}
                     </h3>
                 </Link>
-
-                {/* META INFO (Date & Author) */}
                 <div className="mt-auto text-sm text-gray-500 dark:text-gray-400 font-medium">
                     <span>{blog.date}</span>
                     <span className="mx-1">bởi</span>
-                    <Link
-                        to={`/author/${blog.author}`}
+                    <span
                         className="text-gray-700 dark:text-gray-300 hover:text-red-600 hover:underline transition-all"
                     >
                         {blog.author}
-                    </Link>
+                    </span>
                 </div>
             </div>
         </div>

@@ -16,8 +16,8 @@ import OrderConfirmation from "./pages/cart/OrderConfirmation";
 import ScrollToTop from "./components/common/ScrollToTop";
 import FilterProduct from "./pages/product/FilterProduct";
 import PaymentMethod from "./pages/cart/PaymentMethod";
-
-
+import Blogs from "./pages/blog/Blogs";
+import BlogDetail from "./pages/blog/BlogDetail";
 function App() {
     const [order, setOrder] = useState(null)
 
@@ -43,6 +43,9 @@ function App() {
               <Route path="/order-confirmation" element={<OrderConfirmation order={order} />} />
               <Route path="/filter-product" element={<FilterProduct />} />
               <Route path="/payment-method" element={<PaymentMethod />} />
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/blog/:id" element={<BlogDetail />} />
+
           </Routes>
           <Footer />
       </BrowserRouter>
