@@ -4,6 +4,7 @@ import ProductList from "../../components/ui/ProductList";
 import { useProducts } from "../../hook/useProducts";
 
 const Products = () => {
+
     const {
         filters,
         filteredProducts,
