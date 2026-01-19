@@ -42,7 +42,6 @@ const Cart = () => {
                 </div>
 
                 <div className="flex flex-col lg:flex-row gap-8">
-                    {/* Cột trái: Danh sách sản phẩm */}
                     <div className="card-panel-theme lg:w-2/3 shadow p-6 rounded-xl h-fit">
                         {/* Table Header */}
                         <div className="hidden md:grid grid-cols-12 gap-4 border-b pb-3 mb-4 text-sm font-semibold">
@@ -53,10 +52,8 @@ const Cart = () => {
                             <div className="col-span-1 text-center">Xoá</div>
                         </div>
 
-                        {/* Product List Loop */}
                         {cartItems.map((product: any) => (
                             <div key={product.id} className="grid grid-cols-1 md:grid-cols-12 items-center gap-4 border-b py-4 text-sm relative">
-                                {/* Product Info */}
                                 <Link className="col-span-5 flex gap-4 items-center" to={`/product/${product.id}`}>
                                     <img
                                         src={`./images/games/${product.image}`}
@@ -108,7 +105,6 @@ const Cart = () => {
                         ))}
                     </div>
 
-                    {/* Cột phải: Tổng quan đơn hàng */}
                     <div className="card-panel-theme lg:w-1/3">
                         <div className="rounded-xl shadow p-6 sticky top-24 border border-border">
                             <h3 className="text-lg font-semibold mb-4">Thông tin thanh toán</h3>
@@ -134,7 +130,7 @@ const Cart = () => {
                                 <input
                                     type="text"
                                     placeholder="Mã giảm giá"
-                                    className="flex-1 bg-bg border border-border rounded-lg px-3 py-2 text-sm outline-none focus:border-primary"
+                                    className="flex-1 panelLight-theme border border-border rounded-lg px-3 py-2 text-sm outline-none focus:border-primary"
                                 />
                                 <button className="btn-theme px-4 py-2 rounded-lg text-sm font-semibold">
                                     Áp dụng
@@ -143,7 +139,7 @@ const Cart = () => {
 
                             {/* Checkout Button */}
                             <button
-                                className="w-full btn-theme py-3 rounded-xl font-bold text-lg shadow-md hover:shadow-lg transition-all"
+                                className="w-full btn-theme py-3 rounded-xl font-bold text-lg shadow-md hover:shadow-lg"
                                 onClick={handleCheckout}
                             >
                                 {isAuthenticated ? "Thanh toán ngay" : "Đăng nhập để mua hàng"}
@@ -151,7 +147,7 @@ const Cart = () => {
 
                             <button
                                 onClick={handleContinueShopping}
-                                className="w-full mt-3 text-sm text-textMuted hover:text-primary transition-colors py-2"
+                                className="w-full mt-3 btn-theme py-3 rounded-xl font-bold text-lg shadow-md hover:shadow-lg"
                             >
                                 Tiếp tục mua sắm
                             </button>

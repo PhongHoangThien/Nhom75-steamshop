@@ -56,11 +56,11 @@ const Checkout = ({ setOrder }: any) => {
 
                         <div className="space-y-3 text-sm mb-6 pb-6 border-b border-border">
                             <div className="flex justify-between">
-                                <span className="font-medium text-textMuted">Người nhận:</span>
+                                <span className="font-medium">Người nhận:</span>
                                 <span className="font-bold">{user.username}</span>
                             </div>
                             <div className="flex justify-between">
-                                <span className="font-medium text-textMuted">Email:</span>
+                                <span className="font-medium">Email:</span>
                                 <span>{user.email}</span>
                             </div>
 
@@ -69,7 +69,7 @@ const Checkout = ({ setOrder }: any) => {
                                 <input
                                     value={phone}
                                     onChange={(e) => setPhone(e.target.value)}
-                                    className="w-full py-2 px-3 rounded-md border border-border bg-bg focus:border-primary outline-none transition-all"
+                                    className="w-full py-2 px-3 rounded-md border border-border panelLight-theme focus:border-primary outline-none transition-all"
                                     placeholder="Nhập số điện thoại liên hệ"
                                 />
                             </div>
@@ -117,8 +117,8 @@ const Checkout = ({ setOrder }: any) => {
                             Đặt hàng ngay
                         </button>
 
-                        <div className="mt-4 text-xs text-center text-textMuted flex items-center justify-center gap-1">
-                            <span className="text-green-500">🛡️</span> Thanh toán an toàn · Giao hàng nhanh
+                        <div className="mt-4 text-xs text-center  flex items-center justify-center gap-1">
+                            <span className="text-green-500"></span> Thanh toán an toàn · Giao hàng nhanh
                         </div>
                     </div>
                 </div>

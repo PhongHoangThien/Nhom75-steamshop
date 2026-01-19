@@ -20,5 +20,15 @@ export const UsersData: User[] = [
     avatar: "/images/logo-dark.png",
     phone: "0932345678",
     balance: 1000000
-  }
+  },
+    {
+        id: 3,
+        username: "User1",
+        email: "user@gmail.com",
+        password: "user123",
+        role: "user",
+        avatar: "/images/logo.png",
+        phone: "0932345678",
+        balance: 1000000
+    }
 ];
