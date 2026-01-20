@@ -1,7 +1,17 @@
 import {Link, useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {clearCart} from "../../redux/cartSlice";
+import {addPurchasedItems} from "../../redux/purchaseSlice";
+import cart from "./Cart";
+import {useCart} from "../../hook/useCart";
 
 const OrderConfirmation = ({ order }: any) => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const {
+        getFinalPrice,
+    } = useCart();
 
     return (
         <div className="panel-theme min-h-screen py-10 px-4 md:px-16 lg:px-24 text-text">
@@ -69,7 +79,7 @@ const OrderConfirmation = ({ order }: any) => {
                                 </div>
 
                                 <div className="font-semibold text-sm">
-                                    {(product.price * product.quantity).toLocaleString()} đ
+                                    {(getFinalPrice(product) * product.quantity).toLocaleString()} đ
                                 </div>
                             </div>
                         ))}

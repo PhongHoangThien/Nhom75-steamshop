@@ -7,6 +7,7 @@ const Checkout = ({ setOrder }: any) => {
         user,
         cartItems,
         subtotal,
+        getFinalPrice,
         phone,
         setPhone,
         paymentMethod,
@@ -39,11 +40,11 @@ const Checkout = ({ setOrder }: any) => {
                                         <h5 className="font-semibold line-clamp-1">{product.name}</h5>
                                         <p className="text-sm text-textMuted">{product.category}</p>
                                         <p className="text-sm mt-1">
-                                            {product.price.toLocaleString()} đ × <span className="font-bold">{product.quantity}</span>
+                                            {getFinalPrice(product)} đ × <span className="font-bold">{product.quantity}</span>
                                         </p>
                                     </div>
                                     <div className="font-bold text-primary">
-                                        {(product.price * product.quantity).toLocaleString()} đ
+                                        {(getFinalPrice(product) * product.quantity).toLocaleString()} đ
                                     </div>
                                 </div>
                             ))}
@@ -79,8 +80,8 @@ const Checkout = ({ setOrder }: any) => {
 
                         <div className="space-y-3 mb-6 text-sm">
                             <RadioOption
-                                value="cod"
-                                label="Thanh toán khi nhận hàng (COD)"
+                                value="account"
+                                label={`Thanh toán bằng tài khoản (${user.balance}đ)`}
                                 current={paymentMethod}
                                 onChange={setPaymentMethod}
                             />

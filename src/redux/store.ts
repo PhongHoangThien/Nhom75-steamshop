@@ -4,6 +4,7 @@ import productSlice from "./productSlice";
 import authReducer from "./authSlice";
 import wishlistReducer from "./wishlistSlice";
 import transactionReducer from "./transactionSlice";
+import purchaseReducer from "./purchaseSlice";
 
 const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
         auth: authReducer,
         wishlist: wishlistReducer,
         transactions: transactionReducer,
+        purchase: purchaseReducer,
     }
 })
 export default store;

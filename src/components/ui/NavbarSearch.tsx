@@ -9,7 +9,7 @@ const NavbarSearch = () => {
         suggestions,
         setSuggestions,
         handleSearch,
-        handleChange
+        handleChange,
     } = useNavbarSearch();
 
     const searchRef = useRef<HTMLDivElement | null>(null);
@@ -48,8 +48,9 @@ const NavbarSearch = () => {
                     <div className="absolute z-50 w-full panel-theme border border-theme-nav rounded-md mt-1">
                         {suggestions.map((item) => (
                             <div
+                                onClick={() => setSuggestions([])}
                                 key={item.id}
-                                className="btn-theme px-3 py-2 cursor-pointer hover:bg-panelLight"
+                                className="btn-theme px-3 py-2 cursor-pointer"
                             >
                                 <Link className="col-span-5 flex gap-4" to={`/product/${item.id}`}>
                                     <img

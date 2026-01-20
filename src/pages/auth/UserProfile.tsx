@@ -8,6 +8,7 @@ import OrderHistoryTab from "../../components/user-tabs/OrderHistoryTab";
 import WishlistTab from "../../components/user-tabs/WishlistTab";
 import ChangePasswordTab from "../../components/user-tabs/ChangePasswordTab";
 import TransactionHistoryTab from "../../components/user-tabs/TransactionHistoryTab";
+import PurchaseTab from "../../components/user-tabs/PurchaseTab";
 
 const UserProfile = () => {
     const { user } = useSelector((state: RootState) => state.auth);
@@ -23,6 +24,8 @@ const UserProfile = () => {
                 return <TransactionHistoryTab />;
             case 'wishlist':
                 return <WishlistTab />;
+            case 'purchase':
+                return <PurchaseTab />;
             case 'password':
                 return <ChangePasswordTab />;
             case 'profile':

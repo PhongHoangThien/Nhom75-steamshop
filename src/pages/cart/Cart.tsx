@@ -9,6 +9,7 @@ const Cart = () => {
         cartItems,
         totalItems,
         subtotal,
+        getFinalPrice,
         isAuthenticated,
         handleIncrease,
         handleDecrease,
@@ -16,6 +17,8 @@ const Cart = () => {
         handleCheckout,
         handleContinueShopping
     } = useCart();
+
+
 
     // Giao diện khi giỏ hàng trống
     if (totalItems === 0) {
@@ -72,9 +75,9 @@ const Cart = () => {
                                     <span className="md:hidden font-bold">Giá: </span>
                                     <div>
                                         <p className="line-through text-xs text-textMuted">
-                                            {(product.price * 1.1).toLocaleString()} đ
+                                            {product.price.toLocaleString()} đ
                                         </p>
-                                        <p className="font-medium">{product.price.toLocaleString()} đ</p>
+                                        <p className="font-medium">{getFinalPrice(product).toLocaleString()} ₫</p>
                                     </div>
                                 </div>
 
@@ -89,7 +92,7 @@ const Cart = () => {
 
                                 {/* Total per item */}
                                 <div className="col-span-2 text-center font-bold text-primary">
-                                    {(product.price * product.quantity).toLocaleString()} đ
+                                    {(getFinalPrice(product) * product.quantity).toLocaleString()} đ
                                 </div>
 
                                 {/* Delete Button */}
