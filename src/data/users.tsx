@@ -21,14 +21,24 @@ export const UsersData: User[] = [
     phone: "0932345678",
     balance: 1000000
   },
+  {
+    id: 3,
+    username: "User1",
+    email: "user@gmail.com",
+    password: "user123",
+    role: "user",
+    avatar: "/images/logo.png",
+    phone: "0932345678",
+    balance: 900000
+    },
     {
-        id: 3,
-        username: "User1",
-        email: "user@gmail.com",
+        id: 4,
+        username: "User2",
+        email: "user2@gmail.com",
         password: "user123",
         role: "user",
         avatar: "/images/logo.png",
         phone: "0932345678",
-        balance: 1000000
+        balance: 9000000
     }
 ];

@@ -1,9 +1,10 @@
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import {logout} from "../../redux/authSlice";
 import {FaCog, FaHeart, FaHistory, FaSignOutAlt, FaFileInvoiceDollar, FaProductHunt} from "react-icons/fa";
+import {RootState} from "../../redux/store";
 
-const UserSection = (user: any) => {
+const UserSection = ({ user }: { user: any }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 

@@ -12,9 +12,15 @@ export const useCart = () => {
     const cart = useSelector((state: any) => state.cart);
     const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
-    // 2. Tính tổng tiền (Dùng useMemo để chỉ tính lại khi giỏ hàng thay đổi)
+    const getFinalPrice = (product: any) =>
+        Math.round(product.price * (1 - (product.discount ?? 0) / 100));
+
+    // 2. Tính tổng tiền (Memoized)
     const subtotal = useMemo(() => {
-        return cart.products.reduce((total: number, item: any) => total + item.price * item.quantity, 0);
+        return cart.products.reduce((total: number, item: any) => {
+            const finalPrice = getFinalPrice(item);
+            return total + finalPrice * item.quantity;
+        }, 0);
     }, [cart.products]);
 
     // 3. Các hàm xử lý hành động (Action Handlers)
@@ -39,6 +45,7 @@ export const useCart = () => {
         cartItems: cart.products,
         totalItems: cart.products.length,
         subtotal,
+        getFinalPrice,
         isAuthenticated,
         handleIncrease,
         handleDecrease,
