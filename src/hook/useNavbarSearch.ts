@@ -37,11 +37,15 @@ export const useNavbarSearch = () => {
         setSuggestions(filtered);
     };
 
+    const closeSearch = () => {
+
+    }
+
     return {
         search,
         suggestions,
         setSuggestions,
         handleSearch,
-        handleChange
+        handleChange,
     };
 };

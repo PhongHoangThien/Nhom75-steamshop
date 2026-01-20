@@ -1,5 +1,15 @@
 import React from 'react';
-import { FaCamera, FaHistory, FaKey, FaSignOutAlt, FaUser, FaWallet, FaHeart, FaFileInvoiceDollar } from "react-icons/fa";
+import {
+    FaCamera,
+    FaHistory,
+    FaKey,
+    FaSignOutAlt,
+    FaUser,
+    FaWallet,
+    FaHeart,
+    FaFileInvoiceDollar,
+    FaProductHunt
+} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/authSlice";
@@ -60,6 +70,9 @@ const UserSidebar: React.FC<UserSidebarProps> = ({ user, activeTab }) => {
                 </button>
                 <button onClick={() => navigate('/wishlist')} className={getTabClass('wishlist')}>
                     <FaHeart /> Sản phẩm yêu thích
+                </button>
+                <button onClick={() => navigate('/purchase-history')} className={getTabClass('purchase')}>
+                    <FaProductHunt /> Sản phẩm đã mua
                 </button>
                 <button onClick={() => navigate('/change-password')} className={getTabClass('password')}>
                     <FaKey /> Đổi mật khẩu

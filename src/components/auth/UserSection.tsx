@@ -1,7 +1,7 @@
 import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import {logout} from "../../redux/authSlice";
-import {FaCog, FaHeart, FaHistory, FaSignOutAlt,FaFileInvoiceDollar} from "react-icons/fa";
+import {FaCog, FaHeart, FaHistory, FaSignOutAlt, FaFileInvoiceDollar, FaProductHunt} from "react-icons/fa";
 
 const UserSection = (user: any) => {
     const dispatch = useDispatch();
@@ -55,6 +55,12 @@ const UserSection = (user: any) => {
                             <Link to="/transaction-history"
                                   className="flex items-center px-4 py-2 theme-user-options gap-2">
                                 <FaFileInvoiceDollar/> Lịch sử nạp tiền
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/purchase-history"
+                                  className="flex items-center px-4 py-2 theme-user-options">
+                                <FaProductHunt className=""/> Sản phẩm đã mua
                             </Link>
                         </li>
                         <li>

@@ -1,7 +1,17 @@
 import {Link, useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {clearCart} from "../../redux/cartSlice";
+import {addPurchasedItems} from "../../redux/purchaseSlice";
+import cart from "./Cart";
 
 const OrderConfirmation = ({ order }: any) => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const cart = useSelector((state: any) => state.cart);
+
+    dispatch(addPurchasedItems(cart.products));
+
+    dispatch(clearCart())
 
     return (
         <div className="panel-theme min-h-screen py-10 px-4 md:px-16 lg:px-24 text-text">

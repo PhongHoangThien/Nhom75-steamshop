@@ -14,6 +14,8 @@ export const useUserTabs = () => {
         activeTab = 'password';
     } else if (path.includes('/transaction-history')) {
         activeTab = 'transactions';
+    } else if (path.includes('/purchase-history')) {
+        activeTab = 'purchase';
     }
 
     return { activeTab };

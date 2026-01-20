@@ -38,6 +38,7 @@ function App() {
               <Route path="/order-history" element={<UserProfile />} />
               <Route path="/transaction-history" element={<UserProfile />} />
               <Route path="/wishlist" element={<UserProfile />} />
+              <Route path="/purchase-history" element={<UserProfile />} />
               <Route path="/change-password" element={<UserProfile />} />
               <Route path="/checkout" element={<Checkout setOrder={setOrder}/>} />
               <Route path="/order-confirmation" element={<OrderConfirmation order={order} />} />
